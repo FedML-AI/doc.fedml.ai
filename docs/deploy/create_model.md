@@ -26,7 +26,7 @@ fedml model create --name hf_model --model hf:EleutherAI/pythia-70m
 
 ## Create a Model Card Using a Model Config YAML File
 The complete code following section's can be found at 
-https://github.com/FedML-AI/FedML/tree/dev/v0.7.0/python/examples/serving/quick_start
+https://github.com/FedML-AI/FedML/tree/master/python/examples/deploy/quick_start
 
 The folder architecture is:
 ```

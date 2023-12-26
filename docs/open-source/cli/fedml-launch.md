@@ -55,7 +55,7 @@ computing:
 
   allow_cross_cloud_resources: false # true, false
   device_type: GPU              # options: GPU, CPU, hybrid
-  resource_type: A100-80G       # e.g., A100-80G, please check the resource type list by "fedml show-resource-type" or visiting URL: https://nexus.fedml.ai/accelerator_resource_type
+  resource_type: A100-80G       # e.g., A100-80G, please check the resource type list by "fedml show-resource-type" or visiting URL: https://nexus.fedml.ai/compute/distributed
 
 framework_type: fedml         # options: fedml, deepspeed, pytorch, general
 task_type: train              # options: serve, train, dev-environment

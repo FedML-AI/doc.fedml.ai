@@ -186,4 +186,4 @@ fedml jobs start -pf octopus -prj test-fedml -app test-alex-app -d '[{"serverId"
 ```
 
 You can also refer to a sanity check test example here:
-[https://github.com/FedML-AI/FedML/blob/master/test/fedml_user_code/cli/build.sh](https://github.com/FedML-AI/FedML/blob/master/test/fedml_user_code/cli/build.sh)
+[https://github.com/FedML-AI/FedML/blob/master/python/tests/smoke_test/cli/build.sh](https://github.com/FedML-AI/FedML/blob/master/python/tests/smoke_test/cli/build.sh)

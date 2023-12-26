@@ -29,7 +29,7 @@ Android Client (App) and SDK: [https://github.com/FedML-AI/FedML/tree/master/and
 [https://github.com/FedML-AI/MNN](https://github.com/FedML-AI/MNN) \
 [https://github.com/FedML-AI/pytorch](https://github.com/FedML-AI/pytorch)
 
-Python Server: [https://github.com/FedML-AI/FedML/tree/master/python/quick_start/beehive](https://github.com/FedML-AI/FedML/tree/master/python/quick_start/beehive)
+Python Server: [https://github.com/FedML-AI/FedML/tree/master/python/examples/federate/quick_start/beehive](https://github.com/FedML-AI/FedML/tree/master/python/examples/federate/quick_start/beehive)
 
 The software architecture design for Android App/SDK is illustrated in the figure below.
 
@@ -129,7 +129,7 @@ To set data path on your device, click the top green bar. Set it as the path to 
 - Build Python Server Package and Upload to FedML MLOps Platform ("Create Application")
 
 Our example code is provided at:
-[https://github.com/FedML-AI/FedML/tree/master/python/quick_start/beehive](https://github.com/FedML-AI/FedML/tree/master/python/quick_start/beehive)
+[https://github.com/FedML-AI/FedML/tree/master/python/examples/federate/quick_start/beehive]https://github.com/FedML-AI/FedML/tree/master/python/examples/federate/quick_start/beehive)
 
 1) First, you need to have sanity check of this example to make it bug free. By default, the server code example is bug free. 
 

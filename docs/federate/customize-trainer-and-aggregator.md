@@ -31,7 +31,7 @@ if __name__ == "__main__":
 
 Secondly, the FedML team believes that the design of the API should conform to the current technology development trend and should not assume that today’s technology is the final solution; rather, it should be iterated as it progresses. We can see that the algorithm innovation of the open source community is still very active, and many more user-valued algorithms continue to be innovated every month. It is based on this background that FedML considers making custom APIs flexible enough to empower algorithm innovation. To this end, FedML abstracts the core trainer and aggregator and provides users with two abstract objects, `FedML.core.ClientTrainer` and `FedML.core.ServerAggregator`, which only need to inherit the interfaces of these two abstract objects and pass them to FedMLRunner. Such customization provides machine learning developers with maximum flexibility. Users can define arbitrary model structures, optimizers, loss functions, etc. These customizations can also be seamlessly connected with the open source community, open platform, and application ecology mentioned above with the help of FedMLRunner, which completely solves the long lag problem from innovative algorithms to commercialization.
 
-The example at https://github.com/FedML-AI/FedML/tree/master/python/app/fedcv/image_classification shows how to build your own trainer and aggregator.
+The example at hhttps://github.com/FedML-AI/FedML/tree/master/python/examples/federate/prebuilt_jobs/fedcv/image_classification shows how to build your own trainer and aggregator.
 
 ## `FedML.core.ClientTrainer`
 

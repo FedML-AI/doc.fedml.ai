@@ -1,9 +1,5 @@
----
-sidebar_position: 3
----
 
-
-# Cross-silo FL Examples
+# Cross-Silo FL Examples
 
 ## Horizontal Federated Learning
 

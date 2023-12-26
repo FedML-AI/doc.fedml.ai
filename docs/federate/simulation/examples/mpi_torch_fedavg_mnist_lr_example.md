@@ -2,7 +2,7 @@
 
 MPI-based Federated Learning for cross-GPU/CPU servers.
 
-In this example, we will present how to apply the standalone simulation of FedML in the MINIST image classification using an **MPI-based FL simulator**. The complete code is available at [https://github.com/FedML-AI/FedML/tree/master/python/examples/simulation/mpi_torch_fedavg_mnist_lr_example](https://github.com/FedML-AI/FedML/tree/master/python/examples/simulation/mpi_torch_fedavg_mnist_lr_example).
+In this example, we will present how to apply the standalone simulation of FedML in the MINIST image classification using an **MPI-based FL simulator**. The complete code is available at [https://github.com/FedML-AI/FedML/tree/master/python/examples/federate/simulation/mpi_torch_fedavg_mnist_lr_example](https://github.com/FedML-AI/FedML/tree/master/python/examples/federate/simulation/mpi_torch_fedavg_mnist_lr_example).
 
 ## One line API
 

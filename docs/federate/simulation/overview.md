@@ -48,17 +48,17 @@ For more details, please read [Algorithm Reference Implementation](./api.md).
 FedML supports comprehensive research-oriented (synthetic and public) FL datasets and models, including four representative synthetic FL datasets used by top-tier publications:
 
 
- - **[EMNIST](https://github.com/FedML-AI/FedML/tree/master/data/FederatedEMNIST)**:
+ - **[EMNIST](https://github.com/FedML-AI/FedML/tree/master/python/fedml/dataFederatedEMNIST)**:
 EMNIST dataset extends MNIST dataset with upper and lower case English characters. 
 
 
-- **[CIFAR-100](https://github.com/FedML-AI/FedML/tree/master/data/fed_cifar100)**:
+- **[CIFAR-100](https://github.com/FedML-AI/FedML/tree/master/python/fedml/data/fed_cifar100)**:
 CIFAR-100 dataset consists of 100 image classes with each containing 600 images. 
 
-- **[Shakespeare](https://github.com/FedML-AI/FedML/tree/master/data/fed_shakespeare)**:
+- **[Shakespeare](https://github.com/FedML-AI/FedML/tree/master/python/fedml/data/fed_shakespeare)**:
 Shakespeare dataset is built from the collective works of William Shakespeare. 
 
-- **[Stack Overflow](https://github.com/FedML-AI/FedML/tree/master/data/stackoverflow)**:
+- **[Stack Overflow](https://github.com/FedML-AI/FedML/tree/master/python/fedml/data/stackoverflow)**:
 Stack Overflow dataset originally hosted by Kaggle consists of questions and answers from the website Stack Overflow. This dataset is used to perform two tasks: tag prediction via logistic regression and next word prediction. 
 
 For a comprehensive dataset and model list, please visit [Datasets and Models](./../datasets-and-models.md).

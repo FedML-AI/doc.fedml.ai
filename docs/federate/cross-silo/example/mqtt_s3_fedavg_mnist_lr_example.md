@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 # FedML Octopus Example with MNIST + Logistic Regression
 
 This example illustrates how to do real-world cross-silo federated learning with FedML Octopus. The source code locates at [https://github.com/FedML-AI/FedML/tree/master/python/examples/cross_silo/mqtt_s3_fedavg_mnist_lr_example](https://github.com/FedML-AI/FedML/tree/master/python/examples/cross_silo/mqtt_s3_fedavg_mnist_lr_example).

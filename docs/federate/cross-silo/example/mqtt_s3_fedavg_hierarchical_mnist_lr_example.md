@@ -1,3 +1,7 @@
+---
+sidebar_position: 4
+---
+
 # FedML Octopus - Heterogeneous Hierarchical Federated Learning
 
 ![./../../_static/image/cross-silo-hi.png](./../../_static/image/cross-silo-hi.png)

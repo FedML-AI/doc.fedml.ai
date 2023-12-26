@@ -1,10 +1,10 @@
 ---
 sidebar_position: 4
 ---
-# Byzantine Attack & Krum Defense (Cross-silo)
+# Byzantine Attack & Krum Defense (Cross-Silo)
 
 
-This example demonstrates how to utilize Krum defense against Byzantine attack (random mode) during FL training. We utilize logistic regression, MNIST dataset, and the optimizer FedAVG. The source code locates at [https://github.com/FedML-AI/FedML/tree/master/python/examples/security/mqtt_s3_fedavg_byzantine_krum_mnist_lr_example](https://github.com/FedML-AI/FedML/tree/master/python/examples/security/mqtt_s3_fedavg_byzantine_krum_mnist_lr_example). We set the number of FL clients to be 5. 
+This example demonstrates how to utilize Krum defense against Byzantine attack (random mode) during FL training. We utilize logistic regression, MNIST dataset, and the optimizer FedAVG. The source code locates at [https://github.com/FedML-AI/FedML/tree/master/python/examples/federate/security/mqtt_s3_fedavg_byzantine_krum_mnist_lr_example](https://github.com/FedML-AI/FedML/tree/master/python/examples/federate/security/mqtt_s3_fedavg_byzantine_krum_mnist_lr_example). We set the number of FL clients to be 5. 
 
 
 > **If you have multiple nodes, you should run the client script on each node**

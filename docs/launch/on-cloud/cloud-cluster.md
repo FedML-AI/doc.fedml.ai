@@ -52,7 +52,7 @@ computing:
   # max cost per hour of all machines for your job.
   # E.g., if your job are assigned 2 x A100 nodes (8 GPUs), each GPU cost $1/GPU/Hour, "maximum_cost_per_hour" = 16 * $1 = $16
   maximum_cost_per_hour: $1.75
-  resource_type: A100-80G       # e.g., A100-80G, please check the resource type list by "fedml show-resource-type" or visiting URL: https://nexus.fedml.ai/accelerator_resource_type
+  resource_type: A100-80G       # e.g., A100-80G, please check the resource type list by "fedml show-resource-type" or visiting URL: https://nexus.fedml.ai/compute/distributed
 ```
 For more details and properties about the job yaml file, please refer to [job yaml file](../yaml).
 
@@ -119,7 +119,7 @@ You can query the realtime status of your run with the following command.
 fedml run logs -rid <run_id>
 ```
 
-More run management CLIs can be found [here](/open-source/cli/fedml-run)
+More run management CLIs can be found [here](../../open-source/cli/fedml-run.md)
 
 ## 5. You can also view the details of run on the FedML® AI Nexus platform:
 

@@ -17,7 +17,7 @@ Secure Aggregation (multi-party computation): cross_silo/light_sec_agg_example
 ## Pre-built Jobs
 The FEDML®Federate Pre-built Job facilitates federated learning research and productization in diverse application domains. With the foundational support from FedML Core Framework, it supports FedNLP (Natural Language Processing), FedCV (Computer Vision), FedGraphNN (Graph Neural Networks), and FedIoT (Internet of Things).
 
-The source code of these pre-built jobs (applications for federated learning) are maintained at https://github.com/FedML-AI/FedML/tree/master/python/app
+The source code of these pre-built jobs (applications for federated learning) are maintained at https://github.com/FedML-AI/FedML/tree/master/python/examples/federate/prebuilt_jobs/
 
 ### FedNLP: Benchmarking Federated Learning Methods for Natural Language Processing Tasks
 Arxiv: [https://arxiv.org/pdf/2104.08815.pdf](https://arxiv.org/pdf/2104.08815.pdf)

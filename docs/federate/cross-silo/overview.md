@@ -7,7 +7,7 @@ sidebar_position: 1
 
 ![./../_static/image/octopus.jpeg](./../_static/image/octopus.jpeg)
 
-FEDML®Federate Cross-silo is also called FedML Octopus. It is the industrial grade platform of cross-silo federated learning for cross-organization/account training. 
+FEDML® Federate Cross-silo is also called FedML Octopus. It is the industrial grade platform of cross-silo federated learning for cross-organization/account training. 
 It provides the federated learning service and edge AI SDK for developers or companies to conduct open collaboration from anywhere at any scale in a secure manner. 
 
 ## Seamlessly transplant the simulation code (Parrot) to real-world cross-device FL (Octopus)

@@ -103,7 +103,7 @@ You will get the following output:
 
 You can also customize the hyper-parameters with `fedml_config.yaml`. Check out [this tutorial for a one-line example](./simulation/examples/sp_fedavg_mnist_lr_example.md) for details.
 
-For flexibility, one-line API can also be expanded into five lines of APIs. To illustrate this, let's switch to FedML Octopus (cross-silo federated learning) as example (Source code: [https://github.com/FedML-AI/FedML/tree/master/python/examples/cross_silo/mqtt_s3_fedavg_mnist_lr_example](https://github.com/FedML-AI/FedML/tree/master/python/examples/cross_silo/mqtt_s3_fedavg_mnist_lr_example)).
+For flexibility, one-line API can also be expanded into five lines of APIs. To illustrate this, let's switch to FedML Octopus (cross-silo federated learning) as example (Source code: [https://github.com/FedML-AI/FedML/tree/master/python/examples/federate/cross_silo/mqtt_s3_fedavg_mnist_lr_example](https://github.com/FedML-AI/FedML/tree/master/python/examples/federate/cross_silo/mqtt_s3_fedavg_mnist_lr_example)).
 
 In this example, the FL Client APIs are as follows:
 

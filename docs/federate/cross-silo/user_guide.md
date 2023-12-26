@@ -31,11 +31,11 @@ To begin, please create an account:
 
 ### Local Development and Building MLOps Packages
 
-After you finish the local developing/debugging of the FedML project using FedML library (e.g., successfully run the example [https://doc.fedml.ai/cross-silo/examples/mqtt_s3_fedavg_mnist_lr_example.html](https://doc.fedml.ai/cross-silo/examples/mqtt_s3_fedavg_mnist_lr_example.html)),
+After you finish the local developing/debugging of the FedML project using FedML library (e.g., successfully run the example [https://doc.fedml.ai/federate/cross-silo/example/mqtt_s3_fedavg_mnist_lr_example](https://doc.fedml.ai/federate/cross-silo/example/mqtt_s3_fedavg_mnist_lr_example)),
 you can now deploy it into the real-world edge-cloud system.
 
 Next, we use the cross-silo project example at
-[https://github.com/FedML-AI/FedML/tree/master/python/examples/cross_silo/mqtt_s3_fedavg_mnist_lr_example/one_line](https://github.com/FedML-AI/FedML/tree/master/python/examples/cross_silo/mqtt_s3_fedavg_mnist_lr_example/one_line)
+[https://github.com/FedML-AI/FedML/tree/master/python/examples/federate/cross_silo/mqtt_s3_fedavg_mnist_lr_example/one_line](https://github.com/FedML-AI/FedML/tree/master/python/examples/federate/cross_silo/mqtt_s3_fedavg_mnist_lr_example/one_line)
 to guide you through how to deploy it and collaborate with others' data silos.
 
 ### 1. Create Application and Upload Local Packages
@@ -129,7 +129,7 @@ The output package is located in `mlops` folder.
 
 ### 2. Install FedML Agent: fedml login $account_id
 
-After [installing the FedML library](https://doc.fedml.ai/starter/installation.html) at your edge devices, you can bind it to MLOps platform with a simple CLI:
+After [installing the FedML library](https://doc.fedml.ai/open-source/installation) at your edge devices, you can bind it to MLOps platform with a simple CLI:
 
 ```
 fedml login $account_id

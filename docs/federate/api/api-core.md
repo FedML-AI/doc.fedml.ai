@@ -48,7 +48,7 @@ The sending message is normally executed after handling the received message. As
 workers can send any message type and related message parameters during the train() function.
 
 ## Topology management
-?> Code Path: https://github.com/FedML-AI/FedML/tree/master/fedml_core/distributed/topology
+?> Code Path: https://github.com/FedML-AI/FedML/tree/master/python/fedml/core/distributed/topology
 
 As demonstrated in Figure 3, FL has various topology definitions, 
 such as vertical FL, split learning, decentralized FL, and Hierarchical FL. 

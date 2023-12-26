@@ -1,3 +1,7 @@
+---
+sidebar_position: 2
+---
+
 # FedML Octopus - Example with attack + MNIST + Logistic Regression 
 
 This example illustrates how to add attacks on cross-silo federated learning with FedML Octopus. The source code locates at [https://github.com/FedML-AI/FedML/tree/master/python/examples/cross_silo/mqtt_s3_fedavg_attack_mnist_lr_example](https://github.com/FedML-AI/FedML/tree/master/python/examples/cross_silo/mqtt_s3_fedavg_attack_mnist_lr_example). We use Byzantine attack for example.
