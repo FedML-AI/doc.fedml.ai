@@ -131,10 +131,15 @@ You can also click through or copy the url link in the terminal output of previo
 
 ### 3.2) Fill in the details of your GPU server and click on `Update` button.
 
-> **Note**: Most info is pre-filled for you. You just need to fill in the `GPU Name` and `Network Protocol` fields and set the cost per hour.
+Most info is pre-filled for you. The fields that need to be filled are: 
+- `Name`: the name of the GPU server
+- `Cost per hour`: how much you want to charge the GPU server per hour
+- `Communication Protocols [optional]`: option to change the prefilled cross- and intra-node communication protocols
+- `Specify Dedicated Customers [optional]`: indicate whether you want the GPU server to be shared with specific customers
+- `Deployment Only [optional]`: indicate whether the GPU server will be used just for deployment
 
 :::tip Tip
-Be mindful while deciding Cost per hour for your GPU server. Setting the cost very high may put you at disadvantage as the matching algorithm prioritizes the cheaper GPU servers first.
+Be mindful while deciding the Cost per hour for your GPU server. Setting the cost very high may put you at disadvantage, as the matching algorithm prioritizes cheaper GPU servers.
 :::
 
 ![Update GPU](static/image/update_gpu.png)
