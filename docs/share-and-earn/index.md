@@ -135,8 +135,8 @@ Most info is pre-filled for you. The fields that need to be filled are:
 - `Name`: the name of the GPU server
 - `Cost per hour`: how much you want to charge the GPU server per hour
 - `Communication Protocols [optional]`: option to change the prefilled cross- and intra-node communication protocols
-- `Specify Dedicated Customers [optional]`: indicate whether you want the GPU server to be shared with specific customers
-- `Deployment Only [optional]`: indicate whether the GPU server will be used just for deployment
+- `Specify Dedicated Customers [optional]`: indicate whether to share the GPU server with specific users
+- `Deployment Only [optional]`: indicate whether the GPU server will be used only for deployment; by default every server is used for training
 
 :::tip Tip
 Be mindful while deciding the Cost per hour for your GPU server. Setting the cost very high may put you at disadvantage, as the matching algorithm prioritizes cheaper GPU servers.
