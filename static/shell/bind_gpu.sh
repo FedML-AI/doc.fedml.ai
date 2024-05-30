@@ -103,14 +103,6 @@ set_default_conda_env() {
     echo "conda" activate fedml >> "$HOME/.$1rc"
 }
 
-# Function to install and set up a SSH reverse proxy
-install_sshproxy() {
-    # get script from repo and run
-    curl https://raw.githubusercontent.com/TensorOpera-Inc/sshproxy/master/setup/install.sh -o /tmp/install_sshproxy.sh
-    chmod +x /tmp/install_sshproxy.sh
-    sudo /tmp/install_sshproxy.sh
-    rm /tmp/install_sshproxy.sh
-}
 
 # Stop unattended upgrades which result in /var/lib/dpkg/lock acquire race condition
 sudo systemctl stop unattended-upgrades
@@ -125,7 +117,6 @@ install_docker
 enable_docker_api_access
 install_redis
 install_nvidia_container_toolkit
-install_sshproxy
 set_default_conda_env "$default_shell"
 source ~/."${default_shell}rc"
 
