@@ -189,7 +189,13 @@ install_sshproxy() {
             then
             echo "No proxy port specified, skipping configuration"
         else
-            sudo iptables -A PREROUTING -t nat -p tcp --dport $SSHPROXY_PORT -j REDIRECT --to-ports 2222
+            if [ "$SSHPROXY_PORT" = 2222 ] 
+                then
+                sudo iptables -A INPUT -p tcp --dport 2222 -j ACCEPT
+            else
+                sudo iptables -A INPUT -p tcp --dport $SSHPROXY_PORT -j ACCEPT
+                sudo iptables -A PREROUTING -t nat -p tcp --dport $SSHPROXY_PORT -j REDIRECT --to-ports 2222
+            fi
         fi
     else
         echo "Invalid firewall specified, skipping configuration"
