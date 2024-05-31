@@ -1,10 +1,10 @@
 #!/bin/bash
 
-fedml_api_key = $1
-fedml_env = $2
+fedml_api_key=$1
+fedml_env=$2
 # fedml_device_id = $4
-SSHPROXY_FIREWALL = $4 # ufw or iptables
-SSHPROXY_PORT = $5 # specify the port number for ssh proxy
+SSHPROXY_FIREWALL=$4 # ufw or iptables
+SSHPROXY_PORT=$5 # specify the port number for ssh proxy
 export NEEDRESTART_SUSPEND=1
 export NEEDRESTART_MODE=a
 
