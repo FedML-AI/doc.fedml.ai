@@ -1,10 +1,10 @@
 #!/bin/bash
 
-fedml_api_key = $1
-fedml_env = $2
-# fedml_device_id = $4
-SSHPROXY_FIREWALL = $4 # ufw or iptables
-SSHPROXY_PORT = $5 # specify the port number for ssh proxy
+FEDML_API_KEY=$1
+FEDML_ENV=$2
+FEDML_DEVICE_ID=$3
+SSHPROXY_FIREWALL=$4 # ufw or iptables
+SSHPROXY_PORT=$5 # specify the port number for ssh proxy
 export NEEDRESTART_SUSPEND=1
 export NEEDRESTART_MODE=a
 
@@ -189,7 +189,13 @@ install_sshproxy() {
             then
             echo "No proxy port specified, skipping configuration"
         else
-            sudo iptables -A PREROUTING -t nat -p tcp --dport $SSHPROXY_PORT -j REDIRECT --to-ports 2222
+            if [ "$SSHPROXY_PORT" = 2222 ] 
+                then
+                sudo iptables -A INPUT -p tcp --dport 2222 -j ACCEPT
+            else
+                sudo iptables -A INPUT -p tcp --dport $SSHPROXY_PORT -j ACCEPT
+                sudo iptables -A PREROUTING -t nat -p tcp --dport $SSHPROXY_PORT -j REDIRECT --to-ports 2222
+            fi
         fi
     else
         echo "Invalid firewall specified, skipping configuration"
@@ -212,7 +218,7 @@ install_nvidia_container_toolkit
 install_sshproxy $SSHPROXY_FIREWALL $SSHPROXY_PORT
 set_default_conda_env "$default_shell"
 source ~/."${default_shell}rc"
-verify_installation $1 $2 $3
+verify_installation $FEDML_API_KEY $FEDML_ENV $FEDML_DEVICE_ID
 
 # Restore unattended-upgrades
 sudo systemctl start unattended-upgrades
