@@ -3,6 +3,8 @@
 fedml_api_key = $1
 fedml_env = $2
 # fedml_device_id = $4
+SSHPROXY_FIREWALL = $4 # ufw or iptables
+SSHPROXY_PORT = $5 # specify the port number for ssh proxy
 export NEEDRESTART_SUSPEND=1
 export NEEDRESTART_MODE=a
 
@@ -165,6 +167,34 @@ verify_installation(){
     fi
 }
 
+# Function to install and set up a SSH reverse proxy
+install_sshproxy() {
+    # get script from repo and run
+    curl https://raw.githubusercontent.com/TensorOpera-Inc/sshproxy/master/setup/install.sh -o /tmp/install_sshproxy.sh
+    chmod +x /tmp/install_sshproxy.sh
+    sudo /tmp/install_sshproxy.sh
+    rm /tmp/install_sshproxy.sh
+
+    # configure firewall & port
+    # note that internally the port used is 2222
+    if [ $# -lt 1 ]
+        then
+        echo "No proxy port/firewall specified, skipping configuration"
+    elif [ "$SSHPROXY_FIREWALL" = "ufw" ]
+        then
+        sudo ufw allow 2222
+    elif [ "$SSHPROXY_FIREWALL" = "iptables" ]
+        then
+        if [ $# -lt 2 ]
+            then
+            echo "No proxy port specified, skipping configuration"
+        else
+            sudo iptables -A PREROUTING -t nat -p tcp --dport $SSHPROXY_PORT -j REDIRECT --to-ports 2222
+        fi
+    else
+        echo "Invalid firewall specified, skipping configuration"
+    fi
+}
 
 # Stop unattended upgrades which result in /var/lib/dpkg/lock acquire race condition
 sudo systemctl stop unattended-upgrades
@@ -179,6 +209,7 @@ install_docker
 enable_docker_api_access
 install_redis
 install_nvidia_container_toolkit
+install_sshproxy $SSHPROXY_FIREWALL $SSHPROXY_PORT
 set_default_conda_env "$default_shell"
 source ~/."${default_shell}rc"
 verify_installation $1 $2 $3
