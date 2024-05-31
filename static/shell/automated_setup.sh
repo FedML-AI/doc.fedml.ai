@@ -1,8 +1,8 @@
 #!/bin/bash
 
-fedml_api_key=$1
-fedml_env=$2
-fedml_device_id=$3
+FEDML_API_KEY=$1
+FEDML_ENV=$2
+FEDML_DEVICE_ID=$3
 SSHPROXY_FIREWALL=$4 # ufw or iptables
 SSHPROXY_PORT=$5 # specify the port number for ssh proxy
 export NEEDRESTART_SUSPEND=1
@@ -218,7 +218,7 @@ install_nvidia_container_toolkit
 install_sshproxy $SSHPROXY_FIREWALL $SSHPROXY_PORT
 set_default_conda_env "$default_shell"
 source ~/."${default_shell}rc"
-verify_installation $fedml_api_key $fedml_env $fedml_device_id
+verify_installation $FEDML_API_KEY $FEDML_ENV $FEDML_DEVICE_ID
 
 # Restore unattended-upgrades
 sudo systemctl start unattended-upgrades
