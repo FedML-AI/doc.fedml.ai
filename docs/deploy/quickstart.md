@@ -19,7 +19,7 @@ In the model details page, you can find the model's details, source code.
 ![ModelDetails.png](pics%2Fpage1%2FModelDetails.png)
 
 You may also interact with the model by clicking
-the `Plaground` tab (This requires you to log in to the TensorOpera AI Cloud).
+the `Playground` tab (This requires you to log in to the TensorOpera AI Cloud).
 
 ![ModelPlayground.png](pics%2Fpage1%2FModelPlayground.png)
 
