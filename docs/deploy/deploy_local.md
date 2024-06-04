@@ -2,7 +2,9 @@
 sidebar_position: 4
 ---
 # Deploy to Local
-This tutorial will guide you through the process to deploy the model to local machine without sign in to TensorOpera AI Platform. Support you have a model card at local
+This tutorial will guide you through the process to deploy the model to local machine without sign in to TensorOpera AI Platform. 
+
+Suppose you have a model card at local
 called `my_model`, you can deploy it to local machine by:
 ```
 fedml model deploy -n my_model --local

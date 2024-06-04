@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Quickstart
 
-This tutorial will guide you through the process of deploying a state-of-the-art model from TensorOpera AI Cloud 
+This tutorial will guide you through the process of deploying a state-of-the-art model from TensorOpera AI Platform 
 to a decentralized serverless GPU cloud.
 
 ### Choose a model from TensorOpera AI Model Marketplace
@@ -19,7 +19,7 @@ In the model details page, you can find the model's details, source code.
 ![ModelDetails.png](pics%2Fpage1%2FModelDetails.png)
 
 You may also interact with the model by clicking
-the `Playground` tab (This requires you to log in to the TensorOpera AI Cloud).
+the `Playground` tab (This requires you to log in to the TensorOpera AI Platform).
 
 ![ModelPlayground.png](pics%2Fpage1%2FModelPlayground.png)
 

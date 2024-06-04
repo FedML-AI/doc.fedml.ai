@@ -67,6 +67,6 @@ For on-premise users, you can see the worker's id on the `Compute` -> `My server
 To edit / configure the replicas, you can click the "Edit" button on the endpoint page.
 ![EditEndpointButton.png](pics%2FEditEndpointButton.png)
 
-Then you can edit the replica number.
+Then you can edit the replica number, and click the "Update" button.
 ![EditReplicaNum.png](pics%2FEditReplicaNum.png)
 

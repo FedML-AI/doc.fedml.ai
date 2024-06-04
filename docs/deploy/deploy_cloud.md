@@ -41,6 +41,6 @@ There are two difference from Dedicated Endpoint.
 For more endpoint price details, please contact us https://tensoropera.ai/contact for more information.
 :::
 
-### Deploy the model card to the cloud device
+### Deploy the Model Card to Cloud Devices
 Click the deploy button after you select the corresponding options. After few minutes, the model will be deployed to the decentralized serverless GPU cloud. You can find the deployment details in the `Deploy` -> `Endpoints` tab in the TensorOpera AI Cloud dashboard.
 ![DeployFinished.png](pics%2Fpage1%2FDeployFinished.png)
