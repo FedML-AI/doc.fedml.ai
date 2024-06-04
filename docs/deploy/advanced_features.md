@@ -1,8 +1,29 @@
 ---
-sidebar_position: 11
+sidebar_position: 8
 ---
 
 # Advanced Features
+
+This page will introduce some advanced features of TensorOpera®Deploy. Including
+1. [Autoscaling and Fail-over](#autoscaling-and-fail-over)
+2. [Geo-distributed Model Deployment](#geo-distributed-model-deployment)
+3. [Heterogeneity Model Deployment](#heterogeneity-model-deployment)
+4. [Multiple Return Type Support](#multiple-return-type-support)
+    1. [Streaming Response](#streaming-response)
+    2. [File Response](#file-response)
+
+## Autoscaling
+TensorOpera®Deploy can automatically scale up and down the number of replicas of the model deployment based on the QPS.
+
+When you deploy a endpoint, you can enable the autoscale feature by setting the
+1. `min_replicas` and `max_replicas` to tell the autoscaler the range of replicas.
+2. `Concurrency per Replica before Scaling Up` to tell the autoscaler the threshold to scale out / in.
+3. `Decision Time Window` to indicate the time window to calculate the QPS. 
+4. `Scale Down Delay` to indicate the delay time for scale down the replicas.
+
+
+![AutoscaleConf.png](pics%2FAutoscaleConf.png)
+
 ## Geo-distributed Model Deployment
 Without building and configuring a complex Kubernetes Cluster. TensorOpera®Deploy can deploy models to nodes located
 at multiple regions and manage the traffic routing automatically. 
@@ -13,18 +34,7 @@ at multiple regions and manage the traffic routing automatically.
 TensorOpera®Deploy can deploy models to different types of devices, such as CPU, GPU, TPU, etc. Whether it is a single
 Macbook or a power A100, they can be connected together in an easy manner.
 
-
 ![Heterogeneity.jpg](pics/Heterogeneity.jpg)
-
-## Autoscaling and Fail-over
-TensorOpera®Deploy can automatically scale up and down the number of replicas of the model deployment based on the QPS,
-CPU, GPU, and memory usage. It can also automatically recover from failures through backup nodes.
-
-If you want to scale out to more gpu nodes. Go to deploy -> Endpoint, click `Edit` button. 
-![EditEndpoint.png](pics%2FEditEndpoint.png)
-
-Select / Unselect the devices that you want to make changes to. Then click `Submit` button.
-![ScaleButton.png](pics%2FScaleButton.png)
 
 ## Multiple Return Type Support
 ### Streaming Response

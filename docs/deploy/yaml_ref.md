@@ -32,13 +32,6 @@ environment_variables:
   PROMPT_STYLE: "llama_orca"
 deploy_timeout: 600
 auto_detect_public_ip: true
-computing:
-  minimum_num_gpus: 1           # minimum # of GPUs to provision
-  maximum_cost_per_hour: $3000   # max cost per hour for your job per gpu card
-  resource_type: A100-80G       # e.g., A100-80G,
-  #allow_cross_cloud_resources: true # true, false
-  #device_type: CPU              # options: GPU, CPU, hybrid
-
 ```
 
 ## Detailed specification
