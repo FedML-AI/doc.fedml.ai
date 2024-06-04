@@ -70,3 +70,5 @@ To edit / configure the replicas, you can click the "Edit" button on the endpoin
 Then you can edit the replica number, and click the "Update" button.
 ![EditReplicaNum.png](pics%2FEditReplicaNum.png)
 
+For auto-scaling, please refer to the [Advanced Features](advanced_features.md) page.
+
