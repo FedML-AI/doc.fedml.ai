@@ -1,38 +1,46 @@
 ---
-sidebar_position: 6
+sidebar_position: 5
 ---
 
 # Deploy to Cloud
 
-`fedml model deploy` is a high level CLI to deploy a model card to TensorOpera GPU cloud marketplace.  
+This tutorial will guide you through the process of deploying a model card to a decentralized serverless GPU cloud.
 
-If you do not use `--local` option for local deploy, nor specify the `---master_ids`
-and `--worker_ids` options for on-premise deploy, the model card will be deployed to the cloud. 
-
-```
-fedml model deploy -n my_model
-```
-
-:::tip
-In this cloud deploy mode, what `fedml model deploy` cli do is just wrapping the TensorOpera®launch related apis. 
-So you can also use both `fedml model deploy` and `fedml launch` command to deploy a model card to the cloud.
+###  Select the Model Card You Want to Deploy
+:::note
+Suppose you have pushed and checked the Model Card's existence on TensorOpera AI Platform
+Otherwise follow the previous chapter to use `fedml model create` and `fedml model push` command to create and push a local model card to TensorOpera AI Platform.
 :::
 
-## GPU Resource Specification
-When we create the model card, we can specify a model config YAML file. Inside the YAML file, 
-we can specify the GPU resource requirement for the model card.
-```sh
-fedml model create -n my_model -cf model_config.yaml
-```
-And inside the model_config.yaml, we can specify the GPU resource requirement for the model card. Using the 
-`resource_type`, as well as `minimum_num_gpus` and `maximum_cost_per_hour` to specify the GPU resource requirement.
-```yaml
-computing:
-  minimum_num_gpus: 1           # minimum # of GPUs to provision
-  maximum_cost_per_hour: $3000   # max cost per hour for your job per gpu card
-  #allow_cross_cloud_resources: true # true, false
-  #device_type: CPU              # options: GPU, CPU, hybrid
-  resource_type: A100-80G       # e.g., A100-80G,
-  # please check the resource type list by "fedml show-resource-type"
-  # or visiting URL: https://tensoropera.ai/compute
-```
+Check if the model card is uploaded to TensorOpera AI Platform by clicking the "Deploy" -> "My Models" tab on the TensorOpera AI Platform dashboard, then click the "Deploy" button on the UI. 
+![CheckModelCard.png](pics%2FCheckModelCard.png)
+
+### Deploy Page Explanation
+
+In the deployment page, you can configure the deployment settings, like the resource allocation, the number of replicas, etc.
+![OverviewDeployPage.png](pics%2Fpage1%2FOverviewDeployPage.png)
+
+### What is a Dedicated Endpoint?
+Here the Dedicated Endpoint means you are using the following two type of devices, includes:
+1. On-premise device 
+2. Cloud device that TensorOpera allocated to you.  
+The charges are based on the usage of the device.
+
+:::note
+For more endpoint price details, please contact us https://tensoropera.ai/contact for more information.
+:::
+
+
+### What is a Serverless Endpoint?
+There are two difference from Dedicated Endpoint. 
+1. This endpoint can be published on Model Marketplace which can be used / paid by other users. 
+2. The charges are based on the usage of the endpoints, say tokens usage in LLM model.
+
+![ServerlessPage.png](pics%2FServerlessPage.png)
+:::note
+For more endpoint price details, please contact us https://tensoropera.ai/contact for more information.
+:::
+
+### Deploy the Model Card to Cloud Devices
+Click the deploy button after you select the corresponding options. After few minutes, the model will be deployed to the decentralized serverless GPU cloud. You can find the deployment details in the `Deploy` -> `Endpoints` tab in the TensorOpera AI Cloud dashboard.
+![DeployFinished.png](pics%2Fpage1%2FDeployFinished.png)
