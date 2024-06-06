@@ -104,7 +104,7 @@ After you have created a model card, you can push it to the TensorOpera AI Platf
 fedml model push -n my_model -k $API_KEY
 ```
 
-## Create a model from TensorOpera AI Model Marketplace
+## Create a model card from TensorOpera Model Marketplace
 
 TensorOpera AI Cloud provides a wide range of pre-trained models for various tasks. You can choose a model under the
 `Models` tab in the TensorOpera AI Cloud dashboard. Click the model card to view the details.

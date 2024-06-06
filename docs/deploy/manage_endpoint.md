@@ -8,7 +8,7 @@ This tutorial will guide you through how to manage your endpoint on the TensorOp
 - **Scale** / Auto-scale your endpoint by adding more replicas.
 - **Monitor** your endpoint's status and metrics.
 
-### Update Your Endpoint's Model Version
+## Update your model's version
 
 Suppose you've made some changes to `main_entry.py`  in your model card, for example from: 
 ```python
@@ -53,7 +53,7 @@ By default, the update will use a scrolling update strategy. Which means, it onl
 a small portion of the devices at a time. This can ensure that this endpoint is always available when updating.
 :::
 
-## Scale / Auto-scale Your Endpoint
+## Scale / Auto-scale your endpoint
 
 An endpoint can have multiple replicas. Each replica is a copy of the model running on a device.
 You can scale your endpoint by adding / decreasing replica(s) before the endpoint is created or after it is created.
@@ -73,7 +73,7 @@ Then you can edit the replica number, and click the "Update" button.
 
 For auto-scaling, please refer to the [Advanced Features](advanced_features.md) page.
 
-## Monitor Your Endpoint
+## Monitor your endpoint
 
 After an endpoint is created, you can monitor the endpoint's status and metrics. First click the endpoint you want to monitor.
 ![EndpointClick.png](pics%2FEndpointClick.png)

@@ -42,7 +42,7 @@ You will see the output from the terminal with the response of that model.
 ```
 :::
 
-## Deploy the model to Serverless GPU cloud
+## Deploy the model to a Serverless GPU Cloud
 :::tip
 Before you start, you will need to create an account on [TensorOpera AI](https://TensorOpera.ai/home).
 :::
