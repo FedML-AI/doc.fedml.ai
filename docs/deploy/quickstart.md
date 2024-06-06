@@ -4,44 +4,71 @@ sidebar_position: 2
 
 # Quickstart
 
-This tutorial will guide you through the process of deploying a state-of-the-art model from TensorOpera AI Platform 
-to a decentralized serverless GPU cloud.
+This tutorial will guide you through the process of creating a local model card from Hugging Face and deploying the model card to the local server or a serverless GPU cloud.
 
-### Choose a model from TensorOpera AI Model Marketplace
+## Prerequisites
+Install `fedml`, the serving library provided by TensorOpera AI, on your machine.
+```bash
+pip install fedml
+```
 
-TensorOpera AI Cloud provides a wide range of pre-trained models for various tasks. You can choose a model under the
-`Models` tab in the TensorOpera AI Cloud dashboard. Click the model card to view the details.
+## Create a model from Hugging Face
+Use `fedml model create` command to create a model card on your local machine. In this quick start tutorial, we will try
+to deploy an `EleutherAI/pythia-70m` model from Hugging Face. 
 
-![ModelHub.png](pics%2Fpage1%2FModelHub.png)
+To give the model card a name, use `-n` option. To use a hugging face model, you will need to indicate the model source with `-m` option, and 
+use `hf:` as the prefix of the organization name and model name. 
 
-In the model details page, you can find the model's details, source code. 
+```bash
+fedml model create -n hf_model -m hf:EleutherAI/pythia-70m
+```
 
-![ModelDetails.png](pics%2Fpage1%2FModelDetails.png)
+## Deploy the model to the local machine
+Use `fedml model deploy` command to deploy the model. Use `-n` to indicate the model card name.
+Use `--local` option to deploy to the current machine.
+```bash
+fedml model deploy -n hf_model --local
+```
 
-You may also interact with the model by clicking
-the `Playground` tab (This requires you to log in to the TensorOpera AI Platform).
+The prerequisite dependencies will be automatically installed. After the local endpoint is started, use a `curl` command to test the inference server.
+```bash
+curl -XPOST localhost:2345/predict -d '{"text": "Hello"}'
+```
 
-![ModelPlayground.png](pics%2Fpage1%2FModelPlayground.png)
+:::info
+You will see the output from the terminal with the response of that model.
+```
+"{'generated_text': '...'}"
+```
+:::
 
+## Deploy the model to Serverless GPU cloud
+:::tip
+Before you start, you will need to create an account on [TensorOpera AI](https://TensorOpera.ai/home).
+:::
 
-### Deploy the model to a decentralized serverless GPU cloud
+Use `fedml model push` to push the model card to TensorOpera AI Cloud. Replace `$api_key` with your own API key. The API Key can be found from the profile page.
+```bash
+fedml model push -n hf_model -k $api_key
+```
 
-After you have chosen a model, say `Meta-Llama-3-70B-Instruct` . You can click the `Deploy` button to deploy the model.
+After you push the model card to TensorOpera AI Cloud, you can deploy the model by going to the
+`Deploy` -> `My Models` tab on the TensorOpera AI Platform dashboard.
+Click the `Deploy` button to deploy the model.
 
-![DeployButton.png](pics%2Fpage1%2FDeployButton.png)
+![DeployHFmodel.png](pics%2FDeployHFmodel.png)
 
-In the deployment page, you can configure the deployment settings, like the resource allocation, the number of replicas, etc.
-When you are ready, click the `Deploy` button to deploy the model to the decentralized serverless GPU cloud.
+For this quick start tutorial, we can select the `Serverless` `RTX-4090` option and click the `Deploy` button.
 
-![OverviewDeployPage.png](pics%2Fpage1%2FOverviewDeployPage.png)
+![CreateServelessEndpoint.png](pics%2FCreateServelessEndpoint.png)
 
-After few minutes, the model will be deployed to the decentralized serverless GPU cloud. You can find the deployment details in the `Deploy` -> `Endpoints` tab in the TensorOpera AI Cloud dashboard.
-![DeployFinished.png](pics%2Fpage1%2FDeployFinished.png)
+After few minutes, the model will be deployed to the serverless GPU cloud. You can find the deployment details in the `Deploy` -> `Endpoints` tab in the TensorOpera AI Cloud dashboard.
+
+![EndpointList.png](pics%2FEndpointList.png)
 
 You may interact with the deployed model by clicking the `Playground` tab in the deployment details page, or using the curl / Python / NodeJS command under the `API` tab.
-![CallEnpdoint.png](pics%2Fpage1%2FCallEnpdoint.png)
+![EndpointDetail.png](pics%2FEndpointDetail.png)
 
+## What's next?
 
-### What's next?
-
-To create and serve your own model card which is not listed on our Model Marketplace, follow the next tutorial [Create a Model Card](create_model.md) .
+To create and serve your own model card, follow the next tutorial [Create a Model Card](create_model.md).
