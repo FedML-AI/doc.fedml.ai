@@ -5,7 +5,7 @@ sidebar_position: 6
 
 This tutorial will guide you through the process when you have your own on-premise servers, and want to deploy the model cards to those servers.
 
-### Bind your devices to TensorOpera AI Platform
+## Bind your devices to TensorOpera AI Platform
 Bind your device to TensorOpera AI Platform.
 ```
 fedml device bind $api_key
@@ -22,7 +22,7 @@ Check your device id from the output of the command line. Here, for example the 
 You can also see your device id on TensorOpera AI Platform.
 ![onPremiseDevice.png](pics%2FonPremiseDevice.png)
 
-### Deploy the model card to the on-premise device
+## Deploy the model card to the on-premise device
 
 :::note
 Suppose you have pushed and checked the Model Card's existence on TensorOpera AI Platform
