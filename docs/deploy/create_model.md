@@ -21,15 +21,21 @@ pip install fedml
 ## Create a model card from a model config file
 
 The most straightforward way to create a model card is to use a model config YAML file. The following steps is also written
-in the GitHub repository, you can find the full example [here](https://github.com/FedML-AI/FedML/tree/master/python/examples/deploy/dummy_job).
+in the GitHub repository, you can find the example [here](https://github.com/FedML-AI/Model-Card-Example.git), or clone it use:
 
+```shell
+git clone https://github.com/FedML-AI/Model-Card-Example.git
+```
+
+
+### What's inside a model card?
 To craft a model card, an example workplace folder structure is like this:
 ```
 ├──  config.yaml     # Contains the model card configuration.
 └──  main_entry.py   # Entry point of the model.
 ```
 
-### How to write a config file?
+#### What's inside a config file?
 
 Inside `config.yaml`, you can define the model card configuration. The configuration file can be more complex, see  [Model Configuration YAML](yaml_ref.md) Chapter for full reference. 
 But a minimum example is like:
@@ -39,7 +45,7 @@ workspace: "."                # The path to the folder that you want to create t
 entry_point: "main_entry.py"  # The path to the entry point file of the model.
 ```
 
-### How to write an entry file?
+#### What's inside an entry file?
 
 Inside the main entry file `main_entry.py`. There are two essential components that you need to implement:
 `FedMLPredictor` and `FedMLInferenceRunner`. 
@@ -87,7 +93,7 @@ fedml model push -n my_model -k $API_KEY
 
 ## Create a model card from Hugging Face
 
-To use a pre-built model from Hugging Face, you can use the following command:
+Another way to create a model card is to use a pre-built model from Hugging Face, you can use the following command:
 ```bash
 fedml model create --name $model_name --model $model_name
 ```
@@ -106,6 +112,7 @@ fedml model push -n my_model -k $API_KEY
 
 ## Create a model card from TensorOpera Model Marketplace
 
+The third way to create a model card is to use the TensorOpera AI Cloud platform.  
 TensorOpera AI Cloud provides a wide range of pre-trained models for various tasks. You can choose a model under the
 `Models` tab in the TensorOpera AI Cloud dashboard. Click the model card to view the details.
 
