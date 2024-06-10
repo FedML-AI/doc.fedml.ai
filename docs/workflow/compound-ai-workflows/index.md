@@ -1,15 +1,11 @@
 ---
-sidebar_position: 5
+sidebar_position: 2
 ---
 
-# Workflow for Compound Training Jobs 
+# Compound AI Workflows 
 
-As GenAI advances, there arises a frequent requirement to merge model training or deployment tasks into cohesive pipelines. Common instances involve:
-1. Developing a model training pipeline that collects data, preprocesses it followed by training and evalution.
-2. Compound AI systems tying various model deployment endpoints.
-This is where the FedML Workflow API becomes advantageous. The Workflow API offers an intuitive platform for outlining tasks and their interdependencies, utilizing the underlying FedML core suite of APIs.
 
-![ ](./train-on-cloud/static/image/workflow/1_workflow.png)
+![ ](./static/image/1_workflow.png)
 
 The execution order of the above example workflow will be as follows:
 
@@ -94,8 +90,8 @@ The journey for users with this workflow goes like this:
 - Training takes the data and trains a model, saving its progress along the way.
 - Next, the evaluation job kicks in. It grabs the trained model, evaluates it and returns the evaluation results as the final workflow output
 
-![ ](./train-on-cloud/static/image/workflow/2_journey.png)
+![ ](./static/image/2_journey.png)
 
 Here's another visual representation of a workflow scenario where two model endpoints are connected. The process begins when the end user interacts with the inference endpoint by providing a prompt. This prompt is initially processed by model 1, and the resulting output serves as the input for another model. Finally, the output from this second model is returned to the user as the final result.
 
-![ ](./train-on-cloud/static/image/workflow/3_workflow_scenario.png)
+![ ](./static/image/3_workflow_scenario.png)
