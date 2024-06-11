@@ -19,6 +19,11 @@ to deploy an `EleutherAI/pythia-70m` model from Hugging Face.
 To give the model card a name, use `-n` option. To use a hugging face model, you will need to indicate the model source with `-m` option, and 
 use `hf:` as the prefix of the organization name and model name. 
 
+:::note
+Currently we support importing **text2text-generation** model from Hugging Face, for other type of model, you need to create a custom model card.
+See the [Create a Model Card](create_model.md) tutorial for more details.
+:::
+
 ```bash
 fedml model create -n hf_model -m hf:EleutherAI/pythia-70m
 ```
