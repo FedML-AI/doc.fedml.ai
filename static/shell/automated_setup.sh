@@ -53,8 +53,7 @@ init_miniconda_shell() {
 install_fedml() {
   conda create -y -n fedml python=3.10
   conda activate fedml
-  #pip install "git+https://github.com/FedML-AI/FedML.git@dev/v0.7.0#egg=fedml&subdirectory=python"
-  pip install "git+https://github.com/FedML-AI/FedML.git@bhargav191098/dummy_login_debug#egg=fedml&subdirectory=python"
+  pip install "git+https://github.com/FedML-AI/FedML.git@dev/v0.7.0#egg=fedml&subdirectory=python"
 }
 
 # Function to install Docker
@@ -114,7 +113,7 @@ set_default_conda_env() {
 
 # Login 
 fedml_login(){
-    nohup fedml login -p $1 -v $2
+    fedml login -p $1 -v $2
 }
 
 #create the devices.id file with the cloud server id
