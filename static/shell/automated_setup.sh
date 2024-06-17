@@ -214,7 +214,7 @@ install_docker
 enable_docker_api_access
 install_redis
 install_nvidia_container_toolkit
-install_sshproxy $SSHPROXY_FIREWALL $SSHPROXY_PORT
+# install_sshproxy $SSHPROXY_FIREWALL $SSHPROXY_PORT
 set_default_conda_env "$default_shell"
 source ~/."${default_shell}rc"
 verify_installation $FEDML_API_KEY $FEDML_ENV $FEDML_DEVICE_ID
