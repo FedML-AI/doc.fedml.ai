@@ -190,7 +190,7 @@ sudo wget -q https://doc.fedml.ai/shell/verify_installation.sh && sudo chmod +x 
 If any of the above components failed to install, please execute the following command to do a hard clean of fedml environment and re-try the process from the beginning:
 
 ```bash
-fedml logout && sudo pkill -9 python && sudo rm -rf ~/.fedml && redis-cli flushall
+fedml logout; sudo pkill -9 python; sudo rm -rf ~/.fedml; redis-cli flushall
 ```
 
 ##### Verify the node is successfully binded to platform:
