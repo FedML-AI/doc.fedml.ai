@@ -9,7 +9,7 @@ cleanup() {
     rm -rf "$tmp_folder"
 
     # Cleanup function to execute before exiting
-    fedml logout; sudo pkill -9 python; sudo rm -rf ~/.fedml; redis-cli flushall
+    fedml logout; sudo pkill -9 python; sudo rm -rf ~/.fedml; redis-cli flushall; pidof python | xargs kill -9
 }
 
 trap 'cleanup; echo -e "\e[31m✘ Failed to link render token to the node. Please retry the binding process again from the beginning.\e[0m"' ERR
