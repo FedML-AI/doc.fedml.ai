@@ -3,8 +3,11 @@
 FEDML_API_KEY=$1
 FEDML_ENV=$2
 FEDML_DEVICE_ID=$3
-SSHPROXY_FIREWALL=$4 # ufw or iptables
-SSHPROXY_PORT=$5 # specify the port number for ssh proxy
+INFERENCE_GATEWAY_PORT=$4
+INFERENCE_PROXY_PORT=$5
+FEDML_CONNECTION_TYPE=$6
+SSHPROXY_FIREWALL=$7 # ufw or iptables
+SSHPROXY_PORT=$8 # specify the port number for ssh proxy
 export NEEDRESTART_SUSPEND=1
 export NEEDRESTART_MODE=a
 
@@ -113,7 +116,11 @@ set_default_conda_env() {
 
 # Login 
 fedml_login(){
-    fedml login -p $1 -v $2
+    if [ -z "$3" ] && [ -z "$4" ] && [ -z "$5" ]; then
+      fedml login -p $1 -v $2
+    else
+      fedml login -p $1 -v $2 -mgp $3 -wpp $4 -wct $5
+    fi
 }
 
 #create the devices.id file with the cloud server id
@@ -159,7 +166,7 @@ verify_installation(){
     if [ "$verification_status" -eq 0 ]; then
       echo -e "\033[1;32m✔ FedML environment verification successful.\033[0m"
       create_tmp_file $3
-      fedml_login $1 $2
+      fedml_login $1 $2 $4 $5 $6
     else
       echo -e "\e[31m✘ FedML environment installation verification failed. Please retry the binding process again.\e[0m"
       exit 1
@@ -217,7 +224,7 @@ install_nvidia_container_toolkit
 # install_sshproxy $SSHPROXY_FIREWALL $SSHPROXY_PORT
 set_default_conda_env "$default_shell"
 source ~/."${default_shell}rc"
-verify_installation $FEDML_API_KEY $FEDML_ENV $FEDML_DEVICE_ID
+verify_installation $FEDML_API_KEY $FEDML_ENV $FEDML_DEVICE_ID $INFERENCE_GATEWAY_PORT $INFERENCE_PROXY_PORT $FEDML_CONNECTION_TYPE
 
 # Restore unattended-upgrades
 sudo systemctl start unattended-upgrades
