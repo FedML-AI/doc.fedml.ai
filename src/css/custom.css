@@ -4,7 +4,7 @@
  * work well for content-centric websites.
  */
 
- @font-face {
+@font-face {
   font-family: 'Inter';
   font-weight: 100 900;
   font-display: block;
@@ -137,12 +137,12 @@
 @keyframes enter {
   0% {
     opacity: 0;
-    transform: translateY(10px)
+    transform: translateY(10px);
   }
 
   to {
     opacity: 1;
-    transform: none
+    transform: none;
   }
 }
 
@@ -152,14 +152,14 @@
   --start: 0ms;
 }
 
-@media (prefers-reduced-motion:no-preference) {
+@media (prefers-reduced-motion: no-preference) {
   [data-animate] {
-    animation: enter .6s both;
+    animation: enter 0.6s both;
     animation-delay: calc(var(--stagger) * var(--delay) + var(--start));
   }
 }
 
-[data-animation-controller=false] [data-animate] {
+[data-animation-controller='false'] [data-animate] {
   animation: none;
 }
 
@@ -761,4 +761,12 @@ html[data-theme='dark'] .dropdown > .navbar__link:after {
 
 .dropdown:hover > .navbar__link:after {
   background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' fill='none' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.293 8.293a1 1 0 0 1 1.414 0L12 14.586l6.293-6.293a1 1 0 1 1 1.414 1.414l-7 7a1 1 0 0 1-1.414 0l-7-7a1 1 0 0 1 0-1.414Z' fill='%231a90ff'/%3E%3C/svg%3E") !important;
+}
+
+html[data-mode='iframe'] #__docusaurus > nav.navbar {
+  display: none;
+}
+
+html[data-mode='iframe'] #__docusaurus > .main-wrapper > div > aside {
+  display: none;
 }

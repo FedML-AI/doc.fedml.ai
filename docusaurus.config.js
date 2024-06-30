@@ -1,3 +1,6 @@
+const {
+  attributeQueryingPlugin,
+} = require('./plugins/attribute-querying-plugin.cjs');
 const { webpackPlugin } = require('./plugins/webpack-plugin.cjs');
 const tailwindPlugin = require('./plugins/tailwind-plugin.cjs');
 // const compressPlugin = require('./plugins/compress-images-plugin.cjs');
@@ -31,10 +34,11 @@ const resources = [
 ];
 
 const resourceMapper = Object.fromEntries(
-  resources.map((resource) => [resource.label, resource])
+  resources.map((resource) => [resource.label, resource]),
 );
 
 const plugins = [
+  attributeQueryingPlugin,
   tailwindPlugin,
   // ...docs_plugins,
   webpackPlugin,
