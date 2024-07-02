@@ -133,7 +133,7 @@ create_tmp_file(){
         mkdir -p "$new_path"
         new_path+="/"
         entire_path=$new_path$file_name
-        echo $device_id > $entire_path
+        printf '%s' "$device_id" > "$entire_path"
     fi
 }
 
