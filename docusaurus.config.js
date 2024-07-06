@@ -107,6 +107,16 @@ const config = {
           hideable: true,
         },
       },
+      metadata: [
+        {
+          name: 'description',
+          content: 'Comprehensive documentation guide for TensorOpera. Covers Model Deployment, Serving, Training, Fine-tuning, Federate for efficient AI workflows.',
+        },
+        {
+          name: 'og:description',
+          content: 'Comprehensive documentation guide for TensorOpera. Covers Model Deployment, Serving, Training, Fine-tuning, Federate for efficient AI workflows.'
+        }
+      ],
       navbar: {
         title: 'TensorOpera AI Docs',
         logo: {

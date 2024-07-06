@@ -9,9 +9,7 @@ import ProductLayerSection from '../components/homepage/ProductLayerSection';
 
 export default function Home() {
   return (
-    <Layout
-      description="Comprehensive documentation guide for TensorOpera. Covers Model Deployment, Serving, Training, Fine-tuning, Federate for efficient AI workflows."
-    >
+    <Layout>
       <Head>
         <link rel="prefetch" href="/assets/css/elements.min.css" />
       </Head>
