@@ -8,11 +8,9 @@ import HeroSection from '@site/src/components/homepage/HeroSection';
 import ProductLayerSection from '../components/homepage/ProductLayerSection';
 
 export default function Home() {
-  const { siteConfig } = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />"
+      description="Comprehensive documentation guide for TensorOpera. Covers Model Deployment, Serving, Training, Fine-tuning, Federate for efficient AI workflows."
     >
       <Head>
         <link rel="prefetch" href="/assets/css/elements.min.css" />
