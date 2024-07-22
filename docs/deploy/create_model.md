@@ -28,7 +28,7 @@ git clone https://github.com/FedML-AI/Model-Card-Example.git
 ```
 
 
-### What's inside a model card?
+#### What's inside a model card?
 To craft a model card, an example workplace folder structure is like this:
 ```
 ├──  config.yaml     # Contains the model card configuration.
@@ -78,7 +78,7 @@ if __name__ == "__main__":
     fedml_inference_runner.run()
 ```
 
-### Create a model card by indicating the configuration file
+#### Model creation command that indicating a configuration file
 
 Use `fedml model create` command to create a local model card. Using `-n` to specify the model name, 
 `-cf` to specify the model card configuration file.
@@ -104,6 +104,11 @@ For example, to use the `EleutherAI/pythia-70m` model from Hugging Face, you can
 ```bash
 fedml model create --name hf_model --model hf:EleutherAI/pythia-70m
 ```
+:::note
+Currently we support importing **text2text-generation** model from Hugging Face, for other type of model, 
+you need to create a custom model card as mentioned in the previous section.
+:::
+
 After you have created a model card, you can push it to the TensorOpera AI Platform by using:
 
 ```
