@@ -129,7 +129,10 @@ After you have chosen a model, say `Meta-Llama-3-70B-Instruct` . You can click t
 
 
 ## What's next?
-You can deploy the model card to different environments, like local, on-premise, or GPU Cloud. Follow the one of the following tutorials to learn how to deploy the model card.
+Still not sure how to on board your model card to TensorOpera AI Platform?
+Look at those [Official Examples](https://github.com/FedML-AI/model-serve) written in Python.
+
+If you finished create your model card, then congratulations, you are ready to deploy the model card to different environments, like local, on-premise, or GPU Cloud. Follow the one of the following tutorials to learn how to deploy the model card.
 
 - [Deploy to Local](deploy_local.md)
 - [Deploy to On-premise](deploy_on_premise.md)
