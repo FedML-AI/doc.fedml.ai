@@ -20,7 +20,7 @@ pip install fedml
 ```
 ## Create a model card from a model config file
 
-The most straightforward way to create a model card is to use a model config YAML file. The following steps is also written
+The most straightforward way to create a model card is to use a model config YAML file. The following steps are also written
 in the GitHub repository, you can find the example [here](https://github.com/FedML-AI/Model-Card-Example.git), or clone it use:
 
 ```shell
@@ -67,7 +67,7 @@ Inside this class, you need to implement two methods: ` __init__` and `predict`.
             return {"generated_text": response_text}
     ```
 
-In the `__main__` function, initialize a `FedMLPredictor`'s child obj that has class you define in the previous step, 
+In the `__main__` function, initialize a child obj with class `MyChatbot`, which you define in the previous step, 
 then pass it to `FedMLInferenceRunner` class, finally call its `run` method.
 ```python
 from fedml.serving import FedMLInferenceRunner
@@ -78,7 +78,7 @@ if __name__ == "__main__":
     fedml_inference_runner.run()
 ```
 
-#### Model creation command that indicating a configuration file
+#### Model creation command that indicates a configuration file
 
 Use `fedml model create` command to create a local model card. Using `-n` to specify the model name, 
 `-cf` to specify the model card configuration file.
