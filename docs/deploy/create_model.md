@@ -20,7 +20,7 @@ pip install fedml
 ```
 ## Create a model card from a model config file
 
-The most straightforward way to create a model card is to use a model config YAML file. The following steps is also written
+The most straightforward way to create a model card is to use a model config YAML file. The following steps are also written
 in the GitHub repository, you can find the example [here](https://github.com/FedML-AI/Model-Card-Example.git), or clone it use:
 
 ```shell
@@ -28,7 +28,7 @@ git clone https://github.com/FedML-AI/Model-Card-Example.git
 ```
 
 
-### What's inside a model card?
+#### What's inside a model card?
 To craft a model card, an example workplace folder structure is like this:
 ```
 ├──  config.yaml     # Contains the model card configuration.
@@ -67,7 +67,7 @@ Inside this class, you need to implement two methods: ` __init__` and `predict`.
             return {"generated_text": response_text}
     ```
 
-In the `__main__` function, initialize a `FedMLPredictor`'s child obj that has class you define in the previous step, 
+In the `__main__` function, initialize a child obj with class `MyChatbot`, which you define in the previous step, 
 then pass it to `FedMLInferenceRunner` class, finally call its `run` method.
 ```python
 from fedml.serving import FedMLInferenceRunner
@@ -78,7 +78,7 @@ if __name__ == "__main__":
     fedml_inference_runner.run()
 ```
 
-### Create a model card by indicating the configuration file
+#### Model creation command that indicates a configuration file
 
 Use `fedml model create` command to create a local model card. Using `-n` to specify the model name, 
 `-cf` to specify the model card configuration file.
@@ -104,6 +104,11 @@ For example, to use the `EleutherAI/pythia-70m` model from Hugging Face, you can
 ```bash
 fedml model create --name hf_model --model hf:EleutherAI/pythia-70m
 ```
+:::note
+Currently we support importing **text2text-generation** model from Hugging Face, for other type of model, 
+you need to create a custom model card as mentioned in the previous section.
+:::
+
 After you have created a model card, you can push it to the TensorOpera AI Platform by using:
 
 ```
@@ -124,7 +129,10 @@ After you have chosen a model, say `Meta-Llama-3-70B-Instruct` . You can click t
 
 
 ## What's next?
-You can deploy the model card to different environments, like local, on-premise, or GPU Cloud. Follow the one of the following tutorials to learn how to deploy the model card.
+Still not sure how to on board your model card to TensorOpera AI Platform?
+Look at those [Official Examples](https://github.com/FedML-AI/model-serve) written in Python.
+
+If you finished create your model card, then congratulations, you are ready to deploy the model card to different environments, like local, on-premise, or GPU Cloud. Follow the one of the following tutorials to learn how to deploy the model card.
 
 - [Deploy to Local](deploy_local.md)
 - [Deploy to On-premise](deploy_on_premise.md)

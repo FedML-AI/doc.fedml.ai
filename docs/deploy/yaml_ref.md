@@ -2,59 +2,79 @@
 sidebar_position: 9
 ---
 # Model Configuration YAML
+This document describes the configuration options available in the model configuration YAML file. 
+The model configuration YAML file is used to define the model card configuration, including the workspace, 
+entry point, and other settings.
 
 ## Full example of a model configuration YAML file
 The yaml example below exposes every supported configuration option for creating a model card. 
 ```yaml
+# Common required fields
 workspace: "./src"
+
+# Required fields for fedml based docker image, i.e. starts with fedml/ in the Dockerhub
 entry_point: "main_entry.py"
+
+# Required fields for customized docker image
+container_run_command: "tritonserver --model-repository=/repo_inside_container"
+
+# Common optional fields
+inference_image_name: "fedml/fedml-default-inference-backend"
+image_pull_policy: "IfNotPresent"
+registry_specs:
+    registry_user_name: "fedml"
+    registry_user_password: "passwd"
+    registry_provider: "DockerHub"
 bootstrap: |
   echo "Bootstrap start..."
   sh ./config/bootstrap.sh
   echo "Bootstrap finished"
-inference_image_name: "fedml/fedml-default-inference-backend"
-enable_custom_image: false
-image_pull_policy: "IfNotPresent"
-docker_registry_user_name: fedml
-docker_registry_user_password: passwd
-docker_registry: fedml-official
-entry_cmd: tritonserver --model-repository=/model
-port_inside_docker: 8000
-server_external_port: 2204
-server_internal_port: 2203
-use_gpu: true
-use_triton: true
-request_input_example: '{"text": "Hello"}'
-authentication_token: "myPrivateToken"
-data_cache_dir: "~/data_cache"
+port: 2345
+volume_mounts: 
+  - workspace_path: "./path/to/workspace"
+    mount_path: "/path/to/container"
 environment_variables:
-  TOP_K: "5"
   PROMPT_STYLE: "llama_orca"
+readiness_probe:
+  httpGet:
+    path: "/ready"
+service:
+  httpPost:
+    path: "/predict"
+expose_subdomains: true
 deploy_timeout: 600
-auto_detect_public_ip: true
+request_input_example: '{"text": "Hello"}'
+
+# GPU Cloud mode optional fields
+endpoint_api_type: "text2text_llm_openai_chat_completions"
+
+# On-premise mode optional fields
+use_gpu: true
+num_gpus: 1
+authentication_token: "myPrivateToken"
 ```
 
 ## Detailed specification
 
-| Name                                    | Default                                            | Description                                                                                                                                                                     |
-|-----------------------------------------|----------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `workspace`                             |                                                    | Directory where your source code directory is located.  [required]                                                                                                              |
-| `entry_point`                           |                                                    | Entry point file name. [required]                                                                                                                                               |
-| `bootstrap`                             | `""`                                               | Shell commands to install the dependency during setup stage.                                                                                                                    |
-| `inference_image_name`                  | `"fedml/fedml-default-inference-backend"`          | The base image for inference container.                                                                                                                                         |
-| `enable_custom_image`                   | false                                              | If you used image other than fedml official image, which is listed in [Advanced Features](advanced_features.md), you need to set it to true.                                    |
-| `image_pull_policy`                     | `"IfNotPresent"`                                   | When start to deploy / update a endpoint, indicate whether to pull the image (name:tag) again. Could be either "IfNotPresent" or "Always".                                      |
-| `docker_registry_user_name / password ` | None                                               | Username password for your docker registry                                                                                                                                      |
-| `entry_cmd`                             | None                                               | If you used your own image, here you can indicate the entry cmd(s) for that container.                                                                                          |
-| `port_inside_docker`                    | 2345                                               | Inside a container, we default mount 2345 to the host machine port. But if you want to use another port inside container, please indicate here.                                 |
-| `worker_port`                           | random                                             | In the host machine, we default randomly open a port and mount to a port inside docker. This might conflict to your firewall policy. So here you can indicate a accessible one. |
-| `use_gpu`                               | true                                               | Enable GPUs for inference. Only works for local, on-premise mode, for GPU cloud mode, please specify in `computing`                                                             |
-| `use_triton`                            | false                                              | Set to true if your image is a purely provide the triton server service.                                                                                                        |
-| `request_input_example`                 | `""`                                               | The input example of the inference endpoint. Will be shown on the UI for reference.                                                                                             |
-| `authentication_token`                  | randomly generated by mlops backend                | The authentication_token as a parameter in the inference curl command.                                                                                                          |
-| `data_cache_dir`                        | `""`                                               | For on-premise mode, you can indicate a folder that will not be packaged into the model cards. Instead, the worker will read from the host machine.                             |
-| `environment_variables`                 | None                                               | Environment variable that can be read in entry_point file.                                                                                                                      |
-| `deploy_timeout`                        | 900                                                | Maximum waiting time for endpoint to be established.                                                                                                                            |
-| `auto_detect_public_ip`                 | false                                              | For on-premise mode, auto detect the ip of the master and workers public ip.                                                                                                    |
-| `computing`                             | None                                               | For gpu cloud mode, indicate the resource you need for inference. You can visiting URL and check: https://TensorOpera.ai/compute/                                               |
+| Name                    | Type (Default Value)                                                                                | Description                                                                                                                                                                                                                                                                                                                                                      |
+|-------------------------|-----------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `workspace`             | str (Required)                                                                                      | Directory where your source code directory is located.                                                                                                                                                                                                                                                                                                           |
+| `entry_point`           | str (`""`)                                                                                          | Entry point file name, should be a relative path to the workspace.                                                                                                                                                                                                                                                                                               |
+| `container_run_command` | str or list of str (`""`)                                                                           | For customized image, you can indicate the run command, similar to `docker run` command.                                                                                                                                                                                                                                                                         |
+| `inference_image_name`  | str (`"fedml/fedml-default-inference-backend"`)                                                     | The base image for inference container.                                                                                                                                                                                                                                                                                                                          |
+| `image_pull_policy`     | str (`"IfNotPresent"`)                                                                              | When start to deploy / update a endpoint, indicate whether to pull the image (name:tag) again. Could be either "IfNotPresent" or "Always".                                                                                                                                                                                                                       |
+| `registry_specs`        | Dict (`{"registry_user_name": "", "registry_user_password": "", "registry_provider": "DockerHub"}`) | Username, password for private registry (e.g. DockerHub), currently only support DockerHub                                                                                                                                                                                                                                                                       |
+| `bootstrap`             | str (`""`)                                                                                          | Shell commands to install the dependency in the base image before the endpoint service starting.                                                                                                                                                                                                                                                                 |
+| `port`                  | int (2345)                                                                                          | The service port that been listened to inside the docker.                                                                                                                                                                                                                                                                                                        |
+| `volume_mounts`         | Dict (`{"workspace_path": "./path/to/workspace", "mount_path": "/path/to/container"}` )             | `workspace_path` indicate the file / directory's relative path to the model card workspace. `mount_path` indicate the path inside the docker container.                                                                                                                                                                                                          |
+| `environment_variables` | Dict (`{}`)                                                                                         | Environment variables inside the docker container.                                                                                                                                                                                                                                                                                                               |
+| `readiness_probe`       | Dict (`{"httpGet": {"path": "/ready"}}`)                                                            | For customized image, indicate command to check the readiness of the service inside the container.                                                                                                                                                                                                                                                               |
+| `service`               | Dict (`{"httpPost": {"path": "/predict"}}`)                                                         | For customized image, indicate the main service path for inference. If you want to open multiple, then enabled `expose_subdomains`.                                                                                                                                                                                                                              |
+| `expose_subdomains`     | bool (false)                                                                                        | For customized image, if you want to route all the subdomains, set to true. e.g. `localhost:2345/{all-subdomain}`, then you do not need to set anything under `service`.                                                                                                                                                                                         |
+| `deploy_timeout`        | int (900)                                                                                           | Maximum waiting time for endpoint to be established (Checked by container readiness probe, the image pull time is not included in this threshold).                                                                                                                                                                                                               | |
+| `request_input_example` | Dict (`{"text": "What is a good cure for hiccups?"}`)                                               | The input example of the inference endpoint. Will be shown on the UI for reference.                                                                                                                                                                                                                                                                              |
+| `endpoint_api_type`     | str (`"general"`)                                                                                   | Related to the UI representation and price counting. Enum of `["text2text_llm_openai_chat_completions", "text2text_llm_openai_completions", "text2image", "text2video", "text2audio", "text23D", "image2image", "image2audio", "image2video", "image23D", "image_stylization", "image2text", "text_embedding", "text2sql_llm_openai_completions", "audio2text"]` |
+| `use_gpu`               | bool (true)                                                                                         | For on-premise mode, specify whether to use GPU for inference.                                                                                                                                                                                                                                                                                                   |
+| `num_gpus`              | int (1)                                                                                             | For on-premise mode, specify how many gpu to use in 1 replica.                                                                                                                                                                                                                                                                                                   |
+| `authentication_token`  | str (`""`)                                                                                          | For on-premise mode, the authentication_token will be as a parameter in the inference curl command.                                                                                                                                                                                                                                                              |
 
