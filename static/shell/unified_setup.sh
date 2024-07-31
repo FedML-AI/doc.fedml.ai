@@ -317,6 +317,7 @@ if [ -n "$RENTAL_PUBLIC_KEY" ]; then
     # Ensure the .ssh directory exists
     add_public_key $RENTAL_PUBLIC_KEY
 fi
+echo "Installing fedml library"
 install_wget
 install_miniconda "$default_shell"
 init_miniconda_shell "$default_shell"
