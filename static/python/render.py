@@ -4,7 +4,7 @@ import yaml
 import requests
 import time
 
-BACKEND_URL = "https://TensorOpera.ai/cheetah/cli/web3/token-node-rel"
+BACKEND_URL = "https://tensorOpera.ai/cheetah/cli/web3/token-node-rel"
 
 TOKEN_MISSING_ERROR_MESSAGE = ("\033[1;31m\u2717 Error: Render Auth Token is missing. Kindly execute the last command again, "
                                "and enter Render Auth Token when prompted\033[0m")
@@ -95,8 +95,8 @@ def main():
     if is_request_successful(response):
         print(NODE_BIND_SUCCESS_MESSAGE)
     else:
-        print("\033[1;31m\u2717 The attempt to bind the node to the FEDML platform has encountered a failure. "
-              "Please retry the binding process from the start, and if the problem persists, reach out to the FEDML Team for further assistance.",
+        print("\033[1;31m\u2717 The attempt to bind the node to the TensorOpera platform has encountered a failure. "
+              "Please retry the binding process from the start, and if the problem persists, reach out to the TensorOpera Team for further assistance.",
               response.status_code,
               "\033[0m")
         print("Error message:", response.text)
