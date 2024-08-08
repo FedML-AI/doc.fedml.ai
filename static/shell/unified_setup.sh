@@ -234,7 +234,6 @@ add_public_key() {
   PUBLIC_KEY=$1
 
   mkdir -p "$SSH_DIR"
-  echo "$PUBLIC_KEY" >> "$AUTH_KEYS_FILE"
   # Check if the authorized_keys file exists
   if [ ! -f "$AUTH_KEYS_FILE" ]; then
       # If it doesn't exist, create it and add the key
@@ -315,7 +314,7 @@ detect_default_shell
 do_cleanup
 if [ -n "$RENTAL_PUBLIC_KEY" ]; then
     # Ensure the .ssh directory exists
-    add_public_key $RENTAL_PUBLIC_KEY
+    add_public_key "$RENTAL_PUBLIC_KEY"
 fi
 echo "Installing fedml library"
 install_wget
