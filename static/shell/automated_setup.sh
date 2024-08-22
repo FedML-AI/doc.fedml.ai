@@ -8,8 +8,10 @@ INFERENCE_PROXY_PORT=$5
 FEDML_CONNECTION_TYPE=$6
 SSHPROXY_FIREWALL=$7 # ufw or iptables
 SSHPROXY_PORT=$8 # specify the port number for ssh proxy
-export NEEDRESTART_SUSPEND=1
-export NEEDRESTART_MODE=a
+
+do_cleanup() {
+  fedml logout; sudo pkill -9 python; sudo rm -rf ~/.fedml; redis-cli flushall; pidof python | xargs kill -9;
+}
 
 # Function to detect the default shell
 detect_default_shell() {
@@ -76,7 +78,7 @@ install_docker() {
 
 # Function to install Redis
 install_redis() {
-    sudo apt install -y lsb-release curl gnupg
+    sudo apt-get install -y lsb-release curl gnupg
     curl -fsSL https://packages.redis.io/gpg | sudo gpg --batch --yes --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg
     echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/redis.list
     sudo apt-get update
@@ -210,9 +212,11 @@ install_sshproxy() {
 
 # Stop unattended upgrades which result in /var/lib/dpkg/lock acquire race condition
 sudo systemctl stop unattended-upgrades
+sudo systemctl disable unattended-upgrades
 
 # Call the functions
 detect_default_shell
+do_cleanup
 install_wget
 install_miniconda "$default_shell"
 init_miniconda_shell "$default_shell"
@@ -227,4 +231,5 @@ source ~/."${default_shell}rc"
 verify_installation $FEDML_API_KEY $FEDML_ENV $FEDML_DEVICE_ID $INFERENCE_GATEWAY_PORT $INFERENCE_PROXY_PORT $FEDML_CONNECTION_TYPE
 
 # Restore unattended-upgrades
+sudo systemctl enable unattended-upgrades
 sudo systemctl start unattended-upgrades
