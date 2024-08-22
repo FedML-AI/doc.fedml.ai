@@ -80,7 +80,7 @@ install_docker() {
 
 # Function to install Redis
 install_redis() {
-    sudo apt install -y lsb-release curl gnupg
+    sudo apt-get install -y lsb-release curl gnupg
     curl -fsSL https://packages.redis.io/gpg | sudo gpg --batch --yes --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg
     echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/redis.list
     sudo apt-get update
