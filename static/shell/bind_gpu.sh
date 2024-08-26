@@ -65,7 +65,7 @@ install_docker() {
 
 # Function to install Redis
 install_redis() {
-    sudo apt install -y lsb-release curl gnupg
+    sudo apt-get install -y lsb-release curl gnupg
     curl -fsSL https://packages.redis.io/gpg | sudo gpg --batch --yes --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg
     echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/redis.list
     sudo apt-get update
@@ -106,6 +106,7 @@ set_default_conda_env() {
 
 # Stop unattended upgrades which result in /var/lib/dpkg/lock acquire race condition
 sudo systemctl stop unattended-upgrades
+sudo systemctl disable unattended-upgrades
 
 # Call the functions
 detect_default_shell
@@ -121,4 +122,5 @@ set_default_conda_env "$default_shell"
 source ~/."${default_shell}rc"
 
 # Restore unattended-upgrades
+sudo systemctl enable unattended-upgrades
 sudo systemctl start unattended-upgrades
