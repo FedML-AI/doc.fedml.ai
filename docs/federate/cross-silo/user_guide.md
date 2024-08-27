@@ -20,14 +20,14 @@ https://www.youtube.com/embed/Xgm0XEaMlVQ
 
 ### How Does TensorOpera AI Platform Work?
 
-![image](../_static/image/mlops_workflow_new.png) \
+![image](../_static/image/mlops_workflow_new.png)
 Figure 1: the workflow describing how MLOps works
 
 MLOps works following the figure above; this workflow is handled by a web UI and thus avoids complex deployment.
 To begin, please create an account:
 
-- Instructions for registration: \
-  Please open [https://tensoropera.ai](https://tensoropera.ai) and click "Sign Up".
+- Instructions for registration:
+  Please open [https://fedml.ai/login](https://fedml.ai/login) and click "Sign Up".
 
 ### Local Development and Building MLOps Packages
 
