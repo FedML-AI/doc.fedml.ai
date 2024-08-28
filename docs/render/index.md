@@ -23,7 +23,7 @@ The following two commands are to be executed from within the compute nodes whic
 ### 1. Execute the first command to install fedml and related libraries
 
 ```bash
-sudo curl -sSf https://doc.tensoropera.ai/shell/bind_gpu.sh | bash && exec $SHELL
+sudo curl -sSf https://doc.fedml.ai/shell/render_bind_gpu.sh | bash && exec $SHELL
 ```
 
 <details>
@@ -52,7 +52,7 @@ During this step, you'll need to input your **render auth token**. Your node's e
 
 
 ```bash
-sudo curl -sSf https://doc.fedml.ai/shell/verify_installation_driver.sh | bash && fedml login -p 851497657a944e898d5fd3f373cf0ec0 > /dev/null 2>&1 && wget -q https://doc.fedml.ai/shell/render_node_bind.sh && sudo chmod +x render_node_bind.sh && bash render_node_bind.sh && sudo rm render_node_bind.sh
+sudo curl -sSf https://doc.fedml.ai/shell/render_setup.sh | bash
 ```
 
 <details>
