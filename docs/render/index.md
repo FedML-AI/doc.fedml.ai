@@ -23,7 +23,7 @@ The following two commands are to be executed from within the compute nodes whic
 ### 1. Execute the first command to install fedml and related libraries
 
 ```bash
-sudo curl -sSf https://doc.fedml.ai/shell/bind_gpu.sh | bash && exec $SHELL
+sudo curl -sSf https://doc.fedml.ai/shell/render_bind_gpu.sh | bash && exec $SHELL
 ```
 
 <details>
