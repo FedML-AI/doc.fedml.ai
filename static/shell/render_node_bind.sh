@@ -27,7 +27,7 @@ mkdir "$tmp_folder"
 # Moving into the tmp folder
 cd "$tmp_folder"
 
-echo -e "\e[33m\U1F517 Linking render token to your node...\e[0m"
+echo -e "\e[33m\U1F517 Linking Render <> TensorOpera AI...\e[0m"
 sudo wget -q https://doc.tensoropera.ai/python/render.py && sudo chmod +x render.py
 python3 render.py
 
@@ -37,4 +37,4 @@ cd ..
 # Removing the tmp folder and its contents
 rm -rf "$tmp_folder"
 
-echo -e "\033[1;35m🚀 Your token was successfully linked to this node and binded to TensorOpera Platform! Render to the moon 🌙\033[0m"
+echo -e "\033[1;35m🚀 Your node was successfully binded to TensorOpera Platform!\033[0m"
