@@ -2,10 +2,14 @@
 sidebar_position: 2
 ---
 
+import ReactPlayer from 'react-player'
+
 # Tutorial on TensorOpera AI Platform
 
 Video Tutorial:
-https://www.youtube.com/embed/Xgm0XEaMlVQ
+<ReactPlayer playing controls url='https://www.youtube.com/watch?v=Xgm0XEaMlVQ' width="100%" height="528px"/>
+
+<br/>
 
 **Write Once, Run Anywhere: Seamlessly Migrate Your Local Development to the Real-world Edge-cloud Deployment**
 
