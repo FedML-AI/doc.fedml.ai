@@ -17,7 +17,7 @@ TensorOpera®Deploy can automatically scale up and down the number of replicas o
 
 When you deploy a endpoint, you can enable the autoscale feature by setting the
 1. `min_replicas` and `max_replicas` to tell the autoscaler the range of replicas.
-2. `Concurrency per Replica before Scaling Up` to tell the autoscaler the threshold to scale out / in.
+2. `Concurrency per Replica before Scaling Up` to tell the autoscaler the threshold to scale out in.
 3. `Decision Time Window` to indicate the time window to calculate the QPS. 
 4. `Scale Down Delay` to indicate the delay time for scale down the replicas.
 

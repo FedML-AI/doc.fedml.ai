@@ -64,5 +64,5 @@ For this quick start tutorial, we can select the `Serverless` `RTX-4090` option 
 After few minutes, the model will be deployed to the serverless GPU cloud. You can find the deployment details in the `Deploy` -> `Endpoints` tab in the TensorOpera AI Cloud dashboard.
 ![Docker_Endpoints.png](pics%2FDocker_Endpoints.png)
 
-You may interact with the deployed model by using the curl / Python / JavaScript command under the `API` tab.
+You may interact with the deployed model by using the curl, Python, or JavaScript command under the `API` tab.
 ![Docker_Deployed.png](pics%2FDocker_Deployed.png)

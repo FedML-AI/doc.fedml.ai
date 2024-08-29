@@ -71,7 +71,7 @@ After few minutes, the model will be deployed to the serverless GPU cloud. You c
 
 ![EndpointList.png](pics%2FEndpointList.png)
 
-You may interact with the deployed model by clicking the `Playground` tab in the deployment details page, or using the curl / Python / NodeJS command under the `API` tab.
+You may interact with the deployed model by clicking the `Playground` tab in the deployment details page, or using the curl, Python, or NodeJS commands under the `API` tab.
 ![EndpointDetail.png](pics%2FEndpointDetail.png)
 
 ## What's next?
