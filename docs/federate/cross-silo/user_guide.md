@@ -2,10 +2,14 @@
 sidebar_position: 2
 ---
 
+import ReactPlayer from 'react-player'
+
 # Tutorial on TensorOpera AI Platform
 
 Video Tutorial:
-https://www.youtube.com/embed/Xgm0XEaMlVQ
+<ReactPlayer playing controls url='https://www.youtube.com/watch?v=Xgm0XEaMlVQ' width="100%" height="528px"/>
+
+<br/>
 
 **Write Once, Run Anywhere: Seamlessly Migrate Your Local Development to the Real-world Edge-cloud Deployment**
 
@@ -20,13 +24,13 @@ https://www.youtube.com/embed/Xgm0XEaMlVQ
 
 ### How Does TensorOpera AI Platform Work?
 
-![image](../_static/image/mlops_workflow_new.png) \
+![image](../_static/image/mlops_workflow_new.png) 
 Figure 1: the workflow describing how MLOps works
 
 MLOps works following the figure above; this workflow is handled by a web UI and thus avoids complex deployment.
 To begin, please create an account:
 
-- Instructions for registration: \
+- Instructions for registration: 
   Please open [https://tensoropera.ai](https://tensoropera.ai) and click "Sign Up".
 
 ### Local Development and Building MLOps Packages

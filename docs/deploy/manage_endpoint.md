@@ -5,7 +5,7 @@ sidebar_position: 7
 
 This tutorial will guide you through how to manage your endpoint on the TensorOpera AI Platform. Including:
 - **Update** your model card running on the endpoint.
-- **Scale** / Auto-scale your endpoint by adding more replicas.
+- **Scale** Auto-scale your endpoint by adding more replicas.
 - **Monitor** your endpoint's status and metrics.
 
 ## Update your model's version
@@ -41,7 +41,7 @@ After that, you can see the model card has been updated on the TensorOpera AI Pl
 ![ChangeModelVersion.png](pics%2FChangeModelVersion.png)
 
 Assume you have an existed endpoint under "Deploy" -> "Endpoints" -> Your Endpoint.
-To edit / configure the replicas, you can click the "Edit" button on the endpoint page.
+To edit or configure the replicas, you can click the "Edit" button on the endpoint page.
 ![EditEndpointButton.png](pics%2FEditEndpointButton.png)
 
 Select the new model card version, then Click "Update" button.
@@ -53,10 +53,10 @@ By default, the update will use a scrolling update strategy. Which means, it onl
 a small portion of the devices at a time. This can ensure that this endpoint is always available when updating.
 :::
 
-## Scale / Auto-scale your endpoint
+## Scale or Auto-scale your endpoint
 
 An endpoint can have multiple replicas. Each replica is a copy of the model running on a device.
-You can scale your endpoint by adding / decreasing replica(s) before the endpoint is created or after it is created.
+You can scale your endpoint by adding or decreasing replica(s) before the endpoint is created or after it is created.
 The following steps will guide you through how to scale your endpoint.
 
 
@@ -65,7 +65,7 @@ For serverless GPU users, you don't need to care about the worker, just focus on
 For on-premise users, you can see the worker's id on the `Compute` -> `My servers` page.
 ![ReplicaRepr.png](pics%2FReplicaRepr.png)
 
-To edit / configure the replicas, you can click the "Edit" button on the endpoint page.
+To edit or configure the replicas, you can click the "Edit" button on the endpoint page.
 ![EditEndpointButton.png](pics%2FEditEndpointButton.png)
 
 Then you can edit the replica number, and click the "Update" button.
