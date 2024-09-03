@@ -23,7 +23,7 @@ The following two commands are to be executed from within the compute nodes whic
 ### 1. Execute the first command to install fedml and related libraries
 
 ```bash
-sudo curl -sSf https://doc.fedml.ai/shell/render_bind_gpu.sh | bash && exec $SHELL
+sudo curl -sSf https://doc.fedml.ai/render/shell/install.sh | bash && exec $SHELL
 ```
 
 <details>
@@ -52,7 +52,7 @@ During this step, you'll need to input your **render auth token**. Your node's e
 
 
 ```bash
-sudo curl -sSf https://doc.fedml.ai/shell/render_setup.sh | bash
+sudo curl -sSf https://doc.fedml.ai/render/shell/setup.sh | bash
 ```
 
 <details>
