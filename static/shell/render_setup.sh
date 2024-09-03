@@ -21,6 +21,7 @@ if [ $? -ne 0 ]; then
 fi
 
 sudo chmod +x render_node_bind.sh
+echo -e "\e[33m\U1F517 Linking Render <> TensorOpera AI...\e[0m"
 bash render_node_bind.sh
 if [ $? -ne 0 ]; then
   echo "Failed to run render_node_bind.sh"

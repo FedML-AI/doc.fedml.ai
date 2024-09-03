@@ -15,11 +15,9 @@ FEDML_CONFIG_MISSING_ERROR_MESSAGE = ("\033[1;31m\u2717 Error: Your node failed 
 NODE_BIND_SUCCESS_MESSAGE = ("\033[1;32m🏆 Congratulations! "
                              "Your node is successfully binded to the FEDML platform!\033[0m")
 
-
-def get_user_render_token():
-    user_render_token = input("\033[1;35m🔑 Enter your render auth token:\033[0m ")
-    return user_render_token
-
+# def get_user_render_token():
+#     user_render_token = input("\033[1;35m🔑 Enter your render auth token:\033[0m ")
+#     return user_render_token
 
 def read_edge_id():
     home_dir = os.path.expanduser("~")
@@ -84,8 +82,7 @@ def is_request_successful(response):
     return False
 
 
-def main():
-    render_token = get_user_render_token()
+def main(render_token):
     edge_id = read_edge_id()
     api_key = read_api_key()
     public_ip = get_public_ip()
@@ -104,4 +101,7 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    if len(sys.argv) != 2:
+        print("Usage: python render.py <render_token>")
+        sys.exit(1)
+    main(sys.argv[1])
