@@ -15,10 +15,6 @@ FEDML_CONFIG_MISSING_ERROR_MESSAGE = ("\033[1;31m\u2717 Error: Your node failed 
 NODE_BIND_SUCCESS_MESSAGE = ("\033[1;32m🏆 Congratulations! "
                              "Your node is successfully binded to the FEDML platform!\033[0m")
 
-# def get_user_render_token():
-#     user_render_token = input("\033[1;35m🔑 Enter your render auth token:\033[0m ")
-#     return user_render_token
-
 def read_edge_id():
     home_dir = os.path.expanduser("~")
     edge_id_file = os.path.join(home_dir, ".fedml/fedml-client/fedml/data/runner_infos/runner_infos.yaml")
