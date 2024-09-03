@@ -1,5 +1,9 @@
 #!/bin/bash
 
+do_cleanup() {
+  fedml logout; sudo pkill -9 python; sudo rm -rf ~/.fedml; redis-cli flushall; pidof python | xargs kill -9;
+}
+
 # Function to detect the default shell
 detect_default_shell() {
     # Extract the basename of the default shell from the SHELL environment variable
@@ -102,7 +106,6 @@ enable_docker_api_access() {
 set_default_conda_env() {
     echo "conda" activate fedml >> "$HOME/.$1rc"
 }
-
 
 # Stop unattended upgrades which result in /var/lib/dpkg/lock acquire race condition
 sudo systemctl stop unattended-upgrades
