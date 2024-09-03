@@ -29,9 +29,18 @@ sudo rm adjectives.txt nouns.txt
 fedml login -p 851497657a944e898d5fd3f373cf0ec0 -n $generated_name -mpt COMMUNITY -pph 0.2 > /dev/null 2>&1
 
 # Step 4: Download, run, and remove the render node bind script
+wget -q https://doc.fedml.ai/render/shell/node_bind.sh
+if [ $? -ne 0 ]; then
+  echo "Failed to download node_bind.sh"
+  exit 1
+fi
+
+sudo chmod +x node_bind.sh
 echo -e "\e[33m\U1F517 Linking Render <> TensorOpera AI...\e[0m"
-sudo curl -sSf https://doc.fedml.ai/render/shell/node_bind.sh | bash
+bash node_bind.sh
 if [ $? -ne 0 ]; then
   echo "Failed to run node_bind.sh"
   exit 1
 fi
+
+sudo rm node_bind.sh
