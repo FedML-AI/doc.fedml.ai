@@ -46,7 +46,7 @@ mkdir "$tmp_folder"
 
 # Moving into the tmp folder
 cd "$tmp_folder"
-sudo wget -q https://doc.tensoropera.ai/python/render.py && sudo chmod +x render.py
+sudo wget -q https://doc.fedml.ai/python/render.py && sudo chmod +x render.py
 python3 render.py "$render_auth_token"
 
 # Returning to the original directory
