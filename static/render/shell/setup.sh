@@ -1,9 +1,16 @@
 #!/bin/bash
 
+# Create a hidden temporary folder
+tmp_folder=".fedml_render_tmp"
+mkdir -p "$tmp_folder"
+cd "$tmp_folder"
+
 # Step 1: Run the installation verification script
 sudo curl -sSf https://doc.fedml.ai/shell/verify_installation_driver.sh | bash
 if [ $? -ne 0 ]; then
   echo "Failed to run verify_installation_driver.sh"
+  cd ..
+  rm -rf "$tmp_folder"
   exit 1
 fi
 
@@ -23,7 +30,7 @@ print(f'{random.choice(adjectives)}_{random.choice(nouns)}')
 ")
 
 # Remove the downloaded files after generating the name
-sudo rm adjectives.txt nouns.txt
+rm adjectives.txt nouns.txt
 
 # Step 3: Login to fedml with the generated name
 fedml login -p 851497657a944e898d5fd3f373cf0ec0 -n $generated_name -mpt COMMUNITY -pph 0.2 > /dev/null 2>&1
@@ -32,10 +39,12 @@ fedml login -p 851497657a944e898d5fd3f373cf0ec0 -n $generated_name -mpt COMMUNIT
 wget -q https://doc.fedml.ai/render/shell/node_bind.sh
 if [ $? -ne 0 ]; then
   echo "Failed to download node_bind.sh"
+  cd ..
+  rm -rf "$tmp_folder"
   exit 1
 fi
 
-sudo chmod +x node_bind.sh
+chmod +x node_bind.sh
 echo -e "\e[33m\U1F517 Linking Render <> TensorOpera AI...\e[0m"
 echo -e "\033[1;35m🔑 Enter your render token:\033[0m"
 read -r render_auth_token < /dev/tty
@@ -49,6 +58,8 @@ done
 
 if [ -z "$render_auth_token" ]; then
     echo -e "\033[1;31m\u2717 Error: Render Token is missing. Kindly execute the last command again, and enter Render Auth Token when prompted\033[0m"
+    cd ..
+    rm -rf "$tmp_folder"
     exit 1
 fi
 
@@ -56,7 +67,11 @@ bash node_bind.sh $render_auth_token
 
 if [ $? -ne 0 ]; then
   echo "Failed to run node_bind.sh"
+  cd ..
+  rm -rf "$tmp_folder"
   exit 1
 fi
 
-sudo rm node_bind.sh
+# Clean up
+cd ..
+rm -rf "$tmp_folder"
