@@ -38,13 +38,13 @@ fi
 sudo chmod +x node_bind.sh
 echo -e "\e[33m\U1F517 Linking Render <> TensorOpera AI...\e[0m"
 echo -e "\033[1;35m🔑 Enter your render token:\033[0m"
-read -r render_auth_token
+read -r render_auth_token < /dev/tty
 
 # Ensure we have input
 while [ -z "$render_auth_token" ]; do
     echo -e "\033[1;31m\u2717 Error: Render Token cannot be empty.\033[0m"
     echo -e "\033[1;35m🔑 Please enter your render token:\033[0m"
-    read -r render_auth_token
+    read -r render_auth_token < /dev/tty
 done
 
 if [ -z "$render_auth_token" ]; then
