@@ -3,7 +3,14 @@ set -e
 
 # Check if an argument was provided
 echo -e "\033[1;35m🔑 Enter your render token:\033[0m"
-read render_auth_token
+read -r render_auth_token
+
+# Ensure we have input
+while [ -z "$render_auth_token" ]; do
+    echo -e "\033[1;31m\u2717 Error: Render Auth Token cannot be empty.\033[0m"
+    echo -e "\033[1;35m🔑 Please enter your render token:\033[0m"
+    read -r render_auth_token
+done
 
 if [ -z "$render_auth_token" ]; then
     echo -e "\033[1;31m\u2717 Error: Render Auth Token is missing. Kindly execute the last command again, and enter Render Auth Token when prompted\033[0m"
