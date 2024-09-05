@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# Wait for any ongoing unattended upgrades to finish
+while sudo lsof /var/lib/dpkg/lock-frontend >/dev/null 2>&1; do
+    echo "Waiting for unattended upgrades to finish..."
+    sleep 10
+done
+
 do_cleanup() {
   fedml logout; sudo pkill -9 python; sudo rm -rf ~/.fedml; redis-cli flushall; pidof python | xargs kill -9;
 }
@@ -74,6 +80,29 @@ install_redis() {
     echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/redis.list
     sudo apt-get update
     yes | sudo apt-get install -y redis
+    
+    # Start Redis service
+    sudo systemctl start redis-server
+    
+    # Enable Redis to start on boot
+    sudo systemctl enable redis-server
+    
+    # Verify Redis is running
+    if sudo systemctl is-active --quiet redis-server; then
+        echo "Redis server is running."
+    else
+        echo "Failed to start Redis server. Please check the logs."
+    fi
+    
+    # Wait for Redis to be fully operational
+    sleep 5
+    
+    # Test Redis CLI
+    if redis-cli ping > /dev/null 2>&1; then
+        echo "Redis CLI is working correctly."
+    else
+        echo "Redis CLI test failed. Ensure Redis is running and accessible."
+    fi
 }
 
 # Function to install NVIDIA Container Toolkit
@@ -116,10 +145,10 @@ detect_default_shell
 install_wget
 install_miniconda "$default_shell"
 init_miniconda_shell "$default_shell"
+install_redis
 install_fedml
 install_docker
 enable_docker_api_access
-install_redis
 install_nvidia_container_toolkit
 set_default_conda_env "$default_shell"
 source ~/."${default_shell}rc"
