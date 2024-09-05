@@ -1,4 +1,21 @@
 #!/bin/bash
+# Check NVIDIA GPU status
+echo "Checking NVIDIA GPU status..."
+if ! nvidia-smi &> /dev/null; then
+    if nvidia-smi 2>&1 | grep -q "Failed to initialize NVML"; then
+        echo -e "\e[31mError: NVIDIA driver mismatch detected.\e[0m"
+        echo "The NVIDIA driver version does not match the NVIDIA Management Library (NVML) version."
+        echo "Please update your NVIDIA drivers and reboot your system before proceeding."
+        echo "You can download the latest drivers from: https://www.nvidia.com/Download/index.aspx"
+        exit 1
+    else
+        echo -e "\e[31mError: NVIDIA GPU not detected or drivers not properly installed.\e[0m"
+        echo "Please ensure that you have an NVIDIA GPU and that the drivers are correctly installed."
+        exit 1
+    fi
+else
+    echo -e "\e[32mNVIDIA GPU detected and functioning properly.\e[0m"
+fi
 
 # Create a hidden temporary folder
 tmp_folder=".fedml_render_tmp"
