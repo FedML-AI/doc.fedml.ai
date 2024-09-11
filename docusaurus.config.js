@@ -18,7 +18,7 @@ const meta = (() => {
     // tagline: 'ChainOpera® AI Platform',
     url: 'https://docs.chainopera.ai',
     baseUrl: '/',
-    favicon: 'img/favicon.ico',
+    favicon: 'img/favicon_co.ico',
     onBrokenLinks: 'throw',
     onBrokenMarkdownLinks: 'warn',
     i18n: {
@@ -106,7 +106,7 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
-      image: 'img/logo.png',
+      image: 'img/logo_co.png',
       colorMode: {
         defaultMode: 'light',
       },
@@ -129,7 +129,7 @@ const config = {
         title: 'ChainOpera AI Docs',
         logo: {
           href: '/',
-          src: 'img/logo.png',
+          src: 'img/logo_co.png',
           // TODO: design a icon for dark mode.
           // srcDark: 'img/logo-dark.png',
           alt: 'ChainOpera AI Docs',
@@ -226,7 +226,7 @@ const config = {
       footer: {
         logo: {
           href: '/',
-          src: '/img/logo.png',
+          src: '/img/logo_co.png',
           // TODO:
           // srcDark: '/img/logo-dark.png',
           alt: 'ChainOpera AI Docs',
