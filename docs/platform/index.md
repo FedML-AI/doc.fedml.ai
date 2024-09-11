@@ -8,7 +8,7 @@ ChainOpera® AI (https://ChainOpera.ai) is the next-gen cloud service for LLMs &
 
 Highly integrated with [ChainOpera open source library](https://github.com/fedml-ai/fedml), ChainOpera AI provides holistic support of three interconnected AI infrastructure layers: user-friendly MLOps, a well-managed scheduler, and high-performance ML libraries for running any AI jobs across GPU Clouds.
 
-![drawing](./static/image/ChainOpera_arch.png)
+![drawing](./static/image/TensorOpera_arch.png)
 
 A typical workflow is showing in figure above. When developer wants to run a pre-built job in Studio or Job Store, ChainOpera®Launch swiftly pairs AI jobs with the most economical GPU resources, auto-provisions, and effortlessly runs the job, eliminating complex environment setup and management. When running the job, ChainOpera®Launch orchestrates the compute plane in different cluster topologies and configuration so that any complex AI jobs are enabled, regardless model training, deployment, or even federated learning. ChainOpera®Open Source is unified and scalable machine learning library for running these AI jobs anywhere at any scale.
 
