@@ -21,7 +21,7 @@ pipeline {
         HTTPS_REGISTRY_PRODUCTION = 'https://127317375267.dkr.ecr.us-west-1.amazonaws.com'
         AWS_REGION_NAME_PRODUCTION = 'us-west-1'
         DEPLOY_NAMESPACE_PRODUCTION = 'fedml-mlops'
-        VERSION_PRODUCTION = 'release'
+        VERSION_PRODUCTION = 'chainopera'
         BRANCH_PRODUCTION = 'chainopera/main'
 
         DOCKER_NAMESPACE = ''
