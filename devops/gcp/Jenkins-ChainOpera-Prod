@@ -97,46 +97,4 @@ pipeline {
       }
     }
   }
-
-  post {
-    always {
-      echo 'One way or another, I have finished'
-    }
-    success {
-       echo 'I succeeded!'
-       echo "branch name: " + env.BRANCH_NAME
-       script {
-            if (env.BRANCH_NAME == env.BRANCH_PRODUCTION) {
-                def mail_list = ['alexliang.kh@gmail.com','chaoyanghe.com@gmail.com','yideran@gmail.com','Yanfangli.fedml@gmail.com', 'zhouquan147369@gmail.com']
-                mail_list.each { x ->
-                    echo "mail item: ${x}"
-                    mail (to: "${x}",
-                          subject: env.FEDML_MAIL_SUCCESS_SUBJECT,
-                          body: env.FEDML_MAIL_BODY1 + "${currentBuild.fullDisplayName}" + env.FEDML_MAIL_BODY2);
-                }
-            }
-       }
-    }
-    unstable {
-       echo 'I am unstable :/'
-    }
-    failure {
-       echo 'I failed :('
-       echo "branch name: " + env.BRANCH_NAME
-       script {
-            if (env.BRANCH_NAME == env.BRANCH_PRODUCTION) {
-                def mail_list = ['alexliang.kh@gmail.com','chaoyanghe.com@gmail.com','yideran@gmail.com','Yanfangli.fedml@gmail.com', 'zhouquan147369@gmail.com']
-                mail_list.each { x ->
-                    echo "mail item: ${x}"
-                    mail (to: "${x}",
-                          subject: env.FEDML_MAIL_FAILURE_SUBJECT,
-                          body: env.FEDML_MAIL_BODY1 + "${currentBuild.fullDisplayName}" + env.FEDML_MAIL_BODY2);
-                }
-            }
-       }
-    }
-    changed {
-       echo 'Things were different before...'
-    }
-  }
 }
