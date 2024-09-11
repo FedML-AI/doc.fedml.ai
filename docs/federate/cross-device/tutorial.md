@@ -1,7 +1,5 @@
-
-import AndroidRunning from './../_static/image/android_running.jpeg';
-import Arch from './../_static/image/FedML-Android-Arch.jpg';
-
+import AndroidRunning from './../\_static/image/android_running.jpeg';
+import Arch from './../\_static/image/FedML-Android-Arch.jpg';
 
 # Federated Learning on Android Smartphones
 
@@ -12,22 +10,17 @@ The code for this example locates in the following two paths:
 
 Android Client (App) and SDK: [https://github.com/FedML-AI/FedML/tree/master/android](https://github.com/FedML-AI/FedML/tree/master/android)
 
-
-
 - App: [https://github.com/FedML-AI/FedML/tree/master/android/app](https://github.com/FedML-AI/FedML/tree/master/android/app)
-
 
 - fedmlsdk_demo: [https://github.com/FedML-AI/FedML/tree/master/android/fedmlsdk_demo](https://github.com/FedML-AI/FedML/tree/master/android/app)
 
-
 - Android SDK layer (Java API + JNI + So library):
-[https://github.com/FedML-AI/FedML/tree/master/android/fedmlsdk](https://github.com/FedML-AI/FedML/tree/master/android/fedmlsdk)
-
+  [https://github.com/FedML-AI/FedML/tree/master/android/fedmlsdk](https://github.com/FedML-AI/FedML/tree/master/android/fedmlsdk)
 
 - MobileNN: FedML Mobile Training Engine Layer (C++, MNN, PyTorch, etc.): \
-[https://github.com/FedML-AI/FedML/tree/master/android/fedmlsdk/MobileNN](https://github.com/FedML-AI/FedML/tree/master/android/fedmlsdk/MobileNN) \
-[https://github.com/FedML-AI/MNN](https://github.com/FedML-AI/MNN) \
-[https://github.com/FedML-AI/pytorch](https://github.com/FedML-AI/pytorch)
+  [https://github.com/FedML-AI/FedML/tree/master/android/fedmlsdk/MobileNN](https://github.com/FedML-AI/FedML/tree/master/android/fedmlsdk/MobileNN) \
+  [https://github.com/FedML-AI/MNN](https://github.com/FedML-AI/MNN) \
+  [https://github.com/FedML-AI/pytorch](https://github.com/FedML-AI/pytorch)
 
 Python Server: [https://github.com/FedML-AI/FedML/tree/master/python/examples/federate/quick_start/beehive](https://github.com/FedML-AI/FedML/tree/master/python/examples/federate/quick_start/beehive)
 
@@ -35,49 +28,45 @@ The software architecture design for Android App/SDK is illustrated in the figur
 
 <img src={Arch} style={{width: 800}}/>
 
-
 Next show you the step-by-step user experiment of using FedML Beehive.
-
 
 ## 1. Setup Environment and Run Android App or Android Demo
 
 ### 1.1 Android Installation
+
 - Step 1: Install Android Studio - [https://developer.android.com/studio/install](https://developer.android.com/studio/install)
 
-
 - Step 2: Setup Android SDK \
-[https://developer.android.com/about/versions/12/setup-sdk](https://developer.android.com/about/versions/12/setup-sdk)
-[https://developer.android.com/studio/releases/platforms](https://developer.android.com/studio/releases/platforms) (we are using API 32 starting from August 2022)
-
+  [https://developer.android.com/about/versions/12/setup-sdk](https://developer.android.com/about/versions/12/setup-sdk)
+  [https://developer.android.com/studio/releases/platforms](https://developer.android.com/studio/releases/platforms) (we are using API 32 starting from August 2022)
 
 - Step 3: Setup Android NDK and CMake - https://developer.android.com/studio/projects/install-ndk
 
 ### 1.2 Compile and Build
+
 - Clone customized MNN library ([https://github.com/FedML-AI/MNN](https://github.com/FedML-AI/MNN)) into `FedML/android/fedmlsdk/MobileNN/MNN` (shown as below)
 
 ![./_static/image/MNN_clone_on_MobileNN_folder.png](./../_static/image/MNN_clone_on_MobileNN_folder.png)
-
 
 - Compile and Build Android NDK layer by clicking "Make Project"
 
 ![./../_static/image/android_ndk_build.png](./../_static/image/android_ndk_build.png)
 
-
 - Start to run if your Android smartphone is connected properly.
 
 ![./../_static/image/launch_android_app.png](./../_static/image/launch_android_app.png)
 
-## 2. Bind FedML Android App to TensorOpera AI Platform
+## 2. Bind FedML Android App to ChainOpera AI Platform
 
-This section guides you through 1) installing Android Apk, 2) binding your Android smartphone devices to TensorOpera AI Platform, and 3) set the data path for training.
+This section guides you through 1) installing Android Apk, 2) binding your Android smartphone devices to ChainOpera AI Platform, and 3) set the data path for training.
 
-### 2.1 Connect Android App with TensorOpera AI Platform
-After installing FedML Android App ([https://github.com/FedML-AI/FedML/tree/master/android/app](https://github.com/FedML-AI/FedML/tree/master/android/app)), please go to the MLOps platform ([https://TensorOpera.ai](https://TensorOpera.ai)) - Beehive and switch to the `Edge Devices` page, you can see a list of **My Edge Devices** at the bottom, as well as a QR code and **Account Key** at the top right.
+### 2.1 Connect Android App with ChainOpera AI Platform
+
+After installing FedML Android App ([https://github.com/FedML-AI/FedML/tree/master/android/app](https://github.com/FedML-AI/FedML/tree/master/android/app)), please go to the MLOps platform ([https://ChainOpera.ai](https://ChainOpera.ai)) - Beehive and switch to the `Edge Devices` page, you can see a list of **My Edge Devices** at the bottom, as well as a QR code and **Account Key** at the top right.
 
 ![./../_static/image/beehive-device.png](./../_static/image/beehive-device.png)
 
 You can also see the binding devices in **My Edge Devices** list on the web page.
-
 
 ## 3 Install Synthetic Data and Set the Data Path
 
@@ -112,7 +101,7 @@ adb push $MNIST_DIR $ANDROID_DIR
 adb push $CIFAR10_DIR $ANDROID_DIR
 ```
 
-The MNIST dataset folder and the CIFAR-10 dataset folder can be moved to `/sdcard/ai` by running the above script. 
+The MNIST dataset folder and the CIFAR-10 dataset folder can be moved to `/sdcard/ai` by running the above script.
 
 ### 3.2 Set the Data Path
 
@@ -122,32 +111,32 @@ To set data path on your device, click the top green bar. Set it as the path to 
 
 #### 3. **Deploy FL Server**
 
-- Create an account at TensorOpera AI Platform ([https://TensorOpera.ai](https://TensorOpera.ai))
+- Create an account at ChainOpera AI Platform ([https://ChainOpera.ai](https://ChainOpera.ai))
 
 - Run local test fo
 
-- Build Python Server Package and Upload to TensorOpera AI Platform ("Create Application")
+- Build Python Server Package and Upload to ChainOpera AI Platform ("Create Application")
 
 Our example code is provided at:
 [https://github.com/FedML-AI/FedML/tree/master/python/examples/federate/quick_start/beehive]https://github.com/FedML-AI/FedML/tree/master/python/examples/federate/quick_start/beehive)
 
-1) First, you need to have sanity check of this example to make it bug free. By default, the server code example is bug free. 
+1. First, you need to have sanity check of this example to make it bug free. By default, the server code example is bug free.
 
 Note that this example relies on MNN library (https://pypi.org/project/MNN/). It can only support python 3.7. So make sure to test this server code example under python 3.7 environment.
 
-2) Second, please build the server package by running the following command:
-
+2. Second, please build the server package by running the following command:
 
 ```
 bash build_mlops_pkg.sh
 ```
-After correct execution, you can find the package `server-package.zip` under `mlops` folder. 
 
-3) Then you need to upload the `server-package.zip` package to TensorOpera AI Platform as the UI shown below.
+After correct execution, you can find the package `server-package.zip` under `mlops` folder.
+
+3. Then you need to upload the `server-package.zip` package to ChainOpera AI Platform as the UI shown below.
 
 ![./../_static/image/android-pkg-uploading.png](./../_static/image/android-pkg-uploading.png)
 
-- Launch the training by using TensorOpera AI Platform ([https://TensorOpera.ai](https://TensorOpera.ai))
+- Launch the training by using ChainOpera AI Platform ([https://ChainOpera.ai](https://ChainOpera.ai))
 
 Steps at MLOps: create group -> create project -> create run -> select application (the one we uploaded server package for Android) -> start run
 
@@ -163,7 +152,7 @@ On the Android side, you will see training status if every step works correctly.
     maven { url 'https://s01.oss.sonatype.org/content/repositories/snapshots' }
 ```
 
-2. add dependency in build.gradle 
+2. add dependency in build.gradle
 
 check `android/fedmlsdk_demo/build.gradle` as an example:
 
@@ -174,7 +163,6 @@ check `android/fedmlsdk_demo/build.gradle` as an example:
 3. add FedML account id to meta-data in AndroidManifest.xml
 
 check `android/fedmlsdk_demo/src/main/AndroidManifest.xml` as an example:
-
 
 ```xml
 
@@ -188,12 +176,13 @@ or
 <meta-data android:name="fedml_account" android:resource="@string/fed_ml_account" />
 ```
 
-You can find your account ID at FedML Open Platform (https://TensorOpera.ai):
+You can find your account ID at FedML Open Platform (https://ChainOpera.ai):
 ![account](./../_static/image/beehive_account.png)
 
 4. initial FedML Android SDK on your `Application` class.
 
 Taking `android/fedmlsdk_demo/src/main/java/ai/fedml/edgedemo/App.java` as an example:
+
 ```java
 package ai.fedml.edgedemo;
 
@@ -209,10 +198,10 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        
+
         // initial Edge SDK
         FedEdgeManager.getFedEdgeApi().init(this);
-        
+
         // set data path (to prepare data, please check this script `android/data/prepare.sh`)
         FedEdgeManager.getFedEdgeApi().setPrivatePath(Environment.getExternalStorageDirectory().getPath()
                 + "/ai.fedml/device_1/user_0");
@@ -220,9 +209,9 @@ public class App extends Application {
 }
 ```
 
-## 5. Android SDK APIs 
-At the current stage, we provide high-level APIs with the following three classes.
+## 5. Android SDK APIs
 
+At the current stage, we provide high-level APIs with the following three classes.
 
 - ai.fedml.edge.FedEdgeManager
 
@@ -234,9 +223,10 @@ This is the message flow to interact between FedML Android SDK and your host APP
 
 - ai.fedml.edge.request.RequestManager
 
-This is used to connect your Android SDK with TensorOpera AI Platform (https://TensorOpera.ai), which helps you to simplify the deployment, edge collaborative training, experimental tracking, and more.
+This is used to connect your Android SDK with ChainOpera AI Platform (https://ChainOpera.ai), which helps you to simplify the deployment, edge collaborative training, experimental tracking, and more.
 
 You can import them in your Java/Android projects as follows. See [https://github.com/FedML-AI/FedML/blob/master/android/fedmlsdk_demo/src/main/java/ai/fedml/edgedemo/ui/main/MainFragment.java](https://github.com/FedML-AI/FedML/blob/master/android/fedmlsdk_demo/src/main/java/ai/fedml/edgedemo/ui/main/MainFragment.java) as an example.
+
 ```
 import ai.fedml.edge.FedEdgeManager;
 import ai.fedml.edge.OnTrainProgressListener;
@@ -244,6 +234,7 @@ import ai.fedml.edge.request.RequestManager;
 ```
 
 ## Need More Help?
+
 Join the Community:
 
 Slack: [https://join.slack.com/t/fedml/shared_invite/zt-havwx1ee-a1xfOUrATNfc9DFqU~r34w](https://join.slack.com/t/fedml/shared_invite/zt-havwx1ee-a1xfOUrATNfc9DFqU~r34w)

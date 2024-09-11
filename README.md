@@ -5,10 +5,10 @@ This documentation website is built using [Docusaurus 2](https://docusaurus.io/)
 ### Document Structure
 
 - `docs/platform` provides docs for our MLOps platform
-- `docs/launch` provides docs for TensorOpera®Launch
-- `docs/train` provides docs for TensorOpera®Train
-- `docs/deploy` provides docs for TensorOpera®Deploy
-- `docs/federate` provides docs for TensorOpera®Federate (reusing our existing contents from federated learning)
+- `docs/launch` provides docs for ChainOpera®Launch
+- `docs/train` provides docs for ChainOpera®Train
+- `docs/deploy` provides docs for ChainOpera®Deploy
+- `docs/federate` provides docs for ChainOpera®Federate (reusing our existing contents from federated learning)
 
 # How to edit and release?
 

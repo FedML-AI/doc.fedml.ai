@@ -2,11 +2,12 @@
 sidebar_position: 1
 ---
 
-# What is TensorOpera® Train?
+# What is ChainOpera® Train?
 
-TensorOpera® Train is a scalable distributed training service platform under TensorOpera AI. It covers the following capabilities:
+ChainOpera® Train is a scalable distributed training service platform under ChainOpera AI. It covers the following capabilities:
+
 - **Training As a Cloud Service**
-  - [Train on TensorOpera Cloud with TensorOpera® Launch, Only Pay Per Usage](./train-on-cloud/train-on-fedml-cloud.md)
+  - [Train on ChainOpera Cloud with ChainOpera® Launch, Only Pay Per Usage](./train-on-cloud/train-on-fedml-cloud.md)
   - [Zero-code Serverless LLM Fine-tuning LLM](./train-on-cloud/zero-code-serverless-llm-training.md)
   - [Job Store: Pre-built Training Jobs for Diverse Generative AI Models](./train-on-cloud/job_store.md)
 - **Train on Your Own GPU Cluster**

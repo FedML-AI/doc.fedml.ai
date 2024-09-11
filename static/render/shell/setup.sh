@@ -62,7 +62,7 @@ if [ $? -ne 0 ]; then
 fi
 
 chmod +x node_bind.sh
-echo -e "\e[33m\U1F517 Linking Render <> TensorOpera AI...\e[0m"
+echo -e "\e[33m\U1F517 Linking Render <> ChainOpera AI...\e[0m"
 echo -e "\033[1;35m🔑 Enter your render token:\033[0m"
 read -r render_auth_token < /dev/tty
 

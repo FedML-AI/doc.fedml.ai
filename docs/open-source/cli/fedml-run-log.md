@@ -1,25 +1,25 @@
 ---
 sidebar_position: 7
 ---
-#  Log Management - fedml run logs
+
+# Log Management - fedml run logs
 
 ### `fedml run logs [OPTIONS]`
 
-Get logs of run from the TensorOpera AI Platform.
+Get logs of run from the ChainOpera AI Platform.
 
 #### Options
 
-| Option              | Description                                                                                                                       |
-|---------------------|-----------------------------------------------------------------------------------------------------------------------------------|
-| <nobr> `--help` </nobr> <br/> or `-h` | Show this message and exit.                                                                                                        |
-| <nobr> `--run_id` </nobr> <br/> or `-rid` | Run id at the TensorOpera AI Platform.                                                                                           |
-| <nobr> `--need_all_logs` </nobr> <br/> or `-a` | boolean value representing if all logs are needed. Defaults to `true`.                                                                |
-| <nobr> `--page_num` </nobr> <br/> or `-pn` | request page num for logs. --need_all_logs should be set to `false` if you want to use this option.                                 |
-| <nobr> `--page_size` </nobr> <br/> or `-ps` | request page size for logs, --need_all_logs should be set to `false` if you want to use this option.                                |
-| <nobr> `--api_key` </nobr> <br/> or `-k` | The user API key.                                                                                                                     |
-| <nobr> `--version` </nobr> <br/> or `-v` | Version of TensorOpera AI Platform. It should be dev, test or release                                                            |
-| <nobr> `--platform` </nobr> <br/> or `-pf` | The platform name at the TensorOpera AI Platform (options: octopus, parrot, spider, beehive, falcon, launch, default is falcon). |
-
+| Option                                         | Description                                                                                                                     |
+| ---------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| <nobr> `--help` </nobr> <br/> or `-h`          | Show this message and exit.                                                                                                     |
+| <nobr> `--run_id` </nobr> <br/> or `-rid`      | Run id at the ChainOpera AI Platform.                                                                                           |
+| <nobr> `--need_all_logs` </nobr> <br/> or `-a` | boolean value representing if all logs are needed. Defaults to `true`.                                                          |
+| <nobr> `--page_num` </nobr> <br/> or `-pn`     | request page num for logs. --need_all_logs should be set to `false` if you want to use this option.                             |
+| <nobr> `--page_size` </nobr> <br/> or `-ps`    | request page size for logs, --need_all_logs should be set to `false` if you want to use this option.                            |
+| <nobr> `--api_key` </nobr> <br/> or `-k`       | The user API key.                                                                                                               |
+| <nobr> `--version` </nobr> <br/> or `-v`       | Version of ChainOpera AI Platform. It should be dev, test or release                                                            |
+| <nobr> `--platform` </nobr> <br/> or `-pf`     | The platform name at the ChainOpera AI Platform (options: octopus, parrot, spider, beehive, falcon, launch, default is falcon). |
 
 #### Example
 

@@ -7,6 +7,7 @@ sidebar_position: 6
 ### `fedml.log()`
 
 **Usage**
+
 ```py
 fedml.log(
     metrics: dict,
@@ -16,6 +17,7 @@ fedml.log(
 ```
 
 **Arguments**
+
 - `metrics (dict)`: A dictionary object for metrics, e.g., {"accuracy": 0.3, "loss": 2.0}.
 - `step (int=None)`: Set the index for current metric. If this value is `None`, then step will be the current global step counter.
 - `customized_step_key (str=None)`: Specify the customized step key, which must be one of the keys in the metrics dictionary.
@@ -24,10 +26,10 @@ fedml.log(
 **Returns**  
 `None`
 
-log dictionary of metric data to the TensorOpera AI Platform.
-
+log dictionary of metric data to the ChainOpera AI Platform.
 
 **Examples**
+
 ```py
 fedml.log({"ACC": 0.1})
 fedml.log({"acc": 0.11})
@@ -40,10 +42,10 @@ fedml.log({"loss": 0.33}, customized_step_key="x_index", commit=False)
 fedml.log({"acc": 0.34}, step=4, customized_step_key="x_index", commit=True)
 ```
 
-
 ### `fedml.log_artifact()`
 
 **Usage**
+
 ```py
 fedml.log_artifact(
     artifact: Artifact,
@@ -53,18 +55,19 @@ fedml.log_artifact(
 ```
 
 **Arguments**
+
 - `artifact (Artifact)`: An artifact object, e.g., file, log, model, etc.
-- `version (str=None)`: The version of TensorOpera AI Platform, options: dev, test, release. Default is release (fedml.ai).
+- `version (str=None)`: The version of ChainOpera AI Platform, options: dev, test, release. Default is release (fedml.ai).
 - `run_id (str=None)`: Run id for the artifact object. Default is `None`, which will be filled automatically.
 - `edge_id (str=None)`: Edge id for current device. Default is `None`, which will be filled automatically.
 
 **Returns**  
 `None`
 
-log artifacts to the TensorOpera AI Platform (fedml.ai), such as file, log, model, etc.
-
+log artifacts to the ChainOpera AI Platform (fedml.ai), such as file, log, model, etc.
 
 **Examples**
+
 ```py
 artifact = fedml.Artifact(name="general-file", type=fedml.ARTIFACT_TYPE_NAME_GENERAL)
 artifact.add_file("./requirements.txt")
@@ -95,25 +98,27 @@ fedml.log_artifact(artifact)
 ### `fedml.log_model()`
 
 **Usage**
+
 ```py
 fedml.log_model(
-    model_name, 
-    model_file_path, 
+    model_name,
+    model_file_path,
     version=None) -> None
 ```
 
 **Arguments**
+
 - `model_name (str)`: model name.
 - `model_file_path (str)`: The file path of model name.
-- `version (str=None)`: The version of TensorOpera AI Platform, options: dev, test, release. Default is release (fedml.ai).
+- `version (str=None)`: The version of ChainOpera AI Platform, options: dev, test, release. Default is release (fedml.ai).
 
 **Returns**  
 `None`
 
-log model to the TensorOpera AI Platform (fedml.ai).
-
+log model to the ChainOpera AI Platform (fedml.ai).
 
 **Examples**
+
 ```py
 fedml.log_model("cv-model", "./cv-model.bin")
 ```

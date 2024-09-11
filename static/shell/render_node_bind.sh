@@ -55,4 +55,4 @@ cd ..
 # Removing the tmp folder and its contents
 rm -rf "$tmp_folder"
 
-echo -e "\033[1;35m🚀 Your node was successfully binded to TensorOpera Platform!\033[0m"
+echo -e "\033[1;35m🚀 Your node was successfully binded to ChainOpera Platform!\033[0m"

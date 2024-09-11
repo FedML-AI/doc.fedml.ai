@@ -1,7 +1,9 @@
 ---
 sidebar_position: 10
 ---
-# TensorOpera Model CLI Overview
+
+# ChainOpera Model CLI Overview
+
 ```
 Usage: fedml model [OPTIONS] COMMAND [ARGS]...
 
@@ -19,4 +21,4 @@ Commands:
   package  Pakcage a local or remote model card.
 ```
 
-A specific cli list and explanation can be found at [TensorOpera model cli](../open-source/cli/fedml-model.md).
+A specific cli list and explanation can be found at [ChainOpera model cli](../open-source/cli/fedml-model.md).

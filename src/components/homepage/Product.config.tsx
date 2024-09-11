@@ -11,10 +11,10 @@ export type Product = {
   text: (() => React.JSX.Element) | string | React.JSX.Element;
 };
 
-
 export const LAUNCH_PRODUCT: Product[] = [
   {
-    title: 'TensorOpera®Launch: Run Any Job on GPU Marketplace or On-Premise Cluster',
+    title:
+      'ChainOpera®Launch: Run Any Job on GPU Marketplace or On-Premise Cluster',
     link: '/launch',
     icon: () => <Icon icon="bi:gpu-card" />,
     lightImage: '/img/landing-page/hero/video-graphic.png',
@@ -32,16 +32,19 @@ export const LAUNCH_PRODUCT: Product[] = [
             and/or decentralized GPU cloud
           </li>
           <li>Offering lower prices, higher GPU availability</li>
-          <li>Support TensorOpera® Train, TensorOpera® Serve, TensorOpera® Federate</li>
+          <li>
+            Support ChainOpera® Train, ChainOpera® Serve, ChainOpera®
+            Federate
+          </li>
         </ul>
       </>
     ),
-  }
+  },
 ];
 
 export const MLOPS_PRODUCTS: Product[] = [
   {
-    title: 'TensorOpera AI',
+    title: 'ChainOpera AI',
     beta: true,
     link: '/platform',
     icon: () => <Icon icon="carbon:ibm-watson-studio" />,
@@ -50,7 +53,7 @@ export const MLOPS_PRODUCTS: Product[] = [
     text: 'The dedicated cloud platform for next-gen AI/ML development and operations',
   },
   {
-    title: 'TensorOpera® Open Source',
+    title: 'ChainOpera® Open Source',
     beta: true,
     link: '/open-source',
     icon: () => <Icon icon="carbon:ibm-watson-studio" />,
@@ -94,7 +97,7 @@ export const COMPUTE_FRAMEWORK: Product[] = [
         </ul>
       </>
     ),
-    // text: '- TensorOpera® Serve is a model serving platform for high scalability and low latency.',
+    // text: '- ChainOpera® Serve is a model serving platform for high scalability and low latency.',
   },
   {
     title: 'Federate',
@@ -117,7 +120,7 @@ export const COMPUTE_FRAMEWORK: Product[] = [
 
 export const IaaS: Product[] = [
   {
-    title: 'TensorOpera®Launch: Distributed GPU Cloud',
+    title: 'ChainOpera®Launch: Distributed GPU Cloud',
     // TODO: Supplement with the correct documentation links
     link: '/platform/todo',
     icon: () => <Icon icon="bi:gpu-card" />,
@@ -136,7 +139,10 @@ export const IaaS: Product[] = [
             and/or decentralized GPU cloud
           </li>
           <li>Offering lower prices, higher GPU availability</li>
-          <li>Support TensorOpera® Train, TensorOpera® Serve, TensorOpera® Federate</li>
+          <li>
+            Support ChainOpera® Train, ChainOpera® Serve, ChainOpera®
+            Federate
+          </li>
         </ul>
       </>
     ),

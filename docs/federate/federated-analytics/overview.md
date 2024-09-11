@@ -2,7 +2,6 @@
 sidebar_position: 5
 ---
 
-
 # Overview
 
 Federated analytics (FA) is a privacy-preserving framework
@@ -27,7 +26,6 @@ discuss various existing solutions and potential use case applications for diffe
 }
 ```
 
-
-TensorOpera®Federate Federated analytics (FA) is the industrial grade library of cross-silo federated analytics for cross-organization/account analytics. 
+ChainOpera®Federate Federated analytics (FA) is the industrial grade library of cross-silo federated analytics for cross-organization/account analytics.
 Researchers and engineers do not need to maintain the complex geo-distributed clusters.
-Essentially, Our MLOps can seamlessly migrate the local development to the real-world edge-cloud deployment without code changes. 
+Essentially, Our MLOps can seamlessly migrate the local development to the real-world edge-cloud deployment without code changes.

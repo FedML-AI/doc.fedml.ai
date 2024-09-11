@@ -1,8 +1,8 @@
 {
-  "label": "Spotlight Projects on TensorOpera",
+  "label": "Spotlight Projects on ChainOpera",
   "position": 5,
   "link": {
     "type": "generated-index",
-    "description": "The TensorOpera Spotlight Projects are a curated collection of projects that demonstrate the capabilities of the TensorOpera platform."
+    "description": "The ChainOpera Spotlight Projects are a curated collection of projects that demonstrate the capabilities of the ChainOpera platform."
   }
 }

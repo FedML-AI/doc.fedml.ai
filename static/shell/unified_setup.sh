@@ -196,7 +196,7 @@ verify_installation(){
 # Function to install and set up a SSH reverse proxy
 install_sshproxy() {
     # get script from repo and run
-    curl https://raw.githubusercontent.com/TensorOpera-Inc/sshproxy/master/setup/install.sh -o /tmp/install_sshproxy.sh
+    curl https://raw.githubusercontent.com/ChainOpera-Inc/sshproxy/master/setup/install.sh -o /tmp/install_sshproxy.sh
     chmod +x /tmp/install_sshproxy.sh
     sudo /tmp/install_sshproxy.sh
     rm /tmp/install_sshproxy.sh

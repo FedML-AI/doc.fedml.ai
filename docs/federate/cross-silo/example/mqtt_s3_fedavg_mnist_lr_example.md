@@ -32,7 +32,6 @@ if __name__ == "__main__":
 
 `run_client.sh`
 
-
 ```shell
 #!/usr/bin/env bash
 RANK=$1
@@ -51,15 +50,19 @@ if __name__ == "__main__":
 At the client side, the client ID (a.k.a rank) starts from 1. Please also modify config/fedml_config.yaml, changing the `worker_num` the as the number of clients you plan to run.
 
 At the server side, run the following script:
+
 ```
 bash run_server.sh
 ```
 
 For client 1, run the following script:
+
 ```
 bash run_client.sh 1
 ```
+
 For client 2, run the following script:
+
 ```
 bash run_client.sh 2
 ```
@@ -70,23 +73,23 @@ Here `common_args.training_type` is "cross_silo" type, and `train_args.client_id
 
 ```yaml
 common_args:
-  training_type: "cross_silo"
+  training_type: 'cross_silo'
   random_seed: 0
 
 data_args:
-  dataset: "mnist"
-  data_cache_dir: "./../../../data"
-  partition_method: "hetero"
+  dataset: 'mnist'
+  data_cache_dir: './../../../data'
+  partition_method: 'hetero'
   partition_alpha: 0.5
 
 model_args:
-  model: "lr"
-  model_file_cache_folder: "./model_file_cache" # will be filled by the server automatically
-  global_model_file_path: "./model_file_cache/global_model.pt"
+  model: 'lr'
+  model_file_cache_folder: './model_file_cache' # will be filled by the server automatically
+  global_model_file_path: './model_file_cache/global_model.pt'
 
 train_args:
-  federated_optimizer: "FedAvg"
-  client_id_list: 
+  federated_optimizer: 'FedAvg'
+  client_id_list:
   client_num_in_total: 1000
   client_num_per_round: 2
   comm_round: 50
@@ -106,7 +109,7 @@ device_args:
   gpu_mapping_key: mapping_default
 
 comm_args:
-  backend: "MQTT_S3"
+  backend: 'MQTT_S3'
   mqtt_config_path: config/mqtt_config.yaml
   s3_config_path: config/s3_config.yaml
   # If you want to use your customized MQTT or s3 server as training backends, you should uncomment and set the following lines.
@@ -151,7 +154,6 @@ FedML-Client(1) @device-id-1 - Wed, 27 Apr 2022 03:38:47 mlops_metrics.py[line:8
 
 At the end of the 50th training round, the client2 window will see the following output:
 
-
 ```shell
 FedML-Client(2) @device-id-1 - Wed, 27 Apr 2022 03:38:58 fedml_client_manager.py[line:145] INFO #######training########### round_id = 50
 [2022-04-27 03:38:58,128] [INFO] [my_model_trainer_classification.py:56:train] Update Epoch: 0 [10/20 (50%)]    Loss: 1.984373
@@ -190,12 +192,11 @@ if __name__ == "__main__":
     client.run()
 ```
 
-## Custom data and model 
+## Custom data and model
 
 The custom data and model example locates at the following folder:
 
 `python/examples/cross_silo/mqtt_s3_fedavg_mnist_lr_example/custum_data_and_model`
-
 
 ```python
 def load_data(args):
@@ -221,7 +222,7 @@ def load_data(args):
         test_path=args.data_cache_dir + "MNIST/test",
     )
     """
-    For shallow NN or linear models, 
+    For shallow NN or linear models,
     we uniformly sample a fraction of clients each round (as the original FedAvg paper)
     """
     args.client_num_in_total = client_num
@@ -248,8 +249,6 @@ class LogisticRegression(torch.nn.Module):
         return outputs
 ```
 
-
-
 ```python
 if __name__ == "__main__":
     # init FedML framework
@@ -269,10 +268,11 @@ if __name__ == "__main__":
     client.run()
 ```
 
+## A Better User-experience with ChainOpera AI (fedml.ai)
 
-## A Better User-experience with TensorOpera AI (fedml.ai)
 To reduce the difficulty and complexity of these CLI commands. We recommend you to use our MLOps (fedml.ai).
-TensorOpera AI provides:
+ChainOpera AI provides:
+
 - Install Client Agent and Login
 - Inviting Collaborators and group management
 - Project Management

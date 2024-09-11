@@ -5,13 +5,15 @@ sidebar_position: 1
 # Launch on Real-time Matching Cloud GPUs (Uber Mode)
 
 ## 1. Set up the fedml library
-Install Python library for interacting with TensorOpera® Launch APIs.
+
+Install Python library for interacting with ChainOpera® Launch APIs.
 
 ```bash
 pip install fedml
 ```
 
 ## 2. Create `job.yaml` file
+
 Before launch any job, at first, you need to define your job properties in the job yaml file, e.g. workspace, job, bootstrap, etc.
 
 :::tip Tip
@@ -23,7 +25,7 @@ Below is an example of job yaml file:
 ```yaml title="job.yaml"
 fedml_env:
   project_name: my-project
-  
+
 # Local directory where your source code resides.
 # It should be the relative path to this job yaml file.
 # If your job doesn't contain any source code, it can be empty.
@@ -35,24 +37,22 @@ bootstrap: |
   pip install -r requirements.txt
   echo "Bootstrap finished."
 
-
 # Running entry commands which will be executed as the job entry point.
 # If an error occurs, you should exit with a non-zero code, e.g. exit 1.
 # Otherwise, you should exit with a zero code, e.g. exit 0.
 # Support multiple lines, which can not be empty.
 job: |
-    echo "Hello, Here is the launch platform."
-    echo "Current directory is as follows."
-    pwd
-    python hello_world.py
-  
+  echo "Hello, Here is the launch platform."
+  echo "Current directory is as follows."
+  pwd
+  python hello_world.py
 
 computing:
-  minimum_num_gpus: 1      # minimum # of GPUs to provision
+  minimum_num_gpus: 1 # minimum # of GPUs to provision
   # max cost per hour of all machines for your job.
   # E.g., if your job are assigned 2 x A100 nodes (8 GPUs), each GPU cost $1/GPU/Hour, "maximum_cost_per_hour" = 16 * $1 = $16
   maximum_cost_per_hour: $1.75
-  resource_type: A100-80G       # e.g., A100-80G, please check the resource type list by "fedml show-resource-type" or visiting URL: https://tensoropera.ai/accelerator_resource_type
+  resource_type: A100-80G # e.g., A100-80G, please check the resource type list by "fedml show-resource-type" or visiting URL: https://tensoropera.ai/accelerator_resource_type
 ```
 
 =======
@@ -60,6 +60,7 @@ For more details and properties about the job yaml file, please refer to [job ya
 
 :::tip Tip
 Directory structure of `hello_world` example
+
 ```
 tree -l
 
@@ -68,26 +69,24 @@ tree -l
 |  ├── hello_world.py
 ├── job.yaml
 ```
+
 :::
 
-
 ## 3. Launch a job
+
 Launch a job to the GPU Cloud.
 
 ```bash
 fedml launch /path/to/job.yaml
 ```
 
+> **_NOTE:_** Note that you might be prompted for **API_KEY** the first time you run the command. Please get this key from your account on ChainOpera® AI Platform. You can also specify the API_KEY with the `-k` option.
 
-> **_NOTE:_** Note that you might be prompted for **API_KEY** the first time you run the command. Please get this key from your account on TensorOpera® AI Platform. You can also specify the API_KEY with the `-k` option.
-
-
-After the launch CLI is executed, you will get the following output prompting for confirmation of resources: 
-
+After the launch CLI is executed, you will get the following output prompting for confirmation of resources:
 
 ```
 ❯ fedml launch job.yaml -v
-Submitting your job to TensorOpera AI Platform: 100%|█████████████████████████████| 2.92k/2.92k [00:00<00:00, 16.7kB/s]
+Submitting your job to ChainOpera AI Platform: 100%|█████████████████████████████| 2.92k/2.92k [00:00<00:00, 16.7kB/s]
 
 Searched and matched the following GPU resource for your job:
 +-----------+-------------------+---------+------------+-------------------------+---------+------+----------+
@@ -118,6 +117,7 @@ fedml run logs -rid 1717260771043446784
 ```
 
 ## 4. Realtime status of your run
+
 You can query the realtime status of your run with the following command.
 
 ```bash
@@ -126,9 +126,9 @@ fedml run logs -rid <run_id>
 
 More run management CLIs can be found [here](/open-source/cli/fedml-run)
 
-## 5. You can also view the details of run on the TensorOpera® AI platform:
+## 5. You can also view the details of run on the ChainOpera® AI platform:
 
-Log into to the TensorOpera® AI Platform (https://tensoropera.ai) and go to `Train > Projects (my_project)`
+Log into to the ChainOpera® AI Platform (https://tensoropera.ai) and go to `Train > Projects (my_project)`
 Select the run you just launched and click on it to view the details of the run.
 
 ![Train > Projects (my_project)](static/image/train_project_my_project.png)
@@ -138,7 +138,7 @@ Alternatively, you can also go to `Train / Runs` to find all of your runs scatte
 ![Train / Runs](static/image/train_runs.png)
 
 :::tip Tip
-The url link to TensorOpera® AI Platform for your run is printed in the output of the launch command for quick reference.
+The url link to ChainOpera® AI Platform for your run is printed in the output of the launch command for quick reference.
 
 ```bash
 You can track your run details at this URL:
@@ -147,6 +147,7 @@ https://tensoropera.ai/train/project/run?projectId=1717259066058870784&runId=171
 For querying the realtime status of your run, please run the following command.
 fedml run logs -rid 1717260771043446784
 ```
+
 This is the quickest, one-click way to go to your run UI.
 :::
 

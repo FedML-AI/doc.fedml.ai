@@ -2,10 +2,9 @@
 sidebar_position: 2
 ---
 
-# FedML Octopus - Example with attack + MNIST + Logistic Regression 
+# FedML Octopus - Example with attack + MNIST + Logistic Regression
 
 This example illustrates how to add attacks on cross-silo federated learning with FedML Octopus. The source code locates at [https://github.com/FedML-AI/FedML/tree/master/python/examples/cross_silo/mqtt_s3_fedavg_attack_mnist_lr_example](https://github.com/FedML-AI/FedML/tree/master/python/examples/cross_silo/mqtt_s3_fedavg_attack_mnist_lr_example). We use Byzantine attack for example.
-
 
 > **If you have multiple nodes, you should run the client script on each node**
 
@@ -35,7 +34,6 @@ if __name__ == "__main__":
 
 `run_client.sh`
 
-
 ```shell
 #!/usr/bin/env bash
 RANK=$1
@@ -54,28 +52,34 @@ if __name__ == "__main__":
 At the client side, the client ID (a.k.a rank) starts from 1. Please also modify config/fedml_config.yaml, changing the `worker_num` the as the number of clients you plan to run.
 
 At the server side, run the following script:
+
 ```
 bash run_server.sh
 ```
 
 For client 1, run the following script:
+
 ```
 bash run_client.sh 1
 ```
+
 For client 2, run the following script:
+
 ```
 bash run_client.sh 2
 ```
+
 For client 3, run the following script:
+
 ```
 bash run_client.sh 3
 ```
+
 For client 4, run the following script:
+
 ```
 bash run_client.sh 4
 ```
-
-
 
 `config/fedml_config.yaml` is shown below.
 
@@ -83,8 +87,8 @@ Here `common_args.training_type` is "cross_silo" type, and `train_args.client_id
 
 ```yaml
 common_args:
-  training_type: "cross_silo"
-  scenario: "horizontal"
+  training_type: 'cross_silo'
+  scenario: 'horizontal'
   using_mlops: false
   random_seed: 0
   config_version: release
@@ -93,18 +97,18 @@ environment_args:
   bootstrap: config/bootstrap.sh
 
 data_args:
-  dataset: "mnist"
+  dataset: 'mnist'
   data_cache_dir: ~/fedml_data
-  partition_method: "hetero"
+  partition_method: 'hetero'
   partition_alpha: 0.5
 
 model_args:
-  model: "lr"
-  model_file_cache_folder: "./model_file_cache" # will be filled by the server automatically
-  global_model_file_path: "./model_file_cache/global_model.pt"
+  model: 'lr'
+  model_file_cache_folder: './model_file_cache' # will be filled by the server automatically
+  global_model_file_path: './model_file_cache/global_model.pt'
 
 train_args:
-  federated_optimizer: "FedAvg"
+  federated_optimizer: 'FedAvg'
   # for CLI running, this can be None; in MLOps deployment, `client_id_list` will be replaced with real-time selected devices
   client_id_list:
   client_num_in_total: 4
@@ -125,13 +129,13 @@ device_args:
   gpu_mapping_key: mapping_default
 
 comm_args:
-  backend: "MQTT_S3"
+  backend: 'MQTT_S3'
   mqtt_config_path:
   s3_config_path:
   grpc_ipconfig_path: ./config/grpc_ipconfig.csv
 
 tracking_args:
-   # When running on MLOps platform(fedml.ai), the default log path is at ~/fedml-client/fedml/logs/ and ~/fedml-server/fedml/logs/
+  # When running on MLOps platform(fedml.ai), the default log path is at ~/fedml-client/fedml/logs/ and ~/fedml-server/fedml/logs/
   enable_wandb: false
   wandb_key: ee0b5f53d949c84cee7decbe7a629e63fb2f8408
   wandb_project: fedml
@@ -165,9 +169,7 @@ At the end of training, the server window will see the following output:
 [FedML-Server(0) @device-id-0] [Sat, 27 Aug 2022 23:23:51] [INFO] [fedml_comm_manager.py:28:run] finished...
 ```
 
-
 At the end of training, client 1 window will see the following output:
-
 
 ```shell
 [FedML-Client(1) @device-id-1] [Sat, 27 Aug 2022 23:23:51] [INFO] [mqtt_s3_multi_clients_comm_manager.py:191:_on_message_impl] mqtt_s3.on_message: use s3 pack, s3 message key fedml_123_0_1_d7361ad6-a063-48be-b08a-ef0aa3f9ba48
@@ -219,7 +221,6 @@ At the end of training, client 3 window will see the following output:
 
 ```
 
-
 At the end of training, client 4 window will see the following output:
 
 ```shell
@@ -263,12 +264,11 @@ if __name__ == "__main__":
     client.run()
 ```
 
-## Custom data and model 
+## Custom data and model
 
 The custom data and model example locates at the following folder:
 
 `python/examples/cross_silo/mqtt_s3_fedavg_attack_mnist_lr_example/custum_data_and_model`
-
 
 ```python
 def load_data(args):
@@ -294,7 +294,7 @@ def load_data(args):
         test_path=args.data_cache_dir + "MNIST/test",
     )
     """
-    For shallow NN or linear models, 
+    For shallow NN or linear models,
     we uniformly sample a fraction of clients each round (as the original FedAvg paper)
     """
     args.client_num_in_total = client_num
@@ -321,8 +321,6 @@ class LogisticRegression(torch.nn.Module):
         return outputs
 ```
 
-
-
 ```python
 if __name__ == "__main__":
     # init FedML framework
@@ -342,10 +340,11 @@ if __name__ == "__main__":
     client.run()
 ```
 
+## A Better User-experience with ChainOpera AI (fedml.ai)
 
-## A Better User-experience with TensorOpera AI (fedml.ai)
 To reduce the difficulty and complexity of these CLI commands. We recommend you to use our MLOps (fedml.ai).
-TensorOpera AI provides:
+ChainOpera AI provides:
+
 - Install Client Agent and Login
 - Inviting Collaborators and group management
 - Project Management

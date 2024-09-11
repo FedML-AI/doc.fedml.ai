@@ -9,7 +9,6 @@ sidebar_position: 1
 ### Log into the platform, head to the `Compute / My Servers` Page and copy the fedml login command:
 
 ![OnPremDevices.jpg](static/image/bind_my_servers.png)
- 
 
 ### SSH into your on-prem devices and do the following individually for each device:
 
@@ -25,7 +24,7 @@ Run the login command copied from the platform:
 fedml login 3b24dd2f****************206e8669
 ```
 
-It should something similar as below: 
+It should something similar as below:
 
 ```bash
 (fedml) alay@a6000:~$ fedml login 3b24dd2f9b3e478084c517bc206e8669 -v dev
@@ -46,16 +45,15 @@ Requirement already satisfied: numpy>=1.21 in ./.pyenv/versions/fedml/lib/python
 .
 .
 
-Congratulations, your device is connected to the TensorOpera AI platform successfully!
+Congratulations, your device is connected to the ChainOpera AI platform successfully!
 Your FedML Edge ID is 201610, unique device ID is 0xffdc89fad658@Linux.Edge.Device
 ```
 
-Head back to the `Compute / My Servers` page on platform and verify that the devices are bounded to the TensorOpera® AI Platform:
+Head back to the `Compute / My Servers` page on platform and verify that the devices are bounded to the ChainOpera® AI Platform:
 
 ![OnPremDevicesBind.png](static/image/binded_servers.png)
 
-
-## 2: Create a cluster of your servers bounded to the TensorOpera® AI Platform:
+## 2: Create a cluster of your servers bounded to the ChainOpera® AI Platform:
 
 Navigate to the `Compute / Create Clusters` page and create a cluster of your servers:
 
@@ -65,14 +63,13 @@ All your created clusters will be listed on the `Compute / My Clusters` page:
 
 ![OnPremClusterList.png](static/image/my_clusters.png)
 
-
 ## 3. Set up the fedml library
-Install Python library for interacting with TensorOpera® Launch APIs.
+
+Install Python library for interacting with ChainOpera® Launch APIs.
 
 ```bash
 pip install fedml
 ```
-
 
 ## 4. Create `job.yaml` file
 
@@ -112,20 +109,18 @@ bootstrap: |
   pip install -r requirements.txt
   echo "Bootstrap finished."
 
-
 # Running entry commands which will be executed as the job entry point.
 # If an error occurs, you should exit with a non-zero code, e.g. exit 1.
 # Otherwise, you should exit with a zero code, e.g. exit 0.
 # Support multiple lines, which can not be empty.
 job: |
-    echo "Hello, Here is the launch platform."
-    echo "Current directory is as follows."
-    pwd
-    python hello_world.py  
+  echo "Hello, Here is the launch platform."
+  echo "Current directory is as follows."
+  pwd
+  python hello_world.py
 ```
 
 For more details and properties about the job yaml file, please refer to [job yaml file](../yaml).
-
 
 ## 5. Launch the job on your cluster:
 
@@ -141,18 +136,6 @@ For our example, the command and respective output would be as follows:
 fedml launch job.yaml -c hello-world
 ```
 
-
 # 6. Run concurrent jobs on cluster.
+
 You can run as many consequent jobs as you like on your cluster now. It will queue the jobs and by default run in the order of submission.
-
-
-
-
-
-
-
-
-
-
-
-

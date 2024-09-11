@@ -5,6 +5,7 @@ sidebar_position: 4
 # Pre-built Jobs and Examples
 
 ## Examples
+
 We provide examples at https://github.com/FedML-AI/FedML/blob/master/python/examples/README.md to cover following use cases:
 
 1. Multiple scenarios: Cross-silo Federated Learning; Cross-device Federated Learning; FL Simulation with Single Process or Distributed Computing.
@@ -12,14 +13,16 @@ We provide examples at https://github.com/FedML-AI/FedML/blob/master/python/exam
 2. Support any machine learning framework: PyTorch, TensorFlow, JAX with Haiku, and MXNet.
 
 3. Diverse communication backends (MPI, gRPC, PyTorch RPC, MQTT + S3)
-Secure Aggregation (multi-party computation): cross_silo/light_sec_agg_example
+   Secure Aggregation (multi-party computation): cross_silo/light_sec_agg_example
 
 ## Pre-built Jobs
-The TensorOperaFederate Pre-built Job facilitates federated learning research and productization in diverse application domains. With the foundational support from FedML Core Framework, it supports FedNLP (Natural Language Processing), FedCV (Computer Vision), FedGraphNN (Graph Neural Networks), and FedIoT (Internet of Things).
+
+The ChainOperaFederate Pre-built Job facilitates federated learning research and productization in diverse application domains. With the foundational support from FedML Core Framework, it supports FedNLP (Natural Language Processing), FedCV (Computer Vision), FedGraphNN (Graph Neural Networks), and FedIoT (Internet of Things).
 
 The source code of these pre-built jobs (applications for federated learning) are maintained at https://github.com/FedML-AI/FedML/tree/master/python/examples/federate/prebuilt_jobs/
 
 ### FedNLP: Benchmarking Federated Learning Methods for Natural Language Processing Tasks
+
 Arxiv: [https://arxiv.org/pdf/2104.08815.pdf](https://arxiv.org/pdf/2104.08815.pdf)
 
 Published at NAACL 2022.
@@ -42,8 +45,8 @@ future research aimed at developing FL methods for NLP tasks.
 
 ![./_static/image/fednlp.png](./_static/image/fednlp.png)
 
-
 ### FedGraphNN: A Federated Learning Benchmark System for Graph Neural Networks
+
 Arxiv: [https://arxiv.org/pdf/2111.11066.pdf](https://arxiv.org/pdf/2111.11066.pdf)
 
 Published at ICLR'21-DPML and MLSys'21-GNNSys workshops
@@ -60,14 +63,14 @@ empirical analysis showcases the utility of our benchmark system, while exposing
 datasets with a non-IID split than centralized GNNs; the GNN model that attains the best result in the centralized setting may not maintain its advantage
 in the FL setting. These results imply that more research efforts are needed
 to unravel the mystery behind federated GNNs. Moreover, our system performance analysis demonstrates that the FedGraphNN system is computationally
-efficient and secure to large-scale graphs datasets. 
+efficient and secure to large-scale graphs datasets.
 
 <img src="./_static/image/fedgraphnn.png" alt="drawing"/>
 
 ![FedGraphNN](./_static/image/fedgraphnn.png)
 
-
 ### FedCV: A Federated Learning Framework for Diverse Computer Vision Tasks
+
 Arxiv: [https://arxiv.org/pdf/2104.07145.pdf](https://arxiv.org/pdf/2104.07145.pdf)
 
 Published at FL-AAAI’2022
@@ -97,6 +100,7 @@ FL on computer vision tasks
 ![FedCV](./_static/image/fedcv.png)
 
 ### FedIoT: Federated Learning for Internet of Things
+
 Arxiv: [https://arxiv.org/pdf/2106.07976.pdf](https://arxiv.org/pdf/2106.07976.pdf)
 
 Published at ACM Sensys’21

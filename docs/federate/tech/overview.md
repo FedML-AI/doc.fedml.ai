@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Overview
 
-TensorOpera® FedML's core technology is backed by years of cutting-edge research represented in 50+ publications in ML/FL Algorithms, Security/Privacy, Systems, and Applications, as well as 10 years of industrial experience in Distributed Systems, Cloud Computing, and Mobile/IoT Systems.
+ChainOpera® FedML's core technology is backed by years of cutting-edge research represented in 50+ publications in ML/FL Algorithms, Security/Privacy, Systems, and Applications, as well as 10 years of industrial experience in Distributed Systems, Cloud Computing, and Mobile/IoT Systems.
 
 ## 1. A Full-stack of Scientific Publications in ML Algorithms, Security/Privacy, Systems, Applications, and Visionary Impacts
 
@@ -20,7 +20,6 @@ TensorOpera® FedML's core technology is backed by years of cutting-edge researc
 
 Please check out [this publication list](./papers.md) for details.
 
-
 ## 2. Industrial-level System Design and Optimization
 
 ![overview architecture](./../_static/image/fedml.png)
@@ -35,4 +34,3 @@ MLOps platform further reuses the source code of the open-source library (the gr
 
 ![MLOps Overview](./../_static/image/mlops0.png)
 ![MLOps Overview](./../_static/image/mlops_ui2.png)
-

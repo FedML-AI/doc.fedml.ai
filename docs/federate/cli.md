@@ -5,6 +5,7 @@ sidebar_position: 99
 # Command Line Interfaces (CLIs)
 
 ## Overview
+
 ```shell
 # log in to the MLOps Platform
 fedml login
@@ -16,7 +17,7 @@ fedml build
 fedml logout
 
 # Display logs during training
-fedml logs 
+fedml logs
 
 # Display FedML environment
 fedml env
@@ -26,45 +27,51 @@ fedml version
 
 ```
 
-## 1. Login to the TensorOpera AI platform (fedml.ai)
+## 1. Login to the ChainOpera AI platform (fedml.ai)
+
 login as client with local pip mode:
+
 ```
 fedml login userid(or API Key)
 ```
 
 login as client with docker mode:
+
 ```
 fedml login userid(or API Key) --docker --docker-rank rank_index
 ```
 
 login as edge server with local pip mode:
+
 ```
 fedml login userid(or API Key) -s
 ```
 
 login as edge simulator with local pip mode:
+
 ```
 fedml login userid(or API Key) -c -r edge_simulator
 ```
 
 login as edge server with docker mode:
+
 ```
 fedml login userid(or API Key) -s --docker --docker-rank rank_index
 ```
 
-### 1.1. Examples for Logging in to the TensorOpera AI platform (fedml.ai)
+### 1.1. Examples for Logging in to the ChainOpera AI platform (fedml.ai)
 
 ```
-fedml login 90 
-Notes: this will login the production environment for TensorOpera AI platform 
+fedml login 90
+Notes: this will login the production environment for ChainOpera AI platform
 ```
 
 ```
 fedml login 90 --docker --docker-rank 1
-Notes: this will login the production environment with docker mode for TensorOpera AI platform
+Notes: this will login the production environment with docker mode for ChainOpera AI platform
 ```
 
-## 2. Build the client and server package in the TensorOpera AI platform (fedml.ai)
+## 2. Build the client and server package in the ChainOpera AI platform (fedml.ai)
 
 ```
 fedml build -t client(or server) -sf source_folder -ep entry_point_file -cf config_folder -df destination_package_folder --ignore ignore_file_and_directory(concat with ,)
@@ -105,61 +112,76 @@ fedml build -t server \
 ```
 
 ## 3. Log out the MLOps platform (fedml.ai)
+
 logout from client with local pip mode:
+
 ```
-fedml logout 
+fedml logout
 ```
 
 logout from client with docker mode:
+
 ```
 fedml logout --docker --docker-rank 1
 ```
 
 logout from edge server with local pip mode:
+
 ```
 fedml logout -s
 ```
 
 logout from edge server with docker mode:
+
 ```
 fedml logout -s --docker --docker-rank 1
 ```
 
 ## 4. Display FedML Environment and Version
+
 ```
 fedml env
 fedml version
 ```
 
 ## 5. Display logs
+
 logs from client with local pip mode:
+
 ```
-fedml logs 
+fedml logs
 ```
 
 logs from client with docker mode:
+
 ```
 fedml logs --docker --docker-rank 1
 ```
 
 logs from edge server with local pip mode:
+
 ```
 fedml logs -s
 ```
 
 logs from edge server with docker mode:
+
 ```
 fedml logs --docker --docker-rank 1
 ```
 
 ## 6. Diagnosis
+
 Diagnosis for connection to https://tensoropera.ai, AWS S3 and MQTT (mqtt.fedml.ai:1883)
+
 ```
 fedml diagnosis --open --s3 --mqtt
 ```
 
 ## 7. Jobs
+
 Start a job at the MLOps platform.
+
 ```
 Usage: fedml jobs start [OPTIONS]
 
@@ -180,7 +202,8 @@ It should be dev, test or release
 --help                         Show this message and exit.
 ```
 
-Example: 
+Example:
+
 ```
 fedml jobs start -pf octopus -prj test-fedml -app test-alex-app -d '[{"serverId":706,"edgeIds":["705"],"account":214}]' -u 214 -k c9356b9c4ce44363bb66366d210301
 ```

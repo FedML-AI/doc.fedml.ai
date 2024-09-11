@@ -1,11 +1,11 @@
 ---
 sidebar_position: 1
-description: TensorOpera provides a set of CLIs to help you develop, launch, train, and deploy your model.
+description: ChainOpera provides a set of CLIs to help you develop, launch, train, and deploy your model.
 ---
 
 # CLI Overview
 
-TensorOpera provides a set of CLIs to help you develop, launch, train, and deploy your model. To get the latest version of the CLI, run `fedml -h` or `fedml --help`:
+ChainOpera provides a set of CLIs to help you develop, launch, train, and deploy your model. To get the latest version of the CLI, run `fedml -h` or `fedml --help`:
 
 ```
 Usage: fedml [OPTIONS] COMMAND [ARGS]...
@@ -14,20 +14,20 @@ Options:
   -h, --help  Show this message and exit.
 
 Commands:
-  login     Login the TensorOpera AI Platform.
-  logout    Logout from the TensorOpera AI Platform.
-  launch    Launch job at the TensorOpera AI platform.
-  cluster   Manage clusters on TensorOpera AI Platform.
-  run       Manage runs on the TensorOpera AI Platform.
-  device    Bind/unbind devices to the TensorOpera AI Platform.
+  login     Login the ChainOpera AI Platform.
+  logout    Logout from the ChainOpera AI Platform.
+  launch    Launch job at the ChainOpera AI platform.
+  cluster   Manage clusters on ChainOpera AI Platform.
+  run       Manage runs on the ChainOpera AI Platform.
+  device    Bind/unbind devices to the ChainOpera AI Platform.
   model     Deploy and infer models.
-  build     Build packages for the TensorOpera AI Platform.
+  build     Build packages for the ChainOpera AI Platform.
   logs      Display logs for ongoing runs.
-  train     Manage training resources on TensorOpera AI Platform.
-  federate  Manage federated learning resources on TensorOpera AI Platform.
+  train     Manage training resources on ChainOpera AI Platform.
+  federate  Manage federated learning resources on ChainOpera AI Platform.
   env       Get environment info such as versions, hardware, and networking.
-  network   Check the TensorOpera AI backend network connectivity.
-  version   Display TensorOpera library version.
+  network   Check the ChainOpera AI backend network connectivity.
+  version   Display ChainOpera library version.
 ```
 
 :::tip

@@ -88,8 +88,8 @@ def main(render_token):
     if is_request_successful(response):
         print(NODE_BIND_SUCCESS_MESSAGE)
     else:
-        print("\033[1;31m\u2717 The attempt to bind the node to the TensorOpera platform has encountered a failure. "
-              "Please retry the binding process from the start, and if the problem persists, reach out to the TensorOpera Team for further assistance.",
+        print("\033[1;31m\u2717 The attempt to bind the node to the ChainOpera platform has encountered a failure. "
+              "Please retry the binding process from the start, and if the problem persists, reach out to the ChainOpera Team for further assistance.",
               response.status_code,
               "\033[0m")
         print("Error message:", response.text)

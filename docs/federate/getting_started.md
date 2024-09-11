@@ -13,11 +13,11 @@ Thank you for visiting! Here is a quick tour of FedML Open Source Library ([http
 The FedML logo reflects the mission of FedML Inc. We aim to build simple and versatile APIs for machine learning running anywhere and at any scale.
 In other words, FedML supports both federated learning for data silos and distributed training for acceleration with MLOps and Open Source support, covering both cutting-edge academia research and industrial grade use cases.
 
-- **TensorOpera Federate Simulation** - Simulating federated learning in the real world: (1) simulate FL using a single process (2) MPI-based FL Simulator (3) NCCL-based FL Simulator (fastest)
-- **TensorOpera Fedeate Cross-silo** - Cross-silo Federated Learning for cross-organization/account training, including Python-based edge SDK.
-- **TensorOpera Federate Smartphones** - Cross-device Federated Learning for Smartphones and IoTs, including edge SDK for Android/iOS and embedded Linux.
+- **ChainOpera Federate Simulation** - Simulating federated learning in the real world: (1) simulate FL using a single process (2) MPI-based FL Simulator (3) NCCL-based FL Simulator (fastest)
+- **ChainOpera Fedeate Cross-silo** - Cross-silo Federated Learning for cross-organization/account training, including Python-based edge SDK.
+- **ChainOpera Federate Smartphones** - Cross-device Federated Learning for Smartphones and IoTs, including edge SDK for Android/iOS and embedded Linux.
 
-- **TensorOpera FedML**: TensorOpera FedML's federated learning operation pipeline for AI running anywhere and at any scale.
+- **ChainOpera FedML**: ChainOpera FedML's federated learning operation pipeline for AI running anywhere and at any scale.
 
 ## **Quick Start for Open Source Library**
 
@@ -70,7 +70,6 @@ Other low-level APIs related to security and privacy are also supported. All alg
 ### Simplified APIs
 
 ![API Overview](./_static/image/apioverview.jpg)
-
 
 Our philosophy behind our API design is to reduce the number of APIs to as few as possible while simultaneously maintaining the flexibility.
 The figure above shows the high-level overview of the API design. Essentially, each module has a package entry point (e.g., fedml.cross-silo) to manage related APIs, and FedML users can wrapper these APIs to meet their specific demands.
@@ -191,8 +190,6 @@ Now let's run some examples to get a sense of how FedML simplifies federated lea
 
 Simulation with a Single Process (Standalone):
 
-
-
 - [sp_fedavg_mnist_lr_example](./simulation/examples/sp_fedavg_mnist_lr_example.md):
   Simulating FL using a single process in your personal laptop or server. This is helpful for researchers hoping to try a quick algorithmic idea in small synthetic datasets (MNIST, shakespeare, etc.) and small models (ResNet-18, Logistic Regression, etc.).
 
@@ -224,9 +221,9 @@ Hierarchical Federated Learning:
 
 [https://tensoropera.ai](https://tensoropera.ai)
 
-Currently, the project developed based on FedML Octopus (cross-silo) and Beehive (cross-device) can be smoothly deployed into the real-world system using TensorOpera AI.
+Currently, the project developed based on FedML Octopus (cross-silo) and Beehive (cross-device) can be smoothly deployed into the real-world system using ChainOpera AI.
 
-The TensorOpera AI Platform simplifies the workflow of federated learning from anywhere and at any scale.
+The ChainOpera AI Platform simplifies the workflow of federated learning from anywhere and at any scale.
 It enables zero-code, lightweight, cross-platform, and provably secure federated learning.
 It enables machine learning from decentralized data at various users/silos/edge nodes, without the need to centralize any data to the cloud, hence providing maximum privacy and efficiency.
 
@@ -238,7 +235,7 @@ The above figure shows the workflow, which is handled by a web UI that avoids us
 
 3-Minute Introduction: [https://www.youtube.com/watch?v=E1k05jd1Tyw](https://www.youtube.com/watch?v=E1k05jd1Tyw)
 
-Detailed guidance for the MLOps can be found at [TensorOpera AI User Guide](./cross-silo/user_guide.md).
+Detailed guidance for the MLOps can be found at [ChainOpera AI User Guide](./cross-silo/user_guide.md).
 
 ## **More Resources**
 
@@ -280,4 +277,3 @@ Please check out [the full publication list](./tech/papers.md) for details.
 - [Distributed ML for Federated Learning feat](https://www.youtube.com/watch?v=AY7pCYTC8pQ). Aiden Chaoyang He. Stanford MLSys Seminar. By Aiden Chaoyang He
 
 - [Contributed Talk for FedML Library](https://www.youtube.com/watch?v=93SETZGZMyI). Best Paper Award at NeurIPS 2020 Federated Learning Workshop. By Aiden Chaoyang He
-

@@ -1,21 +1,21 @@
 ---
 sidebar_position: 4
 ---
+
 # Launch Job - fedml launch
 
 ### `fedml launch [OPTIONS] YAML_FILE`
 
-Launch jobs on the TensorOpera® Launch platform (fedml.ai).
+Launch jobs on the ChainOpera® Launch platform (fedml.ai).
 
 #### Options
 
-| Option        | Description                                                                                                                                                 |
-|---------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| <nobr>`--help`</nobr> <br/> or `-h` | Show this message and exit.                                                                                                                                  |
+| Option                                 | Description                                                                                                                                                  |
+| -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| <nobr>`--help`</nobr> <br/> or `-h`    | Show this message and exit.                                                                                                                                  |
 | <nobr>`--cluster`</nobr> <br/> or `-c` | Please provide a cluster name. If a cluster with that name already exists, it will be used; otherwise, a new cluster with the provided name will be created. |
-| <nobr>`--api_key`</nobr> <br/> or `-k` | The user API key.                                                                                                                                               |
-| <nobr>`--version`</nobr> <br/> or `-v` | The version of the TensorOpera AI Platform. It should be dev, test or release.                                                                                      |
-                                                                                                                                                                                                                                                                                                                    
+| <nobr>`--api_key`</nobr> <br/> or `-k` | The user API key.                                                                                                                                            |
+| <nobr>`--version`</nobr> <br/> or `-v` | The version of the ChainOpera AI Platform. It should be dev, test or release.                                                                                |
 
 #### Notes
 
@@ -68,7 +68,6 @@ server_job: |
     pwd
 ```
 
-
 You just need to customize the following config items:
 
 1. `workspace`, this is the local directory where your source code resides.
@@ -80,22 +79,20 @@ You just need to customize the following config items:
 Then you can use the following example CLI to launch the job at the MLOps platform.
 (Replace `$YourApiKey` with your own account API key from fedml.ai)
 
-#### Example: Launch job on TensorOpera® Launch platform
- 
+#### Example: Launch job on ChainOpera® Launch platform
 
 ```
 fedml launch hello_job.yaml
 ```
 
-:::info 
-Note that you might be prompted for **API_KEY** the first time you run the command. Please get this key from your account on TensorOpera AI Platform. You can also specify the API_KEY with the `-k` option.
+:::info
+Note that you might be prompted for **API_KEY** the first time you run the command. Please get this key from your account on ChainOpera AI Platform. You can also specify the API_KEY with the `-k` option.
 :::
-
 
 After the launch CLI is executed, you will get the following output prompting for confirmation of resources:
 
 ```
-Submitting your job to TensorOpera® Launch platform: 100%|████████████████████████████████████████████████████████████████████████████████████████| 6.07k/6.07k [00:01<00:00, 4.94kB/s]
+Submitting your job to ChainOpera® Launch platform: 100%|████████████████████████████████████████████████████████████████████████████████████████| 6.07k/6.07k [00:01<00:00, 4.94kB/s]
 
 Searched and matched the following GPU resource for your job:
 +-----------+-------------------+---------+------------+-------------------------+---------+-------+----------+
@@ -131,19 +128,18 @@ For querying the realtime status of your run, please run the following command.
 fedml run logs -rid 1716563514434392064
 ```
 
-#### Example: Launch job on a cluster on TensorOpera® Launch platform
+#### Example: Launch job on a cluster on ChainOpera® Launch platform
 
 ```
 fedml launch hello_job.yaml -c demo_cluster
 ```
 
-
-:::info 
+:::info
 Note that if a cluster with provided name already exists, it will be used; otherwise, a new cluster with the provided name will be created.
 :::
 
 ```
-Submitting your job to TensorOpera AI Platform: 100%|██████████████████████████████████████████████████████████████████████████████████████████| 3.48k/3.48k [00:00<00:00, 9.34kB/s]
+Submitting your job to ChainOpera AI Platform: 100%|██████████████████████████████████████████████████████████████████████████████████████████| 3.48k/3.48k [00:00<00:00, 9.34kB/s]
 
 Searched and matched the following GPU resource for your job:
 +-----------+-------------------+---------+------------+-------------------------+---------+-------+----------+

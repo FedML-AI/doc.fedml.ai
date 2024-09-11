@@ -1,6 +1,5 @@
 import React from 'react';
 import Head from '@docusaurus/Head';
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 // import FeatureSection from '@site/src/components/homepage/FeatureSection';
 import HeroSection from '@site/src/components/homepage/HeroSection';

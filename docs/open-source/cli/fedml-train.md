@@ -1,16 +1,18 @@
 ---
 sidebar_position: 8
 ---
+
 # Model Training - fedml train
+
 ### `fedml train build [OPTIONS] [YAML_FILE]`
 
 #### Options {#options-1}
 
-| Name                          | Default | Description                                                                                                                                                                          |
-|-------------------------------|---------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `--dest_folder` or `-d`       | `true`  | The destination package folder path. If this option is not specified, the built packages will be located in a subdirectory named fedml-train-packages in the directory of YAML_FILE. |
+| Name                    | Default | Description                                                                                                                                                                          |
+| ----------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `--dest_folder` or `-d` | `true`  | The destination package folder path. If this option is not specified, the built packages will be located in a subdirectory named fedml-train-packages in the directory of YAML_FILE. |
 
-Here is the command for building TensorOpera® Train packages.
+Here is the command for building ChainOpera® Train packages.
 
 At first, you need to define your job properties in the job yaml file, e.g., workspace, job entry commands.
 
@@ -41,7 +43,7 @@ computing:
   maximum_cost_per_hour: $3000   # max cost per hour for your job per gpu card
   #allow_cross_cloud_resources: true # true, false
   #device_type: CPU              # options: GPU, CPU, hybrid
-  resource_type: A100-80G       # e.g., A100-80G, please check the resource type list by "fedml show-resource-type" or visiting URL: https://TensorOpera.ai/accelerator_resource_type
+  resource_type: A100-80G       # e.g., A100-80G, please check the resource type list by "fedml show-resource-type" or visiting URL: https://ChainOpera.ai/accelerator_resource_type
 
 data_args:
   dataset_name: mnist
@@ -61,6 +63,7 @@ training_params:
 The config items will be mapped to the equivalent environment variables with the following rules.
 
 if the config path for config_sub_key is as follows.
+
 ```
 config_parent_key:
     config_sub_key: config_sub_key_value
@@ -85,12 +88,14 @@ output_dim = $FEDML_ENV_MODEL_ARGS_MODEL_OUTPUT_DIM
 ```
 
 Your may use these environment variables in your job commands. e.g.,
+
 ```
 job: |
     python3 train.py --epochs 1 -m $FEDML_ENV_MODEL_ARGS_MODEL_NAME -mc $FEDML_ENV_MODEL_ARGS_MODEL_CACHE_PATH -mi $FEDML_ENV_MODEL_ARGS_MODEL_INPUT_DIM -mo $FEDML_ENV_MODEL_ARGS_MODEL_OUTPUT_DIM -dn $FEDML_ENV_DATA_ARGS_DATASET_NAME -dt $FEDML_ENV_DATA_ARGS_DATASET_TYPE -dp $FEDML_ENV_DATA_ARGS_DATASET_PATH
 ```
 
 #### Examples {#example-1}
+
 ```
 fedml train build train_job.yaml
 

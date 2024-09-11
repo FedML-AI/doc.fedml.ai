@@ -13,6 +13,7 @@ Remember to change the `FEDML_DOCKER_IMAGE`, `LOCAL_WORKSPACE`, and `DOCKER_WORK
 The FedML standard Docker image supports running on both CPU an GPU devices. The standard image size is about 9.5GB. If you want to run on the MacOS platform, it is recommended to run the Light Docker image which supports multiple architectures.
 
 **(1) Pull image and prepare the environment**
+
 ```
 FEDML_DOCKER_IMAGE=fedml/fedml:latest-torch1.13.1-cuda11.6-cudnn8-devel
 docker pull $FEDML_DOCKER_IMAGE
@@ -26,7 +27,8 @@ sudo chmod 777 /var/run/docker.sock
 
 **(2) Run with interactive mode**
 
-***On GPUs***
+**_On GPUs_**
+
 ```
 FEDML_DOCKER_IMAGE=fedml/fedml:latest-torch1.13.1-cuda11.6-cudnn8-devel
 LOCAL_WORKSPACE=$PleaseUseYourLocalDirectory
@@ -35,7 +37,8 @@ DOCKER_WORKSPACE=/home/fedml/fedml_source
 docker run -v $LOCAL_WORKSPACE:$DOCKER_WORKSPACE --shm-size=64g --ulimit nofile=65535 --ulimit memlock=-1 --privileged --gpus all --network=host --env WORKSPACE=$DOCKER_WORKSPACE -ti $FEDML_DOCKER_IMAGE /bin/bash
 ```
 
-***On CPUs***
+**_On CPUs_**
+
 ```
 FEDML_DOCKER_IMAGE=fedml/fedml:latest-torch1.13.1-cuda11.6-cudnn8-devel
 LOCAL_WORKSPACE=$PleaseUseYourLocalDirectory
@@ -46,13 +49,15 @@ ddocker run -v $LOCAL_WORKSPACE:$DOCKER_WORKSPACE --shm-size=64g --ulimit nofile
 
 **(3) Run examples**
 
-Now, you should now be inside the container. First, you need to log into the MLOps platform. The `USERID` placeholder used below refers to your user id in the TensorOpera AI platform:
+Now, you should now be inside the container. First, you need to log into the MLOps platform. The `USERID` placeholder used below refers to your user id in the ChainOpera AI platform:
+
 ```
 root@142ffce4cdf8:/#
 root@142ffce4cdf8:/# fedml login <USERID>
 ```
 
 Afterwards, enter the `$WORKSPACE` directory which is the `$DOCKER_WORKSPACE` defined earlier when initializing the container and run your own examples:
+
 ```
 root@142ffce4cdf8:/#
 root@142ffce4cdf8:/# cd $WORKSPACE
@@ -70,7 +75,6 @@ On MacOS, you can set the memory size from: DockerDesktop -> Settings (gear icon
 
 :::
 
-
 ```
 FEDML_DOCKER_IMAGE=fedml/fedml:light
 LOCAL_WORKSPACE=$PleaseUseYourLocalDirectory
@@ -80,12 +84,14 @@ docker run -v $LOCAL_WORKSPACE:$DOCKER_WORKSPACE --shm-size=64g --ulimit nofile=
 ```
 
 You should now see a prompt in your terminal, from where you may run the `fedml login $USERID` command to log into the MLOps platform. For instance:
+
 ```
 root@142ffce4cdf8:/#
 root@142ffce4cdf8:/# fedml login 1606
 ```
 
 And also, you may enter into the `$WORKSPACE` host directory, set through the command above `--env WORKSPACE=$DOCKER_WORKSPACE`), to run your own examples:
+
 ```
 root@142ffce4cdf8:/#
 root@142ffce4cdf8:/# cd $WORKSPACE
@@ -121,16 +127,19 @@ After you run the above command, the terminal will print the container id which 
 `b0769135f8e65c5b0b7b7cb9666f3f910a4e431c25084ed72ae059ea1a6376af`
 
 To inspect the logs of the fedml light container, you can run the following command using the above container id:
+
 ```
 docker logs b0769135f8e65c5b0b7b7cb9666f3f910a4e431c25084ed72ae059ea1a6376af
 ```
 
 If you want to list the fedml light containers, you may run the command:
+
 ```
 docker ps | grep fedml:light
 ```
 
 If you want to kill all fedml light containers, execute the following:
+
 ```
 docker stop `docker ps | grep fedml:light | awk -F' ' '{print $1}'`
 ```
@@ -146,6 +155,7 @@ docker stop `docker ps | grep fedml:light | awk -F' ' '{print $1}'`
 [https://code.visualstudio.com/docs/remote/containers](https://www.jetbrains.com/help/pycharm/using-docker-as-a-remote-interpreter.html#summary)
 
 **(5) Other useful commands**
+
 ```
 # docker rm $(docker ps -aq)
 docker container kill $(docker ps -q)

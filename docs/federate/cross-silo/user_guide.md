@@ -4,7 +4,7 @@ sidebar_position: 2
 
 import ReactPlayer from 'react-player'
 
-# Tutorial on TensorOpera AI Platform
+# Tutorial on ChainOpera AI Platform
 
 Video Tutorial:
 <ReactPlayer playing controls url='https://www.youtube.com/watch?v=Xgm0XEaMlVQ' width="100%" height="528px"/>
@@ -13,7 +13,7 @@ Video Tutorial:
 
 **Write Once, Run Anywhere: Seamlessly Migrate Your Local Development to the Real-world Edge-cloud Deployment**
 
-- How Does TensorOpera AI Platform Work?
+- How Does ChainOpera AI Platform Work?
 - Local Development and Building MLOps Packages
 - Create Application and Upload Local Packages
 - Install FedML Agent: fedml login $account_id
@@ -22,15 +22,15 @@ Video Tutorial:
 - Experimental Tracking via Simplified Project Management
 - FedML OTA (Over-the-Air) upgrade mechanism
 
-### How Does TensorOpera AI Platform Work?
+### How Does ChainOpera AI Platform Work?
 
-![image](../_static/image/mlops_workflow_new.png) 
+![image](../_static/image/mlops_workflow_new.png)
 Figure 1: the workflow describing how MLOps works
 
 MLOps works following the figure above; this workflow is handled by a web UI and thus avoids complex deployment.
 To begin, please create an account:
 
-- Instructions for registration: 
+- Instructions for registration:
   Please open [https://tensoropera.ai](https://tensoropera.ai) and click "Sign Up".
 
 ### Local Development and Building MLOps Packages
@@ -161,7 +161,7 @@ login: edge_id = 266
 subscribe: flserver_agent/266/start_train
 subscribe: flserver_agent/266/stop_train
 subscribe: fl_client/flclient_agent_266/status
-Congratulations, you have logged into the TensorOpera AI platform successfully!
+Congratulations, you have logged into the ChainOpera AI platform successfully!
 Your device id is @0xb6ff42da6a7e.MacOS. You may review the device in the MLOps edge device list.
 ```
 

@@ -27,7 +27,7 @@ More about the launch APIs can be found [here](../open-source/api/api-launch#lau
 
 ## FedML Cluster API Overview
 
-APIs to manage clusters on TensorOpera AI Platform
+APIs to manage clusters on ChainOpera AI Platform
 
 #### Example Usage
 
@@ -53,7 +53,7 @@ More about the cluster APIs can be found [here](../open-source/api/api-launch#cl
 
 ## FedML Run API Overview
 
-APIs to manage run on TensorOpera AI Platform
+APIs to manage run on ChainOpera AI Platform
 
 #### Example Usage
 
@@ -70,7 +70,7 @@ if login_ret == 0:
         run_logs_result = fedml.api.run_logs(run_id=launch_result.run_id)
         run_logs = run_logs_result.run_logs
         for index, log in enumerate(run_logs):
-            print(f"Log {index}: {log}") 
+            print(f"Log {index}: {log}")
     else:
         print("Failed to launch job on cluster")
 ```

@@ -11,25 +11,29 @@ const code_themes = {
   dark: require('prism-react-renderer/themes/vsDark'),
 };
 
-/** @type {import('@docusaurus/types').Config} */
-const meta = {
-  title: 'TensorOpera® Documentation',
-  // tagline: 'TensorOpera® AI Platform',
-  url: 'https://docs.tensoropera.ai',
-  baseUrl: '/',
-  favicon: 'img/favicon.ico',
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
-  i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
-  },
-};
+const meta = (() => {
+  /** @type {import('@docusaurus/types').Config} */
+  const metaBase = {
+    title: 'ChainOpera® Documentation',
+    // tagline: 'ChainOpera® AI Platform',
+    url: 'https://docs.chainopera.ai',
+    baseUrl: '/',
+    favicon: 'img/favicon.ico',
+    onBrokenLinks: 'throw',
+    onBrokenMarkdownLinks: 'warn',
+    i18n: {
+      defaultLocale: 'en',
+      locales: ['en'],
+    },
+  }
+
+  return metaBase;
+})();
 
 const resources = [
   {
     label: 'Blog',
-    href: 'https://blog.tensoropera.ai',
+    href: 'https://blog.chainopera.ai',
   },
 ];
 
@@ -114,21 +118,21 @@ const config = {
       metadata: [
         {
           name: 'description',
-          content: 'Comprehensive documentation guide for TensorOpera. Covers Model Deployment, Serving, Training, Fine-tuning, Federate for efficient AI workflows.',
+          content: 'Comprehensive documentation guide for ChainOpera. Covers Model Deployment, Serving, Training, Fine-tuning, Federate for efficient AI workflows.',
         },
         {
           name: 'og:description',
-          content: 'Comprehensive documentation guide for TensorOpera. Covers Model Deployment, Serving, Training, Fine-tuning, Federate for efficient AI workflows.'
+          content: 'Comprehensive documentation guide for ChainOpera. Covers Model Deployment, Serving, Training, Fine-tuning, Federate for efficient AI workflows.'
         }
       ],
       navbar: {
-        title: 'TensorOpera AI Docs',
+        title: 'ChainOpera AI Docs',
         logo: {
           href: '/',
           src: 'img/logo.png',
           // TODO: design a icon for dark mode.
           // srcDark: 'img/logo-dark.png',
-          alt: 'TensorOpera AI Docs',
+          alt: 'ChainOpera AI Docs',
           height: '40px',
           // width: '40px',
         },
@@ -189,12 +193,12 @@ const config = {
           // },
           {
             label: 'Blog',
-            href: 'https://blog.TensorOpera.ai',
+            href: 'https://blog.ChainOpera.ai',
             position: 'left',
           },
           {
-            label: 'TensorOpera AI Home',
-            href: 'https://TensorOpera.ai',
+            label: 'ChainOpera AI Home',
+            href: 'https://ChainOpera.ai',
             position: 'left',
           },
           {
@@ -207,13 +211,13 @@ const config = {
           //   href: 'https://github.com/FedML-AI/FedML',
           //   position: 'right',
           // },
-          {
-            type: 'search',
-            position: 'right',
-          },
+          // {
+          //   type: 'search',
+          //   position: 'right',
+          // },
           {
             label: 'Login',
-            href: 'https://TensorOpera.ai',
+            href: 'https://ChainOpera.ai',
             position: 'right',
             className: 'dev-portal-signup dev-portal-link',
           },
@@ -225,7 +229,7 @@ const config = {
           src: '/img/logo.png',
           // TODO:
           // srcDark: '/img/logo-dark.png',
-          alt: 'TensorOpera AI Docs',
+          alt: 'ChainOpera AI Docs',
           width: '40px',
           height: '40px',
         },
@@ -235,11 +239,11 @@ const config = {
           //   items: [
           //     {
           //       label: 'Demo',
-          //       href: 'https://TensorOpera.ai',
+          //       href: 'https://ChainOpera.ai',
           //     },
           //     {
           //       label: 'Developer Portal',
-          //       href: 'https://TensorOpera.ai',
+          //       href: 'https://ChainOpera.ai',
           //     },
           //   ],
           // },
@@ -248,19 +252,19 @@ const config = {
             items: [
               // {
               //   label: 'About Us',
-              //   href: 'https://TensorOpera.ai',
+              //   href: 'https://ChainOpera.ai',
               // },
               // {
               //   label: 'Join Us',
-              //   href: 'https://TensorOpera.ai',
+              //   href: 'https://ChainOpera.ai',
               // },
               // {
               //   label: 'Privacy Policy',
-              //   href: 'https://TensorOpera.ai',
+              //   href: 'https://ChainOpera.ai',
               // },
               // {
               //   label: 'Contact Us',
-              //   href: 'https://TensorOpera.ai',
+              //   href: 'https://ChainOpera.ai',
               // },
             ],
           },
@@ -269,7 +273,7 @@ const config = {
           //   items: [...resources],
           // },
         ],
-        copyright: 'Copyright © TensorOpera since 2022. All rights reserved.',
+        copyright: 'Copyright © ChainOpera since 2022. All rights reserved.',
       },
       prism: {
         theme: code_themes.light,
@@ -296,11 +300,11 @@ const config = {
         ],
       },
       // support algolia for high level document query
-      algolia: {
-        appId: 'AFINDOYCE8',
-        apiKey: 'dbc6b095cadb32b759ac54fd671cb104',
-        indexName: 'fedml',
-      },
+      // algolia: {
+      //   appId: 'AFINDOYCE8',
+      //   apiKey: 'dbc6b095cadb32b759ac54fd671cb104',
+      //   indexName: 'fedml',
+      // },
     }),
 
   webpack: {

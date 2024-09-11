@@ -6,13 +6,12 @@ sidebar_position: 4
 
 ![./../../_static/image/cross-silo-hi.png](./../../_static/image/cross-silo-hi.png)
 
-This example illustrates how to do real-world hierarchical cross-silo federated learning with FedML Octopus. Hierarchical architecture allows a silo/client to take adavantage of multiple GPUs on different nodes to further accelerate training process. We use PyTorch's Distributed Data Parallel (DDP) to achieve this goal. 
-
+This example illustrates how to do real-world hierarchical cross-silo federated learning with FedML Octopus. Hierarchical architecture allows a silo/client to take adavantage of multiple GPUs on different nodes to further accelerate training process. We use PyTorch's Distributed Data Parallel (DDP) to achieve this goal.
 
 The example provided here demonstrates a scenario where there are two silos/clients, and each of them has access to multiple GPUs. Silo-1 trains the model on 2 nodes, with each node having 1 GPU, while Silo-2 trains its model using 1 GPU on a single node. The source code locates at `python/examples/cross_silo/mqtt_s3_fedavg_hierarchical_mnist_lr_example`.
 
 > **If you have multiple nodes, you should run the client script on each node**
- 
+
 ## One line API
 
 `python/examples/cross_silo/mqtt_s3_fedavg_hierarchical_mnist_lr_example/one_line`
@@ -39,7 +38,6 @@ if __name__ == "__main__":
 
 `run_client.sh`
 
-
 ```shell
 #!/usr/bin/env bash
 RANK=$1
@@ -60,15 +58,19 @@ if __name__ == "__main__":
 At the client side, the client ID (a.k.a rank) starts from 1.
 
 At the server side, run the following script:
+
 ```
 bash run_server.sh
 ```
 
 For Silo/Client 1, run the following script on first node:
+
 ```
 bash run_client.sh 1
 ```
+
 For Silo/Client 2, run the following script:
+
 ```
 bash run_client.sh 2
 ```
@@ -79,8 +81,8 @@ Here `common_args.training_type` is "cross_silo" type,`common_args.scenario` is 
 
 ```yaml
 common_args:
-  training_type: "cross_silo"
-  scenario: "hierarchical"
+  training_type: 'cross_silo'
+  scenario: 'hierarchical'
   using_mlops: false
   random_seed: 0
 
@@ -88,18 +90,18 @@ environment_args:
   bootstrap: config/bootstrap.sh
 
 data_args:
-  dataset: "mnist"
-  data_cache_dir: "./../../../../data/MNIST"
-  partition_method: "hetero"
+  dataset: 'mnist'
+  data_cache_dir: './../../../../data/MNIST'
+  partition_method: 'hetero'
   partition_alpha: 0.5
 
 model_args:
-  model: "lr"
-  model_file_cache_folder: "./model_file_cache" # will be filled by the server automatically
-  global_model_file_path: "./model_file_cache/global_model.pt"
+  model: 'lr'
+  model_file_cache_folder: './model_file_cache' # will be filled by the server automatically
+  global_model_file_path: './model_file_cache/global_model.pt'
 
 train_args:
-  federated_optimizer: "FedAvg"
+  federated_optimizer: 'FedAvg'
   client_id_list:
   client_num_in_total: 2
   client_num_per_round: 2
@@ -119,10 +121,10 @@ device_args:
   server_gpu_mapping_key: mapping_default
 
 comm_args:
-  backend: "MQTT_S3"
+  backend: 'MQTT_S3'
   mqtt_config_path:
   s3_config_path:
-  
+
 tracking_args:
   log_file_dir: ./log
   local_log_output_path: ./log
@@ -133,10 +135,7 @@ tracking_args:
 
 private_config_paths:
   server_config_path: config/server.yaml
-  client_silo_config_paths: [
-    config/silo_1.yaml,
-    config/silo_2.yaml
-  ]
+  client_silo_config_paths: [config/silo_1.yaml, config/silo_2.yaml]
 ```
 
 For this example we use the following as `config/server.yaml`, `config/silo-1.yaml` and `config/silo-2.yaml` respectively.
@@ -148,6 +147,7 @@ device_args:
   gpu_mapping_file: config/gpu_mapping.yaml
   gpu_mapping_key: mapping_server
 ```
+
 ```yaml
 # config/silo-2.yaml
 dist_training_args:
@@ -178,28 +178,25 @@ device_args:
   using_gpu: true
   gpu_mapping_file: config/gpu_mapping.yaml
   gpu_mapping_key: mapping_silo_2
-
-
 ```
+
 Here `dist_training_args` defines the distributed training hierarchy for each silo where:
 
-  - `n_node_in_silo` is number of nodes in silo
-  - `n_proc_per_node` is number of processes (distributed trainers) in each node.
-  - `master_address` is ip address of the process group master. This should be the ip of the first node in node_addresses.
-  - `node_addresses` is addresses of the nodes inside silo.
-  - `launcher_rdzv_port` is port of on the process group master which is used for rendezvous.
+- `n_node_in_silo` is number of nodes in silo
+- `n_proc_per_node` is number of processes (distributed trainers) in each node.
+- `master_address` is ip address of the process group master. This should be the ip of the first node in node_addresses.
+- `node_addresses` is addresses of the nodes inside silo.
+- `launcher_rdzv_port` is port of on the process group master which is used for rendezvous.
 
 Please note in order to run distributed training:
-  1. You need to have `pdsh` and `fedml` installed on all nodes in silo.
-  2. Python executable path should be same for all nodes in silo.
-  3. The first node in `dist_training_args.node_addresses` should be the same as master_address.
-  4. The node executing `run_client.sh` should have passwrodless ssh access to the nodes in `dist_training_args.node_addresses`.
-  5. All of the nodes in `dist_training_args.node_addresses` should be able to access `dist_training_args.master_address` through `dist_training_args.network_interface`. You can use the `ifconfig` command to get a list of available interfaces and their corresponding ip addresses.
-  
+
+1. You need to have `pdsh` and `fedml` installed on all nodes in silo.
+2. Python executable path should be same for all nodes in silo.
+3. The first node in `dist_training_args.node_addresses` should be the same as master_address.
+4. The node executing `run_client.sh` should have passwrodless ssh access to the nodes in `dist_training_args.node_addresses`.
+5. All of the nodes in `dist_training_args.node_addresses` should be able to access `dist_training_args.master_address` through `dist_training_args.network_interface`. You can use the `ifconfig` command to get a list of available interfaces and their corresponding ip addresses.
 
 Furthermore, `device_args` in each of the config files defines the device configs for the corresponding server/silo. In this example, as presented by `config/silo-2.yaml`, Silo 1 has 2 nodes with 1 processes on each. Therefore, Silo 1 has 2 processes in total. To match this setting, `mapping_silo_1` defined in `config/gpu_mapping.yaml` should contain 2 nodes with 1 workers each.
-
-
 
 ### Training Results
 
@@ -264,7 +261,6 @@ At the end of the 50th training round, client1 window will see the following out
 
 At the end of the 50th training round, the client2 window will see the following output:
 
-
 ```shell
 [FedML-Client(2) @device-id-2] [Sun, 03 Jul 2022 23:20:22] [INFO] [fedml_client_master_manager.py:158:handle_message_receive_model_from_server] #######training########### round_id = 49
 [FedML-Client(2) @device-id-2] [Sun, 03 Jul 2022 23:20:22] [INFO] [my_model_trainer_classification.py:44:train] Update Epoch: 0 [64/192 (33%)]  Loss: 2.310319
@@ -298,7 +294,6 @@ The step by step example using five lines of code locates at the following folde
 
 `python/examples/cross_silo/mqtt_s3_fedavg_hierarchical_mnist_lr_example/step_by_step`
 
-
 ```python
 # torch_client.py
 import fedml
@@ -321,12 +316,11 @@ if __name__ == "__main__":
     client.run()
 ```
 
-## Custom data and model 
+## Custom data and model
 
 The custom data and model example locates at the following folder:
 
 `python/examples/cross_silo/mqtt_s3_fedavg_hierarchical_mnist_lr_example/custum_data_and_model`
-
 
 ```python
 # torch_client.py
@@ -361,7 +355,7 @@ def load_data(args):
         test_path=args.data_cache_dir + "/MNIST/test",
     )
     """
-    For shallow NN or linear models, 
+    For shallow NN or linear models,
     we uniformly sample a fraction of clients each round (as the original FedAvg paper)
     """
     args.client_num_in_total = client_num
@@ -425,9 +419,11 @@ if __name__ == "__main__":
 
 ![img.png](cross_silo_hi_arch_refactored.png)
 
-## A Better User-experience with TensorOpera AI (fedml.ai)
+## A Better User-experience with ChainOpera AI (fedml.ai)
+
 To reduce the difficulty and complexity of these CLI commands. We recommend you to use our MLOps (fedml.ai).
-TensorOpera AI provides:
+ChainOpera AI provides:
+
 - Install Client Agent and Login
 - Inviting Collaborators and group management
 - Project Management

@@ -4,9 +4,10 @@ sidebar_position: 2
 
 # Train on Your Own Cloud GPU cluster
 
-## Setup the TensorOpera library
+## Setup the ChainOpera library
 
-Install Python library for interacting with TensorOpera® Launch APIs.
+Install Python library for interacting with ChainOpera® Launch APIs.
+
 ```
 pip install fedml
 ```
@@ -22,7 +23,7 @@ Below is an example of job yaml file:
 ```
 fedml_env:
   project_name: my-project
-  
+
 # Local directory where your source code resides.
 # It should be the relative path to this job yaml file.
 # If your job doesn't contain any source code, it can be empty.
@@ -46,7 +47,7 @@ job: |
     echo "Current directory is as follows."
     pwd
     python hello_world.py
-  
+
 
 computing:
   minimum_num_gpus: 1      # minimum # of GPUs to provision
@@ -54,10 +55,11 @@ computing:
   # E.g., if your job are assigned 2 x A100 nodes (8 GPUs), each GPU cost $1/GPU/Hour, "maximum_cost_per_hour" = 16 * $1 = $16
   maximum_cost_per_hour: $1.75
   resource_type: A100-80G       # e.g., A100-80G, please check the resource type list by "fedml show-resource-type" or visiting URL: https://tensoropera.ai
-  
+
 ```
 
 Directory structure of hello_world example
+
 ```
 tree -l
 
@@ -69,7 +71,7 @@ tree -l
 
 ## Launch a job on a cluster cloud
 
-NOTE: Note that you might be prompted for API_KEY the first time you run the command. Please get this key from your account on TensorOpera® AI Platform. You can also specify the API_KEY with the -k option.
+NOTE: Note that you might be prompted for API_KEY the first time you run the command. Please get this key from your account on ChainOpera® AI Platform. You can also specify the API_KEY with the -k option.
 
 ```
 fedml launch /path/to/job.yaml -c my_cluster
@@ -80,7 +82,7 @@ NOTE: If a cluster with the specified name does not exist, a new one will be cre
 After the launch CLI is executed, you will get the following output prompting for confirmation of resources:
 
 ```
-Submitting your job to TensorOpera AI Platform: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2.92k/2.92k [00:00<00:00, 4.87kB/s]
+Submitting your job to ChainOpera AI Platform: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2.92k/2.92k [00:00<00:00, 4.87kB/s]
 
 Searched and matched the following GPU resource for your job:
 +-----------+-------------------+---------+------------+-------------------------+---------+------+----------+
@@ -109,12 +111,14 @@ fedml run logs -rid 1717307383354626048
 ## Realtime status of your run
 
 You can query the realtime status of your run with the following command.
+
 ```
 fedml run logs -rid <run_id>
 ```
 
 ## View run details
-Log into to the TensorOpera® AI Platform (https://tensoropera.ai) and go to Train > Projects (my_project) Select the run you just launched and click on it to view the details of the run.
+
+Log into to the ChainOpera® AI Platform (https://tensoropera.ai) and go to Train > Projects (my_project) Select the run you just launched and click on it to view the details of the run.
 
 ![](./static/image/train_on_your_cloud_gpu_cluster/1_my_project.png)
 
@@ -122,7 +126,7 @@ Alternatively, you can also go to Train / Runs to find all of your runs scattere
 
 ![ ](./static/image/train_on_your_cloud_gpu_cluster/2_my_runs.png)
 
-The url link to TensorOpera® AI Platform for your run is printed in the output of the launch command for quick reference.
+The url link to ChainOpera® AI Platform for your run is printed in the output of the launch command for quick reference.
 You can track your run details at this URL:
 https://tensoropera.ai/train/project/run?projectId=1717276102352834560&runId=1717307383354626048
 
@@ -139,10 +143,10 @@ You can run as many consequent jobs as you like on your cluster now. It will que
 
 ```
 ❯ fedml launch job_1.yaml -c hello_world_cluster
-Submitting your job to TensorOpera AI Platform: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2.92k/2.92k [00:00<00:00, 17.4kB/s]
+Submitting your job to ChainOpera AI Platform: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2.92k/2.92k [00:00<00:00, 17.4kB/s]
 
 You can track your run details at this URL:
-https://TensorOpera.ai/train/project/run?projectId=1717276102352834560&runId=1717314053350756352
+https://ChainOpera.ai/train/project/run?projectId=1717276102352834560&runId=1717314053350756352
 
 For querying the realtime status of your run, please run the following command.
 fedml run logs -rid 1717314053350756352
@@ -150,10 +154,10 @@ fedml run logs -rid 1717314053350756352
 
 ```
 ❯ fedml launch job_2.yaml -c hello_world_cluster
-Submitting your job to TensorOpera AI Platform: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2.92k/2.92k [00:00<00:00, 11.8kB/s]
+Submitting your job to ChainOpera AI Platform: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2.92k/2.92k [00:00<00:00, 11.8kB/s]
 
 You can track your run details at this URL:
-https://TensorOpera.ai/train/project/run?projectId=1717276102352834560&runId=1717314101526532096
+https://ChainOpera.ai/train/project/run?projectId=1717276102352834560&runId=1717314101526532096
 
 For querying the realtime status of your run, please run the following command.
 fedml run logs -rid 1717314101526532096
