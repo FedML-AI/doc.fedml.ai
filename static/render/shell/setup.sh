@@ -45,6 +45,12 @@ with open('nouns.txt') as f:
     nouns = f.read().split()
 print(f'{random.choice(adjectives)}_{random.choice(nouns)}')
 ")
+# Check if generated_name is empty
+if [ -z "$generated_name" ]; then
+    echo "Warning: Failed to generate a random name. Using default name."
+    generated_name="default_fedml_node"
+fi
+echo "Generated name: $generated_name"
 
 # Remove the downloaded files after generating the name
 rm adjectives.txt nouns.txt
