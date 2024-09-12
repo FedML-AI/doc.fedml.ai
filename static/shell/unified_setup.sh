@@ -9,6 +9,12 @@ INFERENCE_PROXY_PORT=""
 FEDML_CONNECTION_TYPE=""
 RENTAL_PUBLIC_KEY=""
 
+# Function to modify the unattended upgrades setting
+modify_unattended_upgrades() {
+    local value=$1
+    sudo sed -i 's/^APT::Periodic::Unattended-Upgrade.*$/APT::Periodic::Unattended-Upgrade "'"$value"'";/' /etc/apt/apt.conf.d/20auto-upgrades
+}
+
 # This will clean up remnants from a failed bind attempt.
 do_cleanup() {
   fedml logout; sudo pkill -9 python; sudo rm -rf ~/.fedml; redis-cli flushall; pidof python | xargs kill -9;
@@ -32,7 +38,7 @@ detect_default_shell() {
 # Function to install wget
 install_wget() {
   sudo apt-get update
-  sudo apt-get install -y wget
+  sudo apt-get -o DPkg::Lock::Timeout=300 install -y wget
 }
 
 # Function to download and install Miniconda
@@ -66,7 +72,7 @@ install_fedml() {
 # Function to install Docker
 install_docker() {
     sudo apt-get update
-    sudo apt-get install -y ca-certificates curl
+    sudo apt-get -o DPkg::Lock::Timeout=300 install -y ca-certificates curl
     sudo install -m 0755 -d /etc/apt/keyrings
     sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
     sudo chmod a+r /etc/apt/keyrings/docker.asc
@@ -75,16 +81,16 @@ install_docker() {
         $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
         sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
     sudo apt-get update
-    yes | sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+    yes | sudo apt-get -o DPkg::Lock::Timeout=300 install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 }
 
 # Function to install Redis
 install_redis() {
-    sudo apt-get install -y lsb-release curl gnupg
+    sudo apt-get -o DPkg::Lock::Timeout=300 install -y lsb-release curl gnupg
     curl -fsSL https://packages.redis.io/gpg | sudo gpg --batch --yes --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg
     echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/redis.list
     sudo apt-get update
-    yes | sudo apt-get install -y redis
+    yes | sudo apt-get -o DPkg::Lock::Timeout=300 install -y redis
 }
 
 # Function to install NVIDIA Container Toolkit
@@ -94,7 +100,7 @@ install_nvidia_container_toolkit() {
         sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' | \
         sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
     sudo apt-get update
-    yes | sudo apt-get install -y nvidia-container-toolkit
+    yes | sudo apt-get -o DPkg::Lock::Timeout=300 install -y nvidia-container-toolkit
     sudo nvidia-ctk runtime configure --runtime=docker
     sudo systemctl restart docker
 }
@@ -129,17 +135,17 @@ fedml_login(){
 
 provider_login(){
   if [ -z "$3" ] && [ -z "$4" ] && [ -z "$5" ]; then
-    fedml login -p $1 -v $2
+    fedml login -p $1 -v $2 -n "dummy"
   else
-    fedml login -p $1 -v $2 -mgp $3 -wpp $4 -wct $5
+    fedml login -p $1 -v $2 -mgp $3 -wpp $4 -wct $5 -n "dummy"
   fi
 }
 
 individual_login(){
   if [ -z "$3" ] && [ -z "$4" ] && [ -z "$5" ]; then
-    fedml login $1 -v $2
+    fedml login $1 -v $2 -n "dummy"
   else
-    fedml login $1 -v $2 -mgp $3 -wpp $4 -wct $5
+    fedml login $1 -v $2 -mgp $3 -wpp $4 -wct $5 -n "dummy"
   fi
 }
 
@@ -307,7 +313,9 @@ while [[ $# -gt 0 ]]; do
 done
 
 
-
+# Disable unattended upgrades
+echo "Disabling unattended upgrades..."
+modify_unattended_upgrades 0
 
 # Call the functions
 detect_default_shell
@@ -331,5 +339,6 @@ source ~/."${default_shell}rc"
 verify_installation $FEDML_API_KEY $FEDML_ENV $FEDML_PROVIDER $FEDML_DEVICE_ID $INFERENCE_GATEWAY_PORT $INFERENCE_PROXY_PORT $FEDML_CONNECTION_TYPE
 
 # Restore unattended-upgrades
+modify_unattended_upgrades 1
 sudo systemctl enable unattended-upgrades
 sudo systemctl start unattended-upgrades
