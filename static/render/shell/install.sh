@@ -6,6 +6,12 @@ while sudo lsof /var/lib/dpkg/lock-frontend >/dev/null 2>&1; do
     sleep 10
 done
 
+# Function to modify the unattended upgrades setting
+modify_unattended_upgrades() {
+    local value=$1
+    sudo sed -i 's/^APT::Periodic::Unattended-Upgrade.*$/APT::Periodic::Unattended-Upgrade "'"$value"'";/' /etc/apt/apt.conf.d/20auto-upgrades
+}
+
 do_cleanup() {
   fedml logout; sudo pkill -9 python; sudo rm -rf ~/.fedml; redis-cli flushall; pidof python | xargs kill -9;
 }
@@ -27,7 +33,7 @@ detect_default_shell() {
 # Function to install wget
 install_wget() {
   sudo apt-get update
-  sudo apt-get install -y wget
+  sudo apt-get -o DPkg::Lock::Timeout=300 install -y wget
 }
 
 # Function to download and install Miniconda
@@ -55,14 +61,14 @@ init_miniconda_shell() {
 install_fedml() {
   conda create -y -n fedml python=3.10
   conda activate fedml
-  pip install "git+https://github.com/FedML-AI/FedML.git@277f4caefe31478f2a5accbfb24170307cb73035#egg=fedml&subdirectory=python"
+  pip install "git+https://github.com/FedML-AI/FedML.git@03f37b89e516187cf76e76a5083d3843dfd31a37#egg=fedml&subdirectory=python"
   
 }
 
 # Function to install Docker
 install_docker() {
     sudo apt-get update
-    sudo apt-get install -y ca-certificates curl
+    sudo apt-get -o DPkg::Lock::Timeout=300 install -y ca-certificates curl
     sudo install -m 0755 -d /etc/apt/keyrings
     sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
     sudo chmod a+r /etc/apt/keyrings/docker.asc
@@ -71,16 +77,16 @@ install_docker() {
         $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
         sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
     sudo apt-get update
-    yes | sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+    yes | sudo apt-get -o DPkg::Lock::Timeout=300 install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 }
 
 # Function to install Redis
 install_redis() {
-    sudo apt-get install -y lsb-release curl gnupg
+    sudo apt-get -o DPkg::Lock::Timeout=300 install -y lsb-release curl gnupg
     curl -fsSL https://packages.redis.io/gpg | sudo gpg --batch --yes --dearmor -o /usr/share/keyrings/redis-archive-keyring.gpg
     echo "deb [signed-by=/usr/share/keyrings/redis-archive-keyring.gpg] https://packages.redis.io/deb $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/redis.list
     sudo apt-get update
-    yes | sudo apt-get install -y redis
+    yes | sudo apt-get -o DPkg::Lock::Timeout=300 install -y redis
     
     # Start Redis service
     sudo systemctl start redis-server
@@ -113,7 +119,7 @@ install_nvidia_container_toolkit() {
         sed 's#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g' | \
         sudo tee /etc/apt/sources.list.d/nvidia-container-toolkit.list
     sudo apt-get update
-    yes | sudo apt-get install -y nvidia-container-toolkit
+    yes | sudo apt-get -o DPkg::Lock::Timeout=300 install -y nvidia-container-toolkit
     sudo nvidia-ctk runtime configure --runtime=docker
     sudo systemctl restart docker
 }
@@ -140,6 +146,9 @@ set_default_conda_env() {
 # Stop unattended upgrades which result in /var/lib/dpkg/lock acquire race condition
 sudo systemctl stop unattended-upgrades
 sudo systemctl disable unattended-upgrades
+# Disable unattended upgrades
+echo "Disabling unattended upgrades..."
+modify_unattended_upgrades 0
 
 # Call the functions
 detect_default_shell
@@ -155,5 +164,6 @@ set_default_conda_env "$default_shell"
 source ~/."${default_shell}rc"
 
 # Restore unattended-upgrades
+modify_unattended_upgrades 1
 sudo systemctl enable unattended-upgrades
 sudo systemctl start unattended-upgrades
