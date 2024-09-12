@@ -61,7 +61,7 @@ init_miniconda_shell() {
 install_fedml() {
   conda create -y -n fedml python=3.10
   conda activate fedml
-  pip install "git+https://github.com/FedML-AI/FedML.git@277f4caefe31478f2a5accbfb24170307cb73035#egg=fedml&subdirectory=python"
+  pip install "git+https://github.com/FedML-AI/FedML.git@03f37b89e516187cf76e76a5083d3843dfd31a37#egg=fedml&subdirectory=python"
   
 }
 
