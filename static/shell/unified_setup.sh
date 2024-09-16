@@ -135,17 +135,17 @@ fedml_login(){
 
 provider_login(){
   if [ -z "$3" ] && [ -z "$4" ] && [ -z "$5" ]; then
-    fedml login -p $1 -v $2 -n "dummy"
+    fedml login -p $1 -v $2
   else
-    fedml login -p $1 -v $2 -mgp $3 -wpp $4 -wct $5 -n "dummy"
+    fedml login -p $1 -v $2 -mgp $3 -wpp $4 -wct $5
   fi
 }
 
 individual_login(){
   if [ -z "$3" ] && [ -z "$4" ] && [ -z "$5" ]; then
-    fedml login $1 -v $2 -n "dummy"
+    fedml login $1 -v $2
   else
-    fedml login $1 -v $2 -mgp $3 -wpp $4 -wct $5 -n "dummy"
+    fedml login $1 -v $2 -mgp $3 -wpp $4 -wct $5
   fi
 }
 
@@ -312,6 +312,12 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
+echo "Marking the nvidia information as Hold for apt package installer"
+major_version=$(nvidia-smi --query-gpu=driver_version --format=csv,noheader,nounits | head -n 1 | cut -d. -f1)
+
+sudo apt-mark hold nvidia-dkms-$major_version
+sudo apt-mark hold nvidia-driver-$major_version
+sudo apt-mark hold nvidia-utils-$major_version
 
 # Disable unattended upgrades
 echo "Disabling unattended upgrades..."
