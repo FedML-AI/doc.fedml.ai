@@ -143,15 +143,24 @@ set_default_conda_env() {
     echo "conda" activate fedml >> "$HOME/.$1rc"
 }
 
+echo "Marking the nvidia information as Hold for apt package installer"
+major_version=$(nvidia-smi --query-gpu=driver_version --format=csv,noheader,nounits | head -n 1 | cut -d. -f1)
+
+sudo apt-mark hold nvidia-dkms-$major_version
+sudo apt-mark hold nvidia-driver-$major_version
+sudo apt-mark hold nvidia-utils-$major_version
+
 # Stop unattended upgrades which result in /var/lib/dpkg/lock acquire race condition
 sudo systemctl stop unattended-upgrades
 sudo systemctl disable unattended-upgrades
+
 # Disable unattended upgrades
 echo "Disabling unattended upgrades..."
 modify_unattended_upgrades 0
 
 # Call the functions
 detect_default_shell
+do_cleanup
 install_wget
 install_miniconda "$default_shell"
 init_miniconda_shell "$default_shell"

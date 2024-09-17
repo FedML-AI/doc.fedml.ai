@@ -1,5 +1,15 @@
 #!/bin/bash
 
+# Function to modify the unattended upgrades setting
+modify_unattended_upgrades() {
+    local value=$1
+    sudo sed -i 's/^APT::Periodic::Unattended-Upgrade.*$/APT::Periodic::Unattended-Upgrade "'"$value"'";/' /etc/apt/apt.conf.d/20auto-upgrades
+}
+
+do_cleanup() {
+  fedml logout; sudo pkill -9 python; sudo rm -rf ~/.fedml; redis-cli flushall; pidof python | xargs kill -9;
+}
+
 # Function to detect the default shell
 detect_default_shell() {
     # Extract the basename of the default shell from the SHELL environment variable
@@ -98,15 +108,24 @@ enable_docker_api_access() {
     sudo chmod 777 /var/run/docker.sock
 }
 
-# Function to set fedml as default conda env
-set_default_conda_env() {
-    echo "conda" activate fedml >> "$HOME/.$1rc"
-}
+echo "Marking the nvidia information as Hold for apt package installer"
+major_version=$(nvidia-smi --query-gpu=driver_version --format=csv,noheader,nounits | head -n 1 | cut -d. -f1)
 
+sudo apt-mark hold nvidia-dkms-$major_version
+sudo apt-mark hold nvidia-driver-$major_version
+sudo apt-mark hold nvidia-utils-$major_version
 
 # Stop unattended upgrades which result in /var/lib/dpkg/lock acquire race condition
 sudo systemctl stop unattended-upgrades
 sudo systemctl disable unattended-upgrades
+
+# Disable unattended upgrades
+echo "Disabling unattended upgrades..."
+modify_unattended_upgrades 0
+
+# Call the functions
+detect_default_shell
+do_cleanup
 
 # Call the functions
 detect_default_shell
@@ -122,5 +141,6 @@ set_default_conda_env "$default_shell"
 source ~/."${default_shell}rc"
 
 # Restore unattended-upgrades
+modify_unattended_upgrades 1
 sudo systemctl enable unattended-upgrades
 sudo systemctl start unattended-upgrades
