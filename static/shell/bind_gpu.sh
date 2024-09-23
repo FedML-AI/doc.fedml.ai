@@ -108,6 +108,11 @@ enable_docker_api_access() {
     sudo chmod 777 /var/run/docker.sock
 }
 
+# Function to set fedml as default conda env
+set_default_conda_env() {
+    echo "conda" activate fedml >> "$HOME/.$1rc"
+}
+
 echo "Marking the nvidia information as Hold for apt package installer"
 major_version=$(nvidia-smi --query-gpu=driver_version --format=csv,noheader,nounits | head -n 1 | cut -d. -f1)
 
