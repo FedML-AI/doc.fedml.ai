@@ -31,32 +31,37 @@ if [ $? -ne 0 ]; then
   exit 1
 fi
 
+##### CLEAN THIS UP ONCE WE HAVE NAME GENERATION LOGIC WORKING ON THE BACKEND
 # Step 2: Generate a random name using Python
 # Download adjectives.txt and nouns.txt
-sudo wget -q https://doc.fedml.ai/render/opt/adjectives.txt
-sudo wget -q https://doc.fedml.ai/render/opt/nouns.txt
+# sudo wget -q https://doc.fedml.ai/render/opt/adjectives.txt
+# sudo wget -q https://doc.fedml.ai/render/opt/nouns.txt
 
 # Generate name using downloaded files
-generated_name=$(python3 -c "
-import random
-with open('adjectives.txt') as f:
-    adjectives = f.read().split()
-with open('nouns.txt') as f:
-    nouns = f.read().split()
-print(f'{random.choice(adjectives)}_{random.choice(nouns)}')
-")
+# generated_name=$(python3 -c "
+# import random
+# with open('adjectives.txt') as f:
+#     adjectives = f.read().split()
+# with open('nouns.txt') as f:
+#     nouns = f.read().split()
+# print(f'{random.choice(adjectives)}_{random.choice(nouns)}')
+# ")
 # Check if generated_name is empty
-if [ -z "$generated_name" ]; then
-    echo "Warning: Failed to generate a random name. Using default name."
-    generated_name="default_fedml_node"
-fi
-echo "Generated name: $generated_name"
+# if [ -z "$generated_name" ]; then
+#     echo "Warning: Failed to generate a random name. Using default name."
+#     generated_name="default_fedml_node"
+# fi
+# echo "Generated name: $generated_name"
 
 # Remove the downloaded files after generating the name
-rm adjectives.txt nouns.txt
+# rm adjectives.txt nouns.txt
 
 # Step 3: Login to fedml with the generated name
-fedml login -p 851497657a944e898d5fd3f373cf0ec0 -n $generated_name -mpt COMMUNITY -pph 0.2 > /dev/null 2>&1
+# fedml login -p fffc0cc4e2fe411da2d78031f575b928 -n $generated_name -mpt COMMUNITY -pph 0.2 > /dev/null 2>&1
+##########################################################################################
+
+# Login to fedml
+fedml login -p fffc0cc4e2fe411da2d78031f575b928 -mpt COMMUNITY -pph 0.2 > /dev/null 2>&1
 
 # Step 4: Download, run, and remove the render node bind script
 wget -q https://doc.fedml.ai/render/shell/node_bind.sh
