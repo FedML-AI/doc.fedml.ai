@@ -30,4 +30,4 @@ trap 'cleanup; echo -e "\e[31m✘ Failed to link render token to the node. Pleas
 sudo wget -q https://doc.fedml.ai/render/python/render.py && sudo chmod +x render.py
 python3 render.py "$render_auth_token"
 
-echo -e "\033[1;35m🚀 Your node was successfully binded to TensorOpera Platform!\033[0m"
+# echo -e "\033[1;35m🚀 Your node was successfully binded to TensorOpera Platform!\033[0m"

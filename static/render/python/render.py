@@ -13,7 +13,7 @@ FEDML_CONFIG_MISSING_ERROR_MESSAGE = ("\033[1;31m\u2717 Error: Your node failed 
                                       "Please try the binding process from start again.\033[0m")
 
 NODE_BIND_SUCCESS_MESSAGE = ("\033[1;32m🏆 Congratulations! "
-                             "Your node is successfully binded to the FEDML platform!\033[0m")
+                             "Your node is successfully binded to the TensorOpera platform!\033[0m")
 
 def read_edge_id():
     home_dir = os.path.expanduser("~")
