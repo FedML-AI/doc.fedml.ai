@@ -16,8 +16,8 @@ pipeline {
         AWS_ECR_CREDENTIAL_ID_DEV = 'aws-ecr-id-dev'
         DEV_KUBECONFIG_CREDENTIAL_ID = 'fedml-dev-kubeconfig'
 
-        REGISTRY_DEV = '127317375267.dkr.ecr.us-west-1.amazonaws.com'
-        HTTPS_REGISTRY_DEV = 'https://127317375267.dkr.ecr.us-west-1.amazonaws.com'
+        REGISTRY_DEV = '276355461497.dkr.ecr.us-west-1.amazonaws.com'
+        HTTPS_REGISTRY_DEV = 'https://276355461497.dkr.ecr.us-west-1.amazonaws.com'
         AWS_REGION_NAME_DEV = 'us-west-1'
         DEPLOY_NAMESPACE_DEV = 'fedml-mlops'
         VERSION_DEV = 'dev'

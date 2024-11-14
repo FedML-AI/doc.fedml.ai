@@ -17,8 +17,8 @@ pipeline {
         AWS_ECR_CREDENTIAL_ID_PRODUCTION = 'aws-ecr-id-release'
         PRODUCTION_KUBECONFIG_CREDENTIAL_ID = 'fedml-release-kubeconfig'
 
-        REGISTRY_PRODUCTION = '127317375267.dkr.ecr.us-west-1.amazonaws.com'
-        HTTPS_REGISTRY_PRODUCTION = 'https://127317375267.dkr.ecr.us-west-1.amazonaws.com'
+        REGISTRY_PRODUCTION = '276355461497.dkr.ecr.us-west-1.amazonaws.com'
+        HTTPS_REGISTRY_PRODUCTION = 'https://276355461497.dkr.ecr.us-west-1.amazonaws.com'
         AWS_REGION_NAME_PRODUCTION = 'us-west-1'
         DEPLOY_NAMESPACE_PRODUCTION = 'fedml-mlops'
         VERSION_PRODUCTION = 'release'
