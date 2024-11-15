@@ -17,8 +17,8 @@ pipeline {
         AWS_ECR_CREDENTIAL_ID_TEST = 'aws-ecr-id-test'
         TEST_KUBECONFIG_CREDENTIAL_ID = 'fedml-test-kubeconfig'
 
-        REGISTRY_TEST = '127317375267.dkr.ecr.us-west-1.amazonaws.com'
-        HTTPS_REGISTRY_TEST = 'https://127317375267.dkr.ecr.us-west-1.amazonaws.com'
+        REGISTRY_TEST = '276355461497.dkr.ecr.us-west-1.amazonaws.com'
+        HTTPS_REGISTRY_TEST = 'https://276355461497.dkr.ecr.us-west-1.amazonaws.com'
         AWS_REGION_NAME_TEST = 'us-west-1'
         DEPLOY_NAMESPACE_TEST = 'fedml-mlops'
         VERSION_TEST = 'test'
