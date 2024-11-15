@@ -13,8 +13,8 @@ pipeline {
   environment {
         GITHUB_CREDENTIAL_ID = 'github-id'
 
-        AWS_IAM_CREDENTIAL_ID_PRODUCTION = 'aws-iam-id-release'
-        AWS_ECR_CREDENTIAL_ID_PRODUCTION = 'aws-ecr-id-release'
+        AWS_IAM_CREDENTIAL_ID_PRODUCTION = 'aws-ecr-sk-prod'
+        AWS_ECR_CREDENTIAL_ID_PRODUCTION = 'aws-ecr-ak-prod'
         PRODUCTION_KUBECONFIG_CREDENTIAL_ID = 'fedml-release-kubeconfig'
 
         REGISTRY_PRODUCTION = '276355461497.dkr.ecr.us-west-1.amazonaws.com'
