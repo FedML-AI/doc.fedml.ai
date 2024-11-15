@@ -13,8 +13,8 @@ pipeline {
   environment {
         GITHUB_CREDENTIAL_ID = 'github-id'
 
-        AWS_IAM_CREDENTIAL_ID_TEST = 'aws-iam-id-test'
-        AWS_ECR_CREDENTIAL_ID_TEST = 'aws-ecr-id-test'
+        AWS_IAM_CREDENTIAL_ID_TEST = 'aws-ecr-sk-test'
+        AWS_ECR_CREDENTIAL_ID_TEST = 'aws-ecr-ak-test'
         TEST_KUBECONFIG_CREDENTIAL_ID = 'fedml-test-kubeconfig'
 
         REGISTRY_TEST = '276355461497.dkr.ecr.us-west-1.amazonaws.com'
