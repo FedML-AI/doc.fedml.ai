@@ -66,7 +66,8 @@ init_miniconda_shell() {
 install_fedml() {
   conda create -y -n fedml python=3.10
   conda activate fedml
-  pip install "git+https://github.com/FedML-AI/FedML.git@dev/v0.7.0#egg=fedml&subdirectory=python"
+  # pip install "git+https://github.com/FedML-AI/FedML.git@dev/v0.7.0#egg=fedml&subdirectory=python"
+  pip install fedml==0.9.0
 }
 
 # Function to install Docker
