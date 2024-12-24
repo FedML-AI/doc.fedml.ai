@@ -101,7 +101,7 @@ Searched and matched the following GPU resource for your job:
 +-----------+-------------------+---------+------------+-------------------------+---------+------+----------+
 
 You can also view the matched GPU resource with Web UI at:
-https://tensoropera.ai/train/project/run?projectId=1717276102352834560&runId=1717307383354626048
+https://tensoropera.ai/run?projectId=1717276102352834560&runId=1717307383354626048
 Do you want to launch the job with the above matched GPU resource? [y/N]:
 ```
 
@@ -112,7 +112,7 @@ Once resources are confirmed, it will then create a cluster out of these matched
 Do you want to launch the job with the above matched GPU resource? [y/N]: y
 
 You can track your run details at this URL:
-https://tensoropera.ai/train/project/run?projectId=1717276102352834560&runId=1717307383354626048
+https://tensoropera.ai/run?projectId=1717276102352834560&runId=1717307383354626048
 
 For querying the realtime status of your run, please run the following command.
 fedml run logs -rid 1717307383354626048
@@ -143,7 +143,7 @@ The url link to TensorOpera® AI Platform for your run is printed in the output 
 
 ```bash
 You can track your run details at this URL:
-https://tensoropera.ai/train/project/run?projectId=1717276102352834560&runId=1717307383354626048
+https://tensoropera.ai/run?projectId=1717276102352834560&runId=1717307383354626048
 
 For querying the realtime status of your run, please run the following command.
 fedml run logs -rid 1717307383354626048
@@ -166,7 +166,7 @@ You can run as many consequent jobs as you like on your cluster now. It will que
 Submitting your job to TensorOpera AI Platform: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2.92k/2.92k [00:00<00:00, 17.4kB/s]
 
 You can track your run details at this URL:
-https://TensorOpera.ai/train/project/run?projectId=1717276102352834560&runId=1717314053350756352
+https://tensoropera.ai/run?projectId=1717276102352834560&runId=1717314053350756352
 
 For querying the realtime status of your run, please run the following command.
 fedml run logs -rid 1717314053350756352
@@ -177,7 +177,7 @@ fedml run logs -rid 1717314053350756352
 Submitting your job to TensorOpera AI Platform: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2.92k/2.92k [00:00<00:00, 11.8kB/s]
 
 You can track your run details at this URL:
-https://TensorOpera.ai/train/project/run?projectId=1717276102352834560&runId=1717314101526532096
+https://tensoropera.ai/run?projectId=1717276102352834560&runId=1717314101526532096
 
 For querying the realtime status of your run, please run the following command.
 fedml run logs -rid 1717314101526532096

@@ -28,7 +28,7 @@ fedml login 3b24dd2f****************206e8669
 It should something similar as below: 
 
 ```bash
-(fedml) alay@a6000:~$ fedml login 3b24dd2f9b3e478084c517bc206e8669 -v dev
+(fedml) alay@a6000:~$ fedml login 3b24dd2f****************206e8669 -v dev
 
  Welcome to FedML.ai!
  Start to login the current device to the MLOps (https://tensoropera.ai)...

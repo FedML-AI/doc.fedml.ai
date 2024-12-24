@@ -111,7 +111,7 @@ Launching the job with the above matched GPU resource.
 Failed to list run with response.status_code = 200, response.content: b'{"message":"Succeeded to process request","code":"SUCCESS","data":null}'
 
 You can track your run details at this URL:
-https://tensoropera.ai/train/project/run?projectId=1717259066058870784&runId=1717260771043446784
+https://tensoropera.ai/run?projectId=1717259066058870784&runId=1717260771043446784
 
 For querying the realtime status of your run, please run the following command.
 fedml run logs -rid 1717260771043446784
@@ -142,7 +142,7 @@ The url link to TensorOpera® AI Platform for your run is printed in the output 
 
 ```bash
 You can track your run details at this URL:
-https://tensoropera.ai/train/project/run?projectId=1717259066058870784&runId=1717260771043446784
+https://tensoropera.ai/run?projectId=1717259066058870784&runId=1717260771043446784
 
 For querying the realtime status of your run, please run the following command.
 fedml run logs -rid 1717260771043446784
