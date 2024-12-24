@@ -38,11 +38,11 @@ The instructions to launch GaLore pre-built job are as follows:
 
 ![ ](static/image/job_store/4_galore.png)
 
-1. On FedML official website (https://tensoropera.ai/home), you can head to **Launch > Job Hub > Train**, and look for Memory-Efficient LLM Training with GaLore job. The Description tab shows some basic usage for the code, referencing the original GaLore project's README. In the Source Code and Configuration tab, you can examine a more detailed layout and setup of the architecture.
+1. On FedML official website (https://tensoropera.ai/home), you can head to `Model Training > Job Hub > Pre-built Jobs`, and look for Memory-Efficient LLM Training with GaLore job. The Description tab shows some basic usage for the code, referencing the original GaLore project's README. In the Source Code and Configuration tab, you can examine a more detailed layout and setup of the architecture.
 
 ![ ](static/image/job_store/5_create_run.png)
 
-2. Hit the Launch button on the top right, users will be prompted to enter the configuration for the job. Under the Select Job section, click Add, and add “resource_type: RTX-4090”  in the job_yaml > computing section to specify using RTX 4090 for training. Please check the resource type list at https://tensoropera.ai/compute/secure (check the value of Resource Type in each GPU item), or directly visit https://tensoropera.ai/launch/accelerator_resource_type.
+2. Hit the Launch button on the top right, users will be prompted to enter the configuration for the job. Under the Select Job section, click Add, and add “resource_type: RTX-4090”  in the job_yaml > computing section to specify using RTX 4090 for training. Please check the resource type list at https://tensoropera.ai/gpu/hub/secure-cloud (check the value of Resource Type in each GPU item), or directly visit https://tensoropera.ai/launch/accelerator_resource_type.
 
 
 ![Metrics](static/image/job_store/6_metrics.png)
