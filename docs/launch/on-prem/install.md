@@ -6,7 +6,7 @@ sidebar_position: 1
 
 ## 1: Bind the machines on Platform
 
-### Log into the platform, head to the `Compute / My Servers` Page and copy the fedml login command:
+### Log into the platform, head to the `GPU Cloud / GPU Hub / My Servers / Bind Server` Page and copy the fedml login command:
 
 ![OnPremDevices.jpg](static/image/bind_my_servers.png)
  
@@ -50,18 +50,18 @@ Congratulations, your device is connected to the TensorOpera AI platform success
 Your FedML Edge ID is 201610, unique device ID is 0xffdc89fad658@Linux.Edge.Device
 ```
 
-Head back to the `Compute / My Servers` page on platform and verify that the devices are bounded to the TensorOpera® AI Platform:
+Head back to the `GPU Cloud / GPU Hub / My Servers` page on platform and verify that the devices are bounded to the TensorOpera® AI Platform:
 
 ![OnPremDevicesBind.png](static/image/binded_servers.png)
 
 
 ## 2: Create a cluster of your servers bounded to the TensorOpera® AI Platform:
 
-Navigate to the `Compute / Create Clusters` page and create a cluster of your servers:
+Navigate to the `Model Training / Cluster / Create Cluster` page and create a cluster of your servers:
 
 ![OnPremCluster.png](static/image/create_cluster.png)
 
-All your created clusters will be listed on the `Compute / My Clusters` page:
+All your created clusters will be listed on the `Model Training / Cluster` page:
 
 ![OnPremClusterList.png](static/image/my_clusters.png)
 

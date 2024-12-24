@@ -6,7 +6,7 @@ sidebar_position: 5
 
 ## 1. Supplier Setup
 
-### 1.1) Login to the TensorOpera® AI Platform and navigate to the `Share & Earn / Add GPU` page.
+### 1.1) Login to the TensorOpera® AI Platform and navigate to the `Supplier` page.
 
 ![Supplier Setup](static/image/supplier_setup.png)
 
@@ -87,7 +87,7 @@ The output should look like below:
 
 </details>
 
-### 2.3) Navigate to `Share & Earn / Add GPU` page and copy one-line login command for binding your GPU servers.
+### 2.3) Navigate to `Supplier / Add GPU` page and copy one-line login command for binding your GPU servers.
 
 ![Add GPU](static/image/add_gpu.png)
 
@@ -114,7 +114,7 @@ As instructed by the output, next you need to visit the url to fill in more info
 
 ## 3. Fill in GPU server details
 
-### 3.1) Navigate to `Share & Earn / My GPUs` page and click on the `Edit` button to fill in more information about your GPU servers.
+### 3.1) Navigate to `Supplier / GPUs` page and click on the `Edit` button to fill in more information about your GPU servers.
 
 :::tip Tip
 You can also click through or copy the url link in the terminal output of previous step into browser of your choice to directly go to the edit page.
@@ -132,7 +132,7 @@ Be mindful while deciding Cost per hour for your GPU server. Setting the cost ve
 
 ![Update GPU](static/image/update_gpu.png)
 
-Head back to the `Share & Earn / My GPUs` page on platform and verify that the GPU server is added to your list of active GPUs:
+Head back to the `Supplier / GPUs` page on platform and verify that the GPU server is added to your list of active GPUs:
 
 ![My GPUs](static/image/my_gpus.png)
 
@@ -148,7 +148,7 @@ Your GPU server will automatically be added to the resource pool and jobs that m
 All you have to do is sit back, relax and get paid (💵) by FedML, Inc.
 :::
 
-You can also monitor your earnings on the `Share & Earn / Earnings` page:
+You can also monitor your earnings on the `Supplier / Revenue Statistics` page:
 
 ![Earnings](static/image/earnings.png)
 
@@ -204,6 +204,6 @@ ps aux | grep fedml | wc -l
 <details>
 <summary>What are the best GPUs to bind?</summary>
 H100, A100, 4090 and 3090 are in highest demand by our customers. Check here for latest details:
-<a href="https://fedml.ai/pricing" target="_blank"> https://fedml.ai/pricing</a>
+<a href="https://tensoropera.ai/pricing" target="_blank"> https://tensoropera.ai/pricing</a>
 
 </details>

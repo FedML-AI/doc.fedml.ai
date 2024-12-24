@@ -7,7 +7,7 @@ sidebar_position: 6
 Running remote tasks often requires a transparent monitoring environment to facilitate troubleshooting and real-time analysis of machine learning experiments. This section guides through the monitoring capabilities of a job launched using the “fedml launch” command.
 
 ## Run Overview
-Log into to the TensorOpera AI Platform (https://tensoropera.ai) and go to Train > Runs. And select the run you just launched and click on it to view the details of the run.
+Log into to the TensorOpera AI Platform (https://tensoropera.ai) and go to `Model Training > Runs`. And select the run you just launched and click on it to view the details of the run.
 
 ![ ](./train-on-cloud/static/image/experimental_tracking/1-run_ui.png)
 
@@ -48,7 +48,7 @@ fedml.log({"loss": 0.33}, customized_step_key="x_index", commit=False)
 fedml.log({"acc": 0.34}, step=4, customized_step_key="x_index", commit=True)
 ```
 
-Metrics logged using fedml.log() can be viewed under Runs > Run Detail > Metrics on TensorOpera AI Platform.
+Metrics logged using fedml.log() can be viewed under `Model Training > Runs > Run Detail > Metrics` on TensorOpera AI Platform.
 
 ![ ](./train-on-cloud/static/image/experimental_tracking/2_metrics.png)
 
@@ -60,7 +60,7 @@ You can query the realtime status of your run on your local terminal with the fo
 fedml run logs -rid <run_id>
 ```
 
-Additionally, logs of the run also appear in realtime on the TensorOpera AI Platform under the Runs > Run Detail > Logs
+Additionally, logs of the run also appear in realtime on the TensorOpera AI Platform under the `Model Training > Runs > Run Detail > Logs`
 
 ![ ](./train-on-cloud/static/image/experimental_tracking/3_logs.png)
 
@@ -97,7 +97,7 @@ fedml.log_model(
 ```
 fedml.log_model("cv-model", "./cv-model.bin")
 ```
-Models logged using fedml.log_model() can be viewed under Runs > Run Detail > Model on TensorOpera AI Platform
+Models logged using fedml.log_model() can be viewed under `Model Training > Runs > Run Detail > Model` on TensorOpera AI Platform
 
 ![ ](./train-on-cloud/static/image/experimental_tracking/5_models.png)
 
@@ -122,6 +122,6 @@ fedml.log_artifact(
 - run_id (str=None): Run id for the artifact object. Default is None, which will be filled automatically.
 - edge_id (str=None): Edge id for current device. Default is None, which will be filled automatically.
 
-Artifacts logged using fedml.log_artifact() can be viewed under Runs > Run Detail > Artifactson TensorOpera AI Platform.
+Artifacts logged using fedml.log_artifact() can be viewed under `Model Training > Runs > Run Detail > Artifactson` TensorOpera AI Platform.
 
 ![ ](./train-on-cloud/static/image/experimental_tracking/6_artifacts.png)

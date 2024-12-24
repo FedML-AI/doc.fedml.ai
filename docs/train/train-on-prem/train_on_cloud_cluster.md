@@ -114,11 +114,11 @@ fedml run logs -rid <run_id>
 ```
 
 ## View run details
-Log into to the TensorOpera® AI Platform (https://tensoropera.ai) and go to Train > Projects (my_project) Select the run you just launched and click on it to view the details of the run.
+Log into to the TensorOpera® AI Platform (https://tensoropera.ai) and go to `Model Training > Runs > Project(ALL)` Select the run you just launched and click on it to view the details of the run.
 
 ![](./static/image/train_on_your_cloud_gpu_cluster/1_my_project.png)
 
-Alternatively, you can also go to Train / Runs to find all of your runs scattered across all of your projects unified in a single place.
+Alternatively, you can also go to `Model Training > Runs` to find all of your runs scattered across all of your projects unified in a single place.
 
 ![ ](./static/image/train_on_your_cloud_gpu_cluster/2_my_runs.png)
 

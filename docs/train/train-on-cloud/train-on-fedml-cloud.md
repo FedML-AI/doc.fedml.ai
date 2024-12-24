@@ -131,10 +131,10 @@ More run management CLIs can be found [here](../../open-source/cli/fedml-run.md)
 
 ### 5. View run details
 
-Log into to the TensorOpera AI Platform (https://tensoropera.ai) and go to Train > Projects (my_project) Select the run you just launched and click on it to view the details of the run.
-![Run Details](static/image/run_details.png)
-Alternatively, you can also go to Train / Runs to find all of your runs scattered across all of your projects unified at a single place.
-![Train / Runs](static/image/my_runs.png)
+Log into to the TensorOpera AI Platform (https://tensoropera.ai) and go to `Model Training > Runs > Project(ALL)` Select the run you just launched and click on it to view the details of the run.
+![Model Training > Runs > Project(ALL)](static/image/run_details.png)
+Alternatively, you can also go to `Model Training > Runs` to find all of your runs scattered across all of your projects unified at a single place.
+![Model Training > Runs](static/image/my_runs.png)
 The URL link to TensorOpera AI Platform for your run is printed in the output of the launch command for quick reference.
 ```python
 You can track your run details at this URL:
