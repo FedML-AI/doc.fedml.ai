@@ -81,7 +81,7 @@ For auto-scaling, please refer to the [Advanced Features](advanced_features.md) 
 After an endpoint is created, you can monitor the endpoint's status and metrics. First click the endpoint you want to monitor.
 ![EndpointClick.png](pics%2FEndpointClick.png)
 
-In the Endpoint Detail Page, click the `System Monitoring` tab. Then you can see this endpoint's real-time request number,
+In the Endpoint Detail Page, click the `Monitoring` tab. Then you can see this endpoint's real-time request number,
 number of replica (Dynamically if auto-scaling is enabled), and the response time (latency) and throughput.
 ![EndpointMonitor.png](pics%2FEndpointMonitor.png)
 

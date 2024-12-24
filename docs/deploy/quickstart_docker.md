@@ -65,7 +65,7 @@ Click the `Deploy` button to deploy the model.
 
 ![Docker_ModelCard.png](pics%2FDocker_ModelCard.png)
 
-For this quick start tutorial, we can select the `Serverless` `RTX-4090` option and click the `Deploy` button.
+For this quick start tutorial, we can select the `Serverless` `H100-80GB-HBM3` option and click the `Deploy` button.
 
 ![Docker_Deploying.png](pics%2FDocker_Deploying.png)
 

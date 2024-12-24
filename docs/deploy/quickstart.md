@@ -73,9 +73,9 @@ Click the `Deploy` button to deploy the model.
 
 ![DeployHFmodel.png](pics%2FDeployHFmodel.png)
 
-For this quick start tutorial, we can select the `Serverless` `RTX-4090` option and click the `Deploy` button.
+For this quick start tutorial, we can select the `Serverless` `H100-80GB-HBM3` option and click the `Deploy` button.
 
-![CreateServelessEndpoint.png](pics%2FCreateServelessEndpoint.png)
+![CreateServelessEndpoint.png](pics%2FCreateServerlessEndpoint.png)
 
 After few minutes, the model will be deployed to the serverless GPU cloud. You can find the deployment details in the `Model Serving` -> `Endpoints` tab in the TensorOpera AI Cloud dashboard.
 
