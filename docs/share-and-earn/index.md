@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Share GPUs and Earn
+# Supplier
 
 ## 1. Supplier Setup
 
