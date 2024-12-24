@@ -59,18 +59,17 @@ Inside this class, you need to implement two methods: ` __init__` and `predict`.
 - In the `__init__` method, you need to initialize the model. E.g. load the model checkpoint.
 - In the `predict` method, you need to define how your model will respond to the requests.
 
+  ```python
+  from fedml.serving import FedMLPredictor
 
-    ```python
-    from fedml.serving import FedMLPredictor
+  class MyChatbot(FedMLPredictor):
+      def __init__(self):
+          super().__init__()
 
-    class MyChatbot(FedMLPredictor):
-        def __init__(self):
-            super().__init__()
-
-        def predict(self, request: dict) -> dict:
-            response_text = "Hello, I am a chatbot."
-            return {"generated_text": response_text}
-    ```
+      def predict(self, request: dict) -> dict:
+          response_text = "Hello, I am a chatbot."
+          return {"generated_text": response_text}
+  ```
 
 In the `__main__` function, initialize a child obj with class `MyChatbot`, which you define in the previous step,
 then pass it to `FedMLInferenceRunner` class, finally call its `run` method.
@@ -134,7 +133,7 @@ TensorOpera AI Cloud provides a wide range of pre-trained models for various tas
 
 ![ModelHub.png](pics%2Fpage1%2FModelHub.png)
 
-After you have chosen a model, say `Meta-Llama-3-70B-Instruct` . You can click the `Import` button to deploy the model.
+After you have chosen a model, say `meta/Llama-3.3-70B-Instruct` . You can click the `Import` button to deploy the model.
 
 ![ImportButton.png](pics%2FImportButton.png)
 
