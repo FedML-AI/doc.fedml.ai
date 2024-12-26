@@ -2,15 +2,15 @@
 sidebar_position: 1
 ---
 
-# Supplier
+# Supply GPUs and Earn
 
 ## 1. Supplier Setup
 
-### 1.1) Login to the TensorOpera® AI Platform and navigate to the `Share & Earn / Add GPU` page.
+### 1.1) Login to the TensorOpera AI Platform and navigate to the `Supplier` page.
 
 ![Supplier Setup](static/image/supplier_setup.png)
 
-### 1.2) Setup Stripe account or just connect if you have one already to get paid by FedML, Inc.
+### 1.2) Setup Stripe account or just connect if you have one already to get paid by TensorOpera AI.
 
 ![Stripe Setup](static/image/stripe_setup.png)
 
@@ -87,7 +87,7 @@ The output should look like below:
 
 </details>
 
-### 2.3) Navigate to `Share & Earn / Add GPU` page and copy one-line login command for binding your GPU servers.
+### 2.3) Navigate to `Supplier` page and click on `Add GPU` button. Copy one-line login command for binding your GPU servers.
 
 ![Add GPU](static/image/add_gpu.png)
 
@@ -99,7 +99,7 @@ Below is output of command when executed on a FedML® GPU server:
 (fedml) alay@a6000:~$ fedml login -p 3b24dd2f****************206e8669
 
  Welcome to FedML.ai!
- Start to login the current device to the TensorOpera® AI Platform
+ Start to login the current device to the FedML® Nexus AI Platform
 
 (fedml) alay@a6000:~$
 
@@ -114,7 +114,7 @@ As instructed by the output, next you need to visit the url to fill in more info
 
 ## 3. Fill in GPU server details
 
-### 3.1) Navigate to `Share & Earn / My GPUs` page and click on the `Edit` button to fill in more information about your GPU servers.
+### 3.1) Navigate to `Supplier` page and click on the `Edit` button to fill in more information about your GPU servers.
 
 :::tip Tip
 You can also click through or copy the url link in the terminal output of previous step into browser of your choice to directly go to the edit page.
@@ -122,7 +122,7 @@ You can also click through or copy the url link in the terminal output of previo
 
 ![Edit GPU](static/image/edit_gpu.png)
 
-### 3.2) Fill in the details of your GPU server and click on `Update` button.
+### 3.2) Fill in the details of your GPU server and click on `Submit` button.
 
 Most info is pre-filled for you. The fields that need to be filled are:
 
@@ -138,11 +138,11 @@ Be mindful while deciding the Cost per hour for your GPU server. Setting the cos
 
 ![Update GPU](static/image/update_gpu.png)
 
-Head back to the `Share & Earn / My GPUs` page on platform and verify that the GPU server is added to your list of active GPUs:
+Head back to the `Supplier` page on platform and verify that the GPU server is added to your list of active GPUs:
 
 ![My GPUs](static/image/my_gpus.png)
 
-## 4. Sit back, relax and get paid by FedML, Inc.
+## 4. Sit back, relax and get paid by TensorOpera AI.
 
 Hard part is over, now comes the fun part.
 
@@ -151,10 +151,10 @@ Your GPU server will automatically be added to the resource pool and jobs that m
 ![GPU Marketplace](static/image/gpu_marketplace.png)
 
 :::tip Tip
-All you have to do is sit back, relax and get paid (💵) by FedML, Inc.
+All you have to do is sit back, relax and get paid (💵) by TensorOpera AI.
 :::
 
-You can also monitor your earnings on the `Share & Earn / Earnings` page:
+You can also monitor your earnings on the `Supplier` page:
 
 ![Earnings](static/image/earnings.png)
 
