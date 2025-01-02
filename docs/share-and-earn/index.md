@@ -87,6 +87,7 @@ The output should look like below:
 
 </details>
 
+
 ### 2.3) Navigate to `Supplier` page and click on `Add GPU` button. Copy one-line login command for binding your GPU servers.
 
 ![Add GPU](static/image/add_gpu.png)
@@ -113,6 +114,7 @@ https://fedml.ai/gpu-supplier/gpu/edit/1717367167533584384
 As instructed by the output, next you need to visit the url to fill in more information about your GPU server.
 
 ## 3. Fill in GPU server details
+
 
 ### 3.1) Navigate to `Supplier` page and click on the `Edit` button to fill in more information about your GPU servers.
 
@@ -141,6 +143,7 @@ Be mindful while deciding the Cost per hour for your GPU server. Setting the cos
 Head back to the `Supplier` page on platform and verify that the GPU server is added to your list of active GPUs:
 
 ![My GPUs](static/image/my_gpus.png)
+
 
 ## 4. Sit back, relax and get paid by TensorOpera AI.
 
