@@ -31,14 +31,14 @@ When you deploy an endpoint, you can enable the autoscale feature by setting the
 Without building and configuring a complex Kubernetes Cluster. TensorOpera®Deploy can deploy models to nodes located
 at multiple regions and manage the traffic routing automatically.
 
-![GeoDistributed.jpg](pics/GeoDistributed.jpg)
+![GeoDistributed.jpg](pics/GeoDistributed.png)
 
 ## Heterogeneity Model Deployment
 
 TensorOpera®Deploy can deploy models to different types of devices, such as CPU, GPU, TPU, etc. Whether it is a single
 Macbook or a power A100, they can be connected together in an easy manner.
 
-![Heterogeneity.jpg](pics/Heterogeneity.jpg)
+![Heterogeneity.jpg](pics/Heterogeneity.png)
 
 ## Multiple Return Type Support
 
