@@ -125,7 +125,7 @@ Your launch result is as follows:
 +-------------------+---------------------+--------------+---------------------+------------------+------+
 
 You can track your run details at this URL:
-https://tensoropera.ai/train/project/run?projectId=1692900612607447040&runId=1716563514434392064
+https://tensoropera.ai/run?projectId=1692900612607447040&runId=1716563514434392064
 
 For querying the realtime status of your run, please run the following command.
 fedml run logs -rid 1716563514434392064
@@ -153,7 +153,7 @@ Searched and matched the following GPU resource for your job:
 +-----------+-------------------+---------+------------+-------------------------+---------+-------+----------+
 
 You can also view the matched GPU resource with Web UI at:
-https://tensoropera.ai/train/project/run?projectId=1692900612607447040&runId=1716580465432989696
+https://tensoropera.ai/run?projectId=1692900612607447040&runId=1716580465432989696
 Do you want to launch the job with the above matched GPU resource? [y/N]: y
 
 Your run result is as follows:
@@ -164,7 +164,7 @@ Your run result is as follows:
 +--------------+---------------------+---------+---------------------+------------------+------+
 
 You can track your run details at this URL:
-https://tensoropera.ai/train/project/run?projectId=1692900612607447040&runId=1716580465432989696
+https://tensoropera.ai/run?projectId=1692900612607447040&runId=1716580465432989696
 
 For querying the realtime status of your run, please run the following command.
 fedml run logs -rid 1716580465432989696

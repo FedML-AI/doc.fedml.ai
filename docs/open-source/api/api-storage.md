@@ -9,17 +9,17 @@ sidebar_position: 7
 Storage APIs help in managing all the data needs that is typically associated with AI workloads.
 
 :::tip
-Before using some of the apis that require remote operation (e.g. `fedml.api.launch_job()`), please use one of the following methods to login 
+Before using some of the apis that require remote operation (e.g. `fedml.api.launch_job()`), please use one of the following methods to login
 to TensorOpera AI platform first:
 
 1. CLI: `fedml login $api_key`
 
 2. API: `fedml.api.fedml_login(api_key=$api_key)`
-:::
+   :::
 
 ### `fedml.api.upload()`
 
-Upload data on FEDML® Nexus AI Platform
+Upload data on TensorOpera® AI Platform
 
 ```py
 def upload(data_path, api_key=None, service="R2", name=None, description=None, metadata=None, show_progress=False,
@@ -29,7 +29,7 @@ def upload(data_path, api_key=None, service="R2", name=None, description=None, m
 **Arguments**
 
 - `data_path (str)`: path to the data.
-- `api_key (str=None)`: Your API key from FedML AI Nexus platform (if not configured already).
+- `api_key (str=None)`: Your API key from TensorOpera® AI platform (if not configured already).
 - `service (str)`: The backend cloud storage service for storing the data. Currently, only Cloudfare R2 service is available.
 - `name (str)`: The name of the data stored on the cloud. If not specified, it'll take the name of the data file or directory.
 - `description (str)`: A description in string for the data being stored. If not provided, the description will be empty.
@@ -41,10 +41,10 @@ def upload(data_path, api_key=None, service="R2", name=None, description=None, m
 **Returns**
 
 `FedMLResponse` object with the following attributes:
+
 - `code (Enum Class)`: API result code. The FedML response codes can be seen at the end of this page.
 - `message (str)`: API status message.
 - `data(obj)`: If the upload is successful, the url of the uploaded file is sent via this attribute.
-
 
 **Example**
 
@@ -68,10 +68,12 @@ response = fedml.api.upload(
     show_progress=True
 )
 ```
+
 ---
+
 ### `fedml.api.download()`
 
-Download data stored on FEDML® Nexus AI Platform
+Download data stored on TensorOpera® AI Platform
 
 ```py
 def download(data_name, api_key=None, service="R2", dest_path=None, show_progress=True) -> FedMLResponse
@@ -79,20 +81,19 @@ def download(data_name, api_key=None, service="R2", dest_path=None, show_progres
 
 **Arguments**
 
-- `data_name (str)`: The name of the data that was uploaded to FedML cloud storage.
-- `api_key (str=None)`: Your API key from FedML AI Nexus platform (if not configured already).
+- `data_name (str)`: The name of the data that was uploaded to TensorOpera cloud storage.
+- `api_key (str=None)`: Your API key from TensorOpera® AI platform (if not configured already).
 - `service (str)`: The backend cloud storage service for storing the data. Currently, only Cloudfare R2 service is available.
 - `dest_path (str)`: The name of the directory where the downloaded data needs to be stored.
 - `show_progress (bool)`: Boolean flag to show a progress bar when the upload happens.
 
-
 **Returns**
 
 `FedMLResponse` object with the following attributes:
+
 - `code (Enum Class)`: API result code. The FedML response codes can be seen at the end of this page.
 - `message (str)`: API status message.
 - `data(obj)`: If the download is successful, the filepath to where it is downloaded is returned.
-
 
 **Example**
 
@@ -113,10 +114,12 @@ response = fedml.api.download(
     show_progress=True
 )
 ```
+
 ---
+
 ### `fedml.api.delete()`
 
-Delete data stored on FEDML® Nexus AI Platform
+Delete data stored on TensorOpera® AI Platform
 
 ```py
 def delete(data_name, service, api_key=None)-> FedMLResponse
@@ -124,18 +127,17 @@ def delete(data_name, service, api_key=None)-> FedMLResponse
 
 **Arguments**
 
-- `data_name (str)`: The name of the data that was uploaded to FedML cloud storage.
-- `api_key (str=None)`: Your API key from FedML AI Nexus platform (if not configured already).
+- `data_name (str)`: The name of the data that was uploaded to TensorOpera cloud storage.
+- `api_key (str=None)`: Your API key from TensorOpera® AI platform (if not configured already).
 - `service (str)`: The backend cloud storage service for storing the data. Currently, only Cloudfare R2 service is available.
-
 
 **Returns**
 
 `FedMLResponse` object with the following attributes:
+
 - `code (Enum Class)`: API result code. The FedML response codes can be seen at the end of this page.
 - `message (str)`: API status message.
 - `data(obj)`: A `boolean` flag to show if the delete was successful.
-
 
 **Example**
 
@@ -143,7 +145,7 @@ def delete(data_name, service, api_key=None)-> FedMLResponse
 import fedml
 API_KEY = "api_key"
 DATA_NAME = "name_of_data_directory"
-STORAGE_SERVICE = "R2" 
+STORAGE_SERVICE = "R2"
 
 response = fedml.api.delete(
     data_name=DATA_NAME,
@@ -155,10 +157,12 @@ if response.code == ResponseCode.SUCCESS:
 else:
     print(f"Failed to delete data {DATA_NAME}. Error message: {response.message}")
 ```
+
 ---
+
 ### `fedml.api.get_storage_metadata()`
 
-Get metadata of a data object stored on FEDML® Nexus AI Platform
+Get metadata of a data object stored on TensorOpera® AI Platform
 
 ```py
 def get_storage_metadata(data_name, api_key=None) -> FedMLResponse
@@ -166,16 +170,16 @@ def get_storage_metadata(data_name, api_key=None) -> FedMLResponse
 
 **Arguments**
 
-- `data_name (str)`: The name of the data that was uploaded to FedML cloud storage.
-- `api_key (str=None)`: Your API key from FedML AI Nexus platform (if not configured already).
+- `data_name (str)`: The name of the data that was uploaded to TensorOpera cloud storage.
+- `api_key (str=None)`: Your API key from TensorOpera® AI platform (if not configured already).
 
 **Returns**
 
 `FedMLResponse` object with the following attributes:
+
 - `code (Enum Class)`: API result code. The FedML response codes can be seen at the end of this page.
 - `message (str)`: API status message.
 - `data(obj)`: If the get_storage_metadata call is successful, then this object contains the `meta data information`.
-
 
 **Example**
 
@@ -206,10 +210,12 @@ if response.code == ResponseCode.SUCCESS:
 
 print(metadata_table)
 ```
+
 ---
+
 ### `fedml.api.get_storage_user_defined_metadata()`
 
-Get user-defined metadata of a data object stored on FEDML® Nexus AI Platform
+Get user-defined metadata of a data object stored on TensorOpera® AI Platform
 
 ```py
 def get_storage_user_defined_metadata(data_name, api_key=None) -> FedMLResponse
@@ -217,16 +223,16 @@ def get_storage_user_defined_metadata(data_name, api_key=None) -> FedMLResponse
 
 **Arguments**
 
-- `data_name (str)`: The name of the data that was uploaded to FedML cloud storage.
-- `api_key (str=None)`: Your API key from FedML AI Nexus platform (if not configured already).
+- `data_name (str)`: The name of the data that was uploaded to TensorOpera cloud storage.
+- `api_key (str=None)`: Your API key from TensorOpera® AI platform (if not configured already).
 
 **Returns**
 
 `FedMLResponse` object with the following attributes:
+
 - `code (Enum Class)`: API result code. The FedML response codes can be seen at the end of this page.
 - `message (str)`: API status message.
 - `data(obj)`: If the get call is successful, the dictionary that was uploaded by the user is present in this object.
-
 
 **Example**
 
@@ -255,11 +261,12 @@ if response.code == ResponseCode.SUCCESS:
         if metadata:
             print("User defined metadata ",response.data)
 ```
+
 ---
 
 ### `fedml.api.list_storage_objects()`
 
-List data stored on FEDML® Nexus AI Platform
+List data stored on TensorOpera® AI Platform
 
 ```py
 def list_storage_objects(api_key=None) -> FedMLResponse
@@ -267,15 +274,15 @@ def list_storage_objects(api_key=None) -> FedMLResponse
 
 **Arguments**
 
-- `api_key (str=None)`: Your API key from FedML AI Nexus platform (if not configured already).
+- `api_key (str=None)`: Your API key from TensorOpera® AI platform (if not configured already).
 
 **Returns**
 
 `FedMLResponse` object with the following attributes:
+
 - `code (Enum Class)`: API result code. The FedML response codes can be seen at the end of this page.
 - `message (str)`: API status message.
-- `data(obj)`: If the list command is successful, a list of data objects stored on the Nexus backend with its metadata is available.
-
+- `data(obj)`: If the list command is successful, a list of data objects stored on the TensorOpera® AI backend with its metadata is available.
 
 **Example**
 
@@ -305,7 +312,7 @@ if response.code == ResponseCode.SUCCESS:
         print(object_list_table)
 ```
 
-### ``` FedML ResponseCode Enum class ```
+### `FedML ResponseCode Enum class`
 
 ```py
 class ResponseCode(Enum):

@@ -1,18 +1,18 @@
 ---
 sidebar_position: 3
 ---
-# Job Store: Pre-built Training Jobs for Diverse Generative AI Models
+# Job Hub: Pre-built Training Jobs for Diverse Generative AI Models
 
 
-TensorOpera® Job Store is the curated pre-built training jobs for TensorOpera® Launch. It provides
+TensorOpera® Job Hub is the curated pre-built training jobs for TensorOpera® Launch. It provides
 1. no-code user experience for developers to run for popular models (e.g., LLM) on training frameworks (e.g., HuggingFace trainer, TensorOpera, DeepSpeed)
 2. Reference job templates for machine learning developers to customize their models and training algorithms. 
 
 ![ ](static/image/job_store/1-model_card.png)
 
-Under the Job Store - Train tab, we can find four kinds of pre-built training-related jobs, including General Training, Single GPU training (standalone machine training), Distributed Training, and Cross-cloud Training. 
+Under the `Job Hub > Pre-built Jobs` tab, we can find four kinds of pre-built training-related jobs, including General Training, Single GPU training (standalone machine training), Distributed Training, and Cross-cloud Training. 
 
-Under the Job Store - Federate tab, we can find three kinds of pre-built training-related jobs, including Cross Silo FL, Web-based FL, Smartphone-based FL. 
+Under the `Job Hub - Federate` tab, we can find three kinds of pre-built training-related jobs, including Cross Silo FL, Web-based FL, Smartphone-based FL. 
 
 ![ ](static/image/job_store/2_job_description.png)
 
@@ -38,18 +38,18 @@ The instructions to launch GaLore pre-built job are as follows:
 
 ![ ](static/image/job_store/4_galore.png)
 
-1. On FedML official website (https://tensoropera.ai/home), you can head to **Launch > Job Store > Train**, and look for Memory-Efficient LLM Training with GaLore job. The Description tab shows some basic usage for the code, referencing the original GaLore project's README. In the Source Code and Configuration tab, you can examine a more detailed layout and setup of the architecture.
+1. On FedML official website (https://tensoropera.ai/home), you can head to `Model Training > Job Hub > Pre-built Jobs`, and look for Memory-Efficient LLM Training with GaLore job. The Description tab shows some basic usage for the code, referencing the original GaLore project's README. In the Source Code and Configuration tab, you can examine a more detailed layout and setup of the architecture.
 
 ![ ](static/image/job_store/5_create_run.png)
 
-2. Hit the Launch button on the top right, users will be prompted to enter the configuration for the job. Under the Select Job section, click Add, and add “resource_type: RTX-4090”  in the job_yaml > computing section to specify using RTX 4090 for training. Please check the resource type list at https://tensoropera.ai/compute/secure (check the value of Resource Type in each GPU item), or directly visit https://tensoropera.ai/launch/accelerator_resource_type.
+2. Hit the Launch button on the top right, users will be prompted to enter the configuration for the job. Under the Select Job section, click Add, and add “resource_type: RTX-4090”  in the job_yaml > computing section to specify using RTX 4090 for training. Please check the resource type list at https://tensoropera.ai/gpu/hub/secure-cloud (check the value of Resource Type in each GPU item), or directly visit https://tensoropera.ai/launch/accelerator_resource_type.
 
 
 ![Metrics](static/image/job_store/6_metrics.png)
 
-3. Once done filling out the hyperparameters, you should be able to launch a full-scale GaLore + Checkpointing Activation pre-training for the LLaMA 7B model with a batch size of 16. Then you can find your experimental tracking results at https://tensoropera.ai/train/my-runs (see more details on the Section "Experiment Tracking for Large-scale Distributed Training")
+3. Once done filling out the hyperparameters, you should be able to launch a full-scale GaLore + Checkpointing Activation pre-training for the LLaMA 7B model with a batch size of 16. Then you can find your experimental tracking results at https://tensoropera.ai/run (see more details on the Section "Experiment Tracking for Large-scale Distributed Training")
 
-Optionally, you could implement Experimental Tracking feature in FedML library. To do this, head to **Train > Runs > [Job Name]**, and hit "Add Panel" button under the Metrics tab to add data points to monitor. 
+Optionally, you could implement Experimental Tracking feature in FedML library. To do this, head to `Model Training > Runs > [Job Name]`, and hit "Add Panel" button under the Metrics tab to add data points to monitor. 
 
 ## Import a Pre-built Job for Customization
 
@@ -59,13 +59,13 @@ Optionally, you could implement Experimental Tracking feature in FedML library. 
 
 To create a job via FedML Launch, execute fedml launch job.yaml in your local workspace. After confirming the resource allocation, submit the job to TensorOpera AI platform.
 
-Navigate to **Train > My Jobs** to find a list of recent jobs. Find the Name and Version that match the corresponding job you would have just submitted. Click on the Launch button under the rightmost Actions column, and you are able to reuse the default settings to launch the same job again.
+Navigate to `Model Training > Job Hub > My Jobs` to find a list of recent jobs. Find the Name and Version that match the corresponding job you would have just submitted. Click on the Launch button under the rightmost Actions column, and you are able to reuse the default settings to launch the same job again.
 
 ![ ](static/image/job_store/8_my_jobs.png)
 
 ## Contribute More Pre-built Jobs
 
-Navigate to **Train > My Jobs** to find a list of recent jobs. Select the Name and Version that match the corresponding job you would like to publish, and click on the Publish button under the rightmost Actions column. 
+Navigate to `Model Training > Job Hub > My Jobs` to find a list of recent jobs. Select the Name and Version that match the corresponding job you would like to publish, and click on the Publish button under the rightmost Actions column. 
 
 ![ ](static/image/job_store/9_publish_jobs.png)
 

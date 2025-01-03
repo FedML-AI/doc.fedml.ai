@@ -4,9 +4,9 @@ sidebar_position: 5
 
 # Share GPUs and Earn
 
-## 1. Supplier Setup 
+## 1. Supplier Setup
 
-### 1.1) Login to the FEDML® Nexus AI Platform and navigate to the `Share & Earn / Add GPU` page.
+### 1.1) Login to the TensorOpera® AI Platform and navigate to the `Supplier` page.
 
 ![Supplier Setup](static/image/supplier_setup.png)
 
@@ -14,10 +14,10 @@ sidebar_position: 5
 
 ![Stripe Setup](static/image/stripe_setup.png)
 
-
 ## 2. Add GPUs
 
 ### 2.1) Prerequisites:
+
 Need to have a GPU server with NVIDIA GPU(s) installed and CUDA drivers installed.
 To check if nvidia drivers are installed, run the following command:
 
@@ -41,10 +41,9 @@ If the above commands don't work, you can follow the instructions on NVIDIA's of
 
 ### 2.2) Execute the following binding script on your GPU server:
 
-:::note 
+:::note
 The following two commands are to be executed from within the compute nodes which you would like to bind to the FEDML platform
 :::
-
 
 #### 2.2.1) Execute the first command to install fedml and related libraries
 
@@ -66,10 +65,10 @@ The precise results you see on your terminal might differ, so consider the scree
 ![Initial Log Snapshot](./static/image/cmd_1_initial_log_snapshot.png)
 
 ##### End Log Snapshot:
+
 ![End Log Snapshot](./static/image/cmd_1_end_log_snapshot.png)
 
 </details>
-
 
 #### 2.2.2) Verify the installation of fedml library on your GPU server:
 
@@ -84,13 +83,11 @@ The output should look like below:
 
 ##### You should see output like below in your node terminal
 
-
 ![Log Snapshot](./static/image/cmd_2_log_snapshot.png)
 
 </details>
 
-
-### 2.3) Navigate to `Share & Earn / Add GPU` page and copy one-line login command for binding your GPU servers.
+### 2.3) Navigate to `Supplier / Add GPU` page and copy one-line login command for binding your GPU servers.
 
 ![Add GPU](static/image/add_gpu.png)
 
@@ -102,7 +99,7 @@ Below is output of command when executed on a FedML® GPU server:
 (fedml) alay@a6000:~$ fedml login -p 3b24dd2f****************206e8669
 
  Welcome to FedML.ai!
- Start to login the current device to the FedML® Nexus AI Platform
+ Start to login the current device to the TensorOpera® AI Platform
 
 (fedml) alay@a6000:~$
 
@@ -115,17 +112,13 @@ https://fedml.ai/gpu-supplier/gpu/edit/1717367167533584384
 
 As instructed by the output, next you need to visit the url to fill in more information about your GPU server.
 
-
 ## 3. Fill in GPU server details
 
-
-### 3.1) Navigate to `Share & Earn / My GPUs` page and click on the `Edit` button to fill in more information about your GPU servers.
-
+### 3.1) Navigate to `Supplier / GPUs` page and click on the `Edit` button to fill in more information about your GPU servers.
 
 :::tip Tip
 You can also click through or copy the url link in the terminal output of previous step into browser of your choice to directly go to the edit page.
 :::
-
 
 ![Edit GPU](static/image/edit_gpu.png)
 
@@ -139,10 +132,9 @@ Be mindful while deciding Cost per hour for your GPU server. Setting the cost ve
 
 ![Update GPU](static/image/update_gpu.png)
 
-Head back to the `Share & Earn / My GPUs` page on platform and verify that the GPU server is added to your list of active GPUs:
+Head back to the `Supplier / GPUs` page on platform and verify that the GPU server is added to your list of active GPUs:
 
 ![My GPUs](static/image/my_gpus.png)
-
 
 ## 4. Sit back, relax and get paid by FedML, Inc.
 
@@ -156,10 +148,9 @@ Your GPU server will automatically be added to the resource pool and jobs that m
 All you have to do is sit back, relax and get paid (💵) by FedML, Inc.
 :::
 
-You can also monitor your earnings on the `Share & Earn / Earnings` page:
+You can also monitor your earnings on the `Supplier / Revenue Statistics` page:
 
 ![Earnings](static/image/earnings.png)
-
 
 ## Frequently Asked Questions?
 
@@ -167,17 +158,20 @@ You can also monitor your earnings on the `Share & Earn / Earnings` page:
 <summary> What if my node binding failed? </summary>
 
 Kindly refer to this documentation to ensure that your node possesses the necessary environment prerequisites: [Node prerequisites for binding to FEDML Platform](../share-and-earn/prerequisites)
+
 </details>
 
 <details>
 <summary> How to make sure my node is successfully binded to the platform? </summary>
 
 ##### Verify the installation of fedml environment on your GPU server:
+
 ```bash
 sudo wget -q https://doc.fedml.ai/shell/verify_installation.sh && sudo chmod +x verify_installation.sh && bash verify_installation.sh
 ```
 
 ##### The output should look like below:
+
 ```
 ✔ Miniconda is installed.
 ✔ fedml is installed in the fedml conda environment.
@@ -204,22 +198,12 @@ ps aux | grep fedml | wc -l
 
 ✅ Otherwise, it means node was successfully binded to the platform:
 ![bind_output_success](./static/image/bind_output_success.png)
+
 </details>
 
 <details>
 <summary>What are the best GPUs to bind?</summary>
 H100, A100, 4090 and 3090 are in highest demand by our customers. Check here for latest details:
-<a href="https://fedml.ai/pricing" target="_blank"> https://fedml.ai/pricing</a>
+<a href="https://tensoropera.ai/pricing" target="_blank"> https://tensoropera.ai/pricing</a>
 
 </details>
-
-
-
-
-
-
-
-
-
-
-

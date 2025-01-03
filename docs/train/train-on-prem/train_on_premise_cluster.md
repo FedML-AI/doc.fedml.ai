@@ -7,7 +7,7 @@ sidebar_position: 1
 You can also build your own cluster and launch jobs there. The GPU nodes in the cluster can be GPU instances launched under your AWS/GCP/Azure account or your in-house GPU devices. The workflow is as follows.
 
 ## Step 1. Bind the machines on the Platform
-Log into the platform, head to the Compute / My Servers Page and copy the fedml login command:
+Log into the platform, head to the `GPU Cloud > GPU Hub > My Servers` Page, switch to **Private Bound GPU** Tab and click the Bind Server button, then copy the fedml login command:
 
 ![ ](./static/image/train_on_your_onprem_gpu_cluster/1_bind_machines.png)
 
@@ -23,7 +23,7 @@ fedml login 3b24dd2f****206e8669
 ```
 It should show something similar as below:
 ```
-(fedml) alay@a6000:~$ fedml login 3b24dd2f9b3e478084c517bc206e8669 -v dev
+(fedml) alay@a6000:~$ fedml login 3b24dd2f****************206e8669 -v dev
 
  Welcome to FedML.ai!
  Start to login the current device to the MLOps (https://tensoropera.ai)...
@@ -45,17 +45,17 @@ Congratulations, your device is connected to the TensorOpera AI platform success
 Your FedML Edge ID is 201610, unique device ID is 0xffdc89fad658@Linux.Edge.Device
 ```
 
-Head back to the Compute / My Servers page on platform and verify that the devices are bounded to the TensorOpera AI Platform:
+Head back to the `GPU Cloud > GPU Hub > My Servers` page on platform and verify that the devices are bounded to the TensorOpera AI Platform:
 ![ ](./static/image/train_on_your_onprem_gpu_cluster/2_my_servers.png)
 
 
 ## Step 3. Create a cluster of your servers bounded to the TensorOpera AI Platform:
-Navigate to the Compute / Create Clusters page and create a cluster of your servers:
+Navigate to the `Model Training > Cluster > Create Clusters` page and create a cluster of your servers:
 
 ![ ](./static/image/train_on_your_onprem_gpu_cluster/3_create_cluster.png)
 
 
-All your created clusters will be listed on the Compute / My Clusters page:
+All your created clusters will be listed on the `Model Training > Cluster` page:
 
 ![ ](./static/image/train_on_your_onprem_gpu_cluster/4_my_clusters.png)
 
